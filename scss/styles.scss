@@ -1,5 +1,12 @@
+// Fonts
+@import url("https://fonts.googleapis.com/css?family=Exo:600i,700i");
+
 // Reset
 @import "../node_modules/normalize.css/normalize.css";
+
+// Abstracts
+@import "abstracts/variables";
+@import "abstracts/mixins";
 
 // Base styling
 @import "base/base";

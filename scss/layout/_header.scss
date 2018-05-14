@@ -1,0 +1,47 @@
+.header {
+  font-family: $font-nav;
+  overflow: hidden;
+
+  &__logo {
+  }
+
+  &__exterior-links {
+    font-size: 1.3rem;
+    text-align: right;
+
+    &__item {
+      background-color: $col-primary;
+      display: inline-block;
+      margin-right: 0.05rem;
+      transform: skewX(-8deg);
+
+      &--social {
+        transform: translateY(5px) skewX(-8deg);
+      }
+    }
+
+    &__link {
+      display: inline-block;
+      color: $col-white;
+      padding: 0.8rem 4rem;
+      transform: skewX(8deg);
+      max-height: 3rem;
+
+      &--social {
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
+    }
+  }
+
+  &__interior-links {
+    &__link {
+    }
+  }
+
+  svg {
+    fill: $col-white;
+    width: 1.6rem;
+    height: 1.6rem;
+  }
+}

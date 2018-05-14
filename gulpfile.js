@@ -8,17 +8,18 @@ const imagemin = require("gulp-imagemin");
 const imageminGuetzli = require("imagemin-guetzli");
 const babel = require("gulp-babel");
 const uglify = require("gulp-uglify");
+const svgSprite = require("gulp-svg-sprite");
 
 gulp.task("sass", function() {
   return gulp
     .src("scss/**/*.scss")
     .pipe(sass())
-    .pipe(autoprefix())
-    .pipe(cleanCSS())
     .on("error", function(error) {
       console.log(error.toString());
       this.emit("end");
     })
+    .pipe(autoprefix())
+    .pipe(cleanCSS())
     .pipe(gulp.dest("css"))
     .pipe(
       browserSync.reload({
