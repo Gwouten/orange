@@ -54,6 +54,7 @@ gulp.task("watch", ["browserSync", "sass", "babel"], function() {
 
 gulp.task("browserSync", function() {
   browserSync.init({
+    notify: false,
     server: {
       baseDir: "./"
     }

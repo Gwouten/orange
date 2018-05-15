@@ -1,5 +1,5 @@
 // Fonts
-@import url("https://fonts.googleapis.com/css?family=Exo:600i,700i");
+@import url("https://fonts.googleapis.com/css?family=Exo:600i,700i|Open+Sans:400,400i,600,600i");
 
 // Reset
 @import "../node_modules/normalize.css/normalize.css";
@@ -15,6 +15,7 @@
 @import "base/animations";
 
 // Components
+@import "components/_social-links.scss";
 
 // Layout
 @import "layout/footer";

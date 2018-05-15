@@ -1,41 +1,45 @@
 .header {
   font-family: $font-nav;
   overflow: hidden;
+  position: relative;
+  padding: $padding-s 0;
+  margin-bottom: $margin-m;
 
   &__logo {
-  }
-
-  &__exterior-links {
-    font-size: 1.3rem;
-    text-align: right;
-
-    &__item {
-      background-color: $col-primary;
-      display: inline-block;
-      margin-right: 0.05rem;
-      transform: skewX(-8deg);
-
-      &--social {
-        transform: translateY(5px) skewX(-8deg);
-      }
-    }
-
-    &__link {
-      display: inline-block;
-      color: $col-white;
-      padding: 0.8rem 4rem;
-      transform: skewX(8deg);
-      max-height: 3rem;
-
-      &--social {
-        padding-left: 1rem;
-        padding-right: 1rem;
-      }
-    }
+    height: 12rem;
+    margin: 0 3rem;
   }
 
   &__interior-links {
-    &__link {
+    font-size: 1.8rem;
+    text-align: right;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+
+    &__item {
+      display: inline-block;
+      margin-right: 1rem;
+      padding: 0.5rem 1.6rem 0.5rem 0;
+      transform: skewX($skew);
+
+      &:not(:last-child) {
+        border-right: 2px solid $col-grey;
+      }
+    }
+    &__link:link,
+    &__link:active,
+    &__link:visited {
+      color: $col-grey;
+      display: inline-block;
+      transform: skewX($anti-skew);
+      transition: all 0.2s;
+    }
+
+    &__link:hover,
+    &__link:focus {
+      color: $col-dark-grey;
+      transform: skewX($anti-skew) translateY(-3px);
     }
   }
 

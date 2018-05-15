@@ -6,12 +6,19 @@
   box-sizing: inherit;
 }
 
+*:focus {
+  outline: none;
+}
+
 html {
   font-size: 62.5%;
 }
 
 body {
   box-sizing: border-box;
+  font-family: "Open Sans", sans-serif;
+  font-size: 1.4rem;
+  line-height: 1.5;
 }
 
 a {
