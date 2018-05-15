@@ -3,6 +3,7 @@
   color: $col-light-grey;
   padding: 5rem 5rem 0 5rem;
   position: relative;
+  overflow: hidden;
 
   &__cols {
     display: flex;
