@@ -1,21 +1,34 @@
-// Rotate slogan
-const communes = [`au c&oelig;ur des communes`, `au c&oelig;ur des provinces`];
-const rwContainer = document.querySelector("#rw");
+"use strict";
 
-const createCommunes = function(array) {
-  let randomIndex = Math.floor(Math.random() * communes.length);
+import Siema from "siema";
+
+// Rotate slogan
+const phrases = ["des communes", "des provinces"];
+const rwContainer = document.querySelector("#rw");
+const numberPhrases = phrases.length - 1;
+let cycles = 0;
+
+const createCommunes = function createCommunes(array) {
+  // Uncomment below line to set order of phrases random
+  // const randomIndex = Math.floor(Math.random() * numberPhrases);
   const rwElement = document.createElement("span");
 
-  rwElement.innerHTML = `${communes[randomIndex]}`;
+  rwElement.innerHTML = "" + phrases[cycles];
   rwElement.classList.add("slogan__header__word");
 
   rwContainer.appendChild(rwElement);
+
+  if (cycles === numberPhrases) {
+    cycles = 0;
+  } else {
+    cycles++;
+  }
   setTimeout(function() {
     rwContainer.removeChild(rwElement);
   }, 3000);
 };
 
-createCommunes(communes);
+createCommunes(phrases);
 const rotateCommunes = setInterval(function() {
-  createCommunes(communes);
+  createCommunes(phrases);
 }, 2000);

@@ -37,6 +37,10 @@ gulp.task("babel", function() {
         presets: ["env"]
       })
     )
+    .on("error", function(error) {
+      console.log(error.toString());
+      this.emit("end");
+    })
     .pipe(gulp.dest("js"))
     .pipe(
       browserSync.reload({

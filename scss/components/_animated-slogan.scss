@@ -1,4 +1,4 @@
-$alignment: 45%;
+$alignment: 60%;
 
 .slogan__header {
   width: 100%;
@@ -11,6 +11,10 @@ $alignment: 45%;
     width: $alignment;
     padding-right: 1rem;
     color: $col-secondary;
+
+    &--grey {
+      color: $col-grey;
+    }
   }
   &__word {
     color: $col-grey;
