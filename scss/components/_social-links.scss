@@ -1,5 +1,6 @@
 .social-links {
   font-size: 1.3rem;
+  font-weight: 600;
   text-align: right;
   transform: translateX(0.5rem);
   position: absolute;
@@ -14,11 +15,8 @@
     bottom: 31px;
   }
 
-  ul {
-    display: flex;
-  }
-
   &__item {
+    float: left;
     background-color: $col-primary;
     margin-right: 0.3rem;
     transform: skewX($skew);
@@ -64,7 +62,7 @@
       width: 5rem;
       height: 3rem;
       transform: skewX($skew);
-      background: url("../assets/img/orange-bg.jpg") 0 99% no-repeat;
+      background: url("../assets/img/orange-bg.jpg") 60% 50% no-repeat;
       background-size: 200%;
       &:hover {
         box-shadow: none;

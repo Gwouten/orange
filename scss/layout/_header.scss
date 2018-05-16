@@ -1,5 +1,6 @@
 .header {
   font-family: $font-nav;
+  font-weight: 600;
   overflow: hidden;
   position: relative;
   padding: $padding-s 0;
@@ -24,7 +25,7 @@
       transform: skewX($skew);
 
       &:not(:last-child) {
-        border-right: 2px solid $col-grey;
+        border-right: 1px solid $col-grey;
       }
     }
     &__link:link,

@@ -1,0 +1,12 @@
+.btn {
+  background: url(../assets/img/arrow.svg) center center no-repeat;
+  background-size: cover;
+  border: none;
+  height: 38px;
+  transition: transform 0.3s;
+  width: 38px;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}

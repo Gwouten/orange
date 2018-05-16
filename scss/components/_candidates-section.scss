@@ -1,0 +1,30 @@
+.candidates {
+  &__image {
+    position: relative;
+    img {
+      position: absolute;
+      width: 100%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  &__search {
+    position: relative;
+    background: url("../assets/img/orange-bg.jpg") 70% 60% no-repeat;
+    background-size: 150%;
+  }
+
+  &__form {
+    @include anti-skew-center;
+    left: 40%;
+  }
+  &__header {
+    color: $col-white;
+    font-size: 4rem;
+    text-align: left;
+    line-height: 1;
+    margin-bottom: $margin-m;
+  }
+}

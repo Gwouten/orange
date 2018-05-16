@@ -1,0 +1,24 @@
+.two-col-skew {
+  width: 100%;
+  position: relative;
+  height: 26rem;
+  overflow: hidden;
+
+  &__inner {
+    width: 110%;
+    height: 100%;
+    transform: translateX(-5%);
+  }
+  &__skewed {
+    height: 100%;
+    width: calc(50% - 1px);
+    float: left;
+    transform: skewX($skew);
+    text-align: center;
+    overflow: hidden;
+
+    &:last-of-type {
+      float: right;
+    }
+  }
+}

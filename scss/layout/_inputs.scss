@@ -1,0 +1,33 @@
+.input {
+  font-family: $font-nav;
+  position: relative;
+  width: 50%;
+
+  &--candidates {
+    display: inline-block;
+  }
+
+  &__text {
+    border: none;
+    border-radius: 1000px;
+    font-size: 1.6rem;
+    margin-right: 1rem;
+    padding: 1rem;
+    text-align: center;
+    width: 100%;
+
+    &:focus + .input__label--text {
+      transform: translate(-75%, 115%);
+      color: $col-white;
+      font-size: 1.3rem;
+      opacity: 1;
+    }
+  }
+
+  &__label--text {
+    @include center;
+    width: 100%;
+    transition: all 0.3s;
+    opacity: 0.5;
+  }
+}
