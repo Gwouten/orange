@@ -1,12 +1,17 @@
-@mixin center() {
+@mixin center {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
-@mixin anti-skew-center() {
+@mixin anti-skew-center {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%) skewX($anti-skew);
+}
+@mixin clearfix {
+  content: "";
+  clear: both;
+  display: table;
 }

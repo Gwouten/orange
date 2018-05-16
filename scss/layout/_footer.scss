@@ -6,13 +6,17 @@
   overflow: hidden;
 
   &__cols {
-    display: flex;
+    @include clearfix;
     max-width: 120rem;
     margin: 0 auto;
     justify-content: space-between;
 
     &__col {
+      float: left;
       width: 25%;
+      &:not(:last-of-type) {
+        margin-right: 12.5%;
+      }
     }
   }
 
