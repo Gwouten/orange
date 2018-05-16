@@ -75,7 +75,7 @@ gulp.task("guetzli", function() {
     .pipe(gulp.dest("img"));
 });
 
-gulp.task("package", ["sass", "imagemin"], function() {
+gulp.task("package", ["sass", "babel", "imagemin"], function() {
   gulp.src("css/*.css").pipe(gulp.dest("dist/css"));
   gulp.src("js/*.js").pipe(gulp.dest("dist/js"));
   gulp.src("font").pipe(gulp.dest("dist/font"));

@@ -1,0 +1,58 @@
+$alignment: 45%;
+
+.slogan__header {
+  width: 100%;
+  perspective: 100%;
+  position: relative;
+
+  &__title {
+    display: inline-block;
+    text-align: right;
+    width: $alignment;
+    padding-right: 1rem;
+    color: $col-med-grey;
+  }
+  &__word {
+    color: $col-grey;
+    animation: slide-in-out 3s forwards 1 ease-in-out;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: $alignment;
+  }
+}
+
+/* Animations */
+@keyframes fade-in-out {
+  0% {
+    opacity: 0;
+  }
+  33% {
+    opacity: 1;
+  }
+  66% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes slide-in-out {
+  0% {
+    opacity: 0;
+    transform: rotateX(45deg) translateY(-100%);
+  }
+  33% {
+    opacity: 1;
+    transform: rotateX(0) translateY(0);
+  }
+  66% {
+    opacity: 1;
+    transform: rotateX(0) translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: rotateX(-45deg) translateY(100%);
+  }
+}
