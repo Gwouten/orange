@@ -17,8 +17,29 @@
     text-align: center;
     overflow: hidden;
 
+    &--cdh {
+      background: $col-cdh;
+      color: $col-white;
+    }
+
+    &--image {
+      position: relative;
+      img {
+        @include anti-skew-center;
+        width: 110%;
+      }
+    }
+
     &:last-of-type {
       float: right;
     }
+  }
+
+  &--anti {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 50%;
+    transform: translate(-50%, -50%) skewX($anti-skew);
   }
 }

@@ -38,23 +38,23 @@
     }
 
     &--youtube {
-      background-color: $col-youtube;
+      background-color: $col-youtube !important;
     }
 
     &--facebook {
-      background-color: $col-facebook;
+      background-color: $col-facebook !important;
     }
 
     &--twitter {
-      background-color: $col-twitter;
+      background-color: $col-twitter !important;
     }
 
     &--linkedin {
-      background-color: $col-linkedin;
+      background-color: $col-linkedin !important;
     }
 
     &--instagram {
-      background: $col-instagram;
+      background: $col-instagram !important;
       background-size: cover;
     }
 

@@ -2,9 +2,14 @@
   background: url(../assets/img/arrow.svg) center center no-repeat;
   background-size: cover;
   border: none;
+  display: inline-block;
   height: 38px;
   transition: transform 0.3s;
   width: 38px;
+
+  &--right {
+    float: right;
+  }
 
   &:hover {
     transform: scale(1.1);

@@ -10,6 +10,7 @@
   &__text {
     border: none;
     border-radius: 1000px;
+    font-family: inherit;
     font-size: 1.6rem;
     margin-right: 1rem;
     padding: 1rem;
@@ -29,5 +30,7 @@
     width: 100%;
     transition: all 0.3s;
     opacity: 0.5;
+    color: $col-black;
+    font-weight: 600;
   }
 }

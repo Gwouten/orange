@@ -14,16 +14,17 @@
 @import "base/typography";
 @import "base/animations";
 
-// Components
-@import "components/social-links";
-@import "components/candidates-section";
-@import "components/animated-slogan";
-
 // Layout
 @import "layout/2-col-skew";
 @import "layout/footer";
 @import "layout/header";
 @import "layout/buttons";
 @import "layout/inputs";
+
+// Components
+@import "components/social-links";
+@import "components/candidates-section";
+@import "components/discover-section";
+@import "components/animated-slogan";
 
 // Pages

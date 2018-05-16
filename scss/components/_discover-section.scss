@@ -1,0 +1,15 @@
+.discover {
+  &__content {
+    left: 60%;
+  }
+  &__heading {
+    text-align: right;
+    line-height: 1;
+  }
+  &__text {
+    text-align: right;
+    font-family: $font-nav;
+    font-size: 2rem;
+    font-weight: 600;
+  }
+}
