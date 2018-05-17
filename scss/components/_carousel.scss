@@ -75,5 +75,11 @@
   &__text {
     font-family: $font-nav;
     font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  &__link {
+    color: currentColor;
+    text-decoration: underline;
   }
 }
