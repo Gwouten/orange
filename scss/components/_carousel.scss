@@ -1,0 +1,70 @@
+.carousel {
+  color: $col-white;
+  position: relative;
+
+  &:before,
+  &:after {
+    content: "";
+    position: absolute;
+    top: 1px;
+    height: calc(100% - 2px);
+    width: 15rem;
+    z-index: 1;
+  }
+
+  &:before {
+    left: 0;
+    background: linear-gradient(to right, $col-grey 30%, rgba($col-grey, 0));
+  }
+  &:after {
+    right: 0;
+    background: linear-gradient(to left, $col-grey 30%, rgba($col-grey, 0));
+  }
+
+  &__prev,
+  &__next {
+    position: absolute;
+    top: 50%;
+    z-index: 10;
+  }
+
+  &__prev {
+    left: $margin-m;
+    transform: translateY(-50%) rotate(100grad);
+    &:hover {
+      transform: translateY(-50%) rotate(100grad) scale(1.1);
+    }
+    &:active {
+      transform: translateY(-50%) rotate(100grad);
+    }
+  }
+  &__next {
+    right: $margin-m;
+    transform: translateY(-50%) rotate(300grad);
+    &:hover {
+      transform: translateY(-50%) rotate(300grad) scale(1.1);
+    }
+    &:active {
+      transform: translateY(-50%) rotate(300grad);
+    }
+  }
+
+  &__slide {
+    // border: 1px solid $col-white;
+    margin: 0 1px 2px 1px;
+    background-color: $col-grey;
+    transform: skewX($skew);
+
+    &__content {
+      padding: 2rem;
+      transform: skewX($anti-skew);
+    }
+  }
+  &__header {
+    font-size: 2rem;
+  }
+  &__text {
+    font-family: $font-nav;
+    font-size: 2rem;
+  }
+}

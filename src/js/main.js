@@ -1,7 +1,5 @@
 "use strict";
 
-import Siema from "siema";
-
 // Rotate slogan
 const phrases = ["des communes", "des provinces"];
 const rwContainer = document.querySelector("#rw");
@@ -32,3 +30,16 @@ createCommunes(phrases);
 const rotateCommunes = setInterval(function() {
   createCommunes(phrases);
 }, 2000);
+// End rotate slogan
+
+// Siema slider
+const communesSlider = new Siema({
+  perPage: 4,
+  loop: true
+});
+const prev = document.querySelector(".carousel__prev");
+const next = document.querySelector(".carousel__next");
+
+prev.addEventListener("click", () => communesSlider.prev());
+next.addEventListener("click", () => communesSlider.next());
+// End siema slider

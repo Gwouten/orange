@@ -1,12 +1,7 @@
 "use strict";
 
-var _siema = require("siema");
-
-var _siema2 = _interopRequireDefault(_siema);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 // Rotate slogan
+
 var phrases = ["des communes", "des provinces"];
 var rwContainer = document.querySelector("#rw");
 var numberPhrases = phrases.length - 1;
@@ -36,3 +31,20 @@ createCommunes(phrases);
 var rotateCommunes = setInterval(function () {
   createCommunes(phrases);
 }, 2000);
+// End rotate slogan
+
+// Siema slider
+var communesSlider = new Siema({
+  perPage: 4,
+  loop: true
+});
+var prev = document.querySelector(".carousel__prev");
+var next = document.querySelector(".carousel__next");
+
+prev.addEventListener("click", function () {
+  return communesSlider.prev();
+});
+next.addEventListener("click", function () {
+  return communesSlider.next();
+});
+// End siema slider
