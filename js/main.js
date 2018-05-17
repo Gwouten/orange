@@ -16,8 +16,22 @@ var communesSlider = new Siema({
   perPage: 4,
   loop: true
 });
+
+var carousel = document.querySelector(".carousel");
 var prev = document.querySelector(".carousel__prev");
 var next = document.querySelector(".carousel__next");
+var autoSlide = setInterval(function () {
+  communesSlider.next();
+}, 5000);
+
+carousel.addEventListener("mouseenter", function () {
+  return clearInterval(autoSlide);
+});
+carousel.addEventListener("mouseleave", function () {
+  return autoSlide = setInterval(function () {
+    communesSlider.next();
+  }, 5000);
+});
 
 prev.addEventListener("click", function () {
   return communesSlider.prev();
@@ -26,7 +40,8 @@ next.addEventListener("click", function () {
   return communesSlider.next();
 });
 
-var autoSlide = setInterval(function () {
-  communesSlider.next();
-}, 5000);
+carousel.addEventListener("click", function (e) {
+  console.log(e.target);
+});
+
 // End siema slider

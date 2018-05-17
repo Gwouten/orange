@@ -16,6 +16,7 @@
     left: 0;
     background: linear-gradient(to right, $col-grey 30%, rgba($col-grey, 0));
   }
+
   &:after {
     right: 0;
     background: linear-gradient(to left, $col-grey 30%, rgba($col-grey, 0));
@@ -38,6 +39,7 @@
       transform: translateY(-50%) rotate(100grad);
     }
   }
+
   &__next {
     right: $margin-m;
     transform: translateY(-50%) rotate(300grad);
@@ -50,19 +52,22 @@
   }
 
   &__slide {
-    // border: 1px solid $col-white;
     margin: 0 1px 2px 1px;
     background-color: $col-grey;
     transform: skewX($skew);
 
     &__content {
+      color: currentColor;
+      display: block;
       padding: 2rem;
       transform: skewX($anti-skew);
     }
   }
+
   &__header {
     font-size: 2rem;
   }
+
   &__text {
     font-family: $font-nav;
     font-size: 2rem;
