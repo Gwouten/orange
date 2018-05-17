@@ -66,6 +66,10 @@
 
   &__header {
     font-size: 2rem;
+
+    &--name {
+      font-weight: 300;
+    }
   }
 
   &__text {
