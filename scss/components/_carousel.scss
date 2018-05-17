@@ -6,7 +6,7 @@
   &:after {
     content: "";
     position: absolute;
-    top: 1px;
+    top: 0;
     height: calc(100% - 2px);
     width: 15rem;
     z-index: 1;

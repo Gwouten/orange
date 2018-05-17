@@ -3,38 +3,16 @@
 // Rotate slogan
 
 var phrases = ["des communes", "des provinces"];
-var rwContainer = document.querySelector("#rw");
-var numberPhrases = phrases.length - 1;
-var cycles = 0;
+var headline = new RotateSlogan(phrases, "rw", 6000);
 
-var createCommunes = function createCommunes(array) {
-  // Uncomment below line to set order of phrases random
-  // const randomIndex = Math.floor(Math.random() * numberPhrases);
-  var rwElement = document.createElement("span");
+headline.rotatePhrases();
 
-  rwElement.innerHTML = "" + phrases[cycles];
-  rwElement.classList.add("slogan__header__word");
-
-  rwContainer.appendChild(rwElement);
-
-  if (cycles === numberPhrases) {
-    cycles = 0;
-  } else {
-    cycles++;
-  }
-  setTimeout(function () {
-    rwContainer.removeChild(rwElement);
-  }, 3000);
-};
-
-createCommunes(phrases);
-var rotateCommunes = setInterval(function () {
-  createCommunes(phrases);
-}, 2000);
 // End rotate slogan
 
 // Siema slider
 var communesSlider = new Siema({
+  duration: 1000,
+  easing: "ease-in-out",
   perPage: 4,
   loop: true
 });
@@ -47,4 +25,8 @@ prev.addEventListener("click", function () {
 next.addEventListener("click", function () {
   return communesSlider.next();
 });
+
+var autoSlide = setInterval(function () {
+  communesSlider.next();
+}, 5000);
 // End siema slider
