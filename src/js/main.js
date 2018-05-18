@@ -1,5 +1,7 @@
 "use strict";
 
+// Basic useful values
+
 // Rotate slogan
 
 const phrases = ["des communes", "des provinces"];
@@ -18,8 +20,8 @@ const communesSlider = new Siema({
 });
 
 const carousel = document.querySelector(".carousel");
-const prev = document.querySelector(".carousel__prev");
-const next = document.querySelector(".carousel__next");
+const carouselPrev = document.querySelector(".carousel__prev");
+const carouselNext = document.querySelector(".carousel__next");
 let autoSlide = setInterval(function() {
   communesSlider.next();
 }, 5000);
@@ -33,8 +35,8 @@ carousel.addEventListener(
     }, 5000))
 );
 
-prev.addEventListener("click", () => communesSlider.prev());
-next.addEventListener("click", () => communesSlider.next());
+carouselPrev.addEventListener("click", () => communesSlider.prev());
+carouselNext.addEventListener("click", () => communesSlider.next());
 
 carousel.addEventListener("click", e => {
   console.log(e.target);
