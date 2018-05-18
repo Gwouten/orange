@@ -6,12 +6,13 @@ $alignment: 60%;
   font-size: 5rem;
 
   &__title {
-    display: inline-block;
-    text-align: right;
-    width: $alignment;
-    padding-right: 1rem;
-    color: $col-secondary;
-
+    @include (tab-port) {
+      display: inline-block;
+      text-align: right;
+      width: $alignment;
+      padding-right: 1rem;
+      color: $col-secondary;
+    }
     &--grey {
       color: $col-grey;
     }
