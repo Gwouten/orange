@@ -3,16 +3,18 @@ $alignment: 60%;
 .slogan__header {
   width: 100%;
   perspective: 100%;
-  font-size: 5rem;
+  font-size: 2rem;
+  @include screen(tab-port) {
+    font-size: 5rem;
+  }
 
   &__title {
-    @include screen(tab-port) {
-      display: inline-block; 
-      text-align: right;
-      width: $alignment;
-      padding-right: 1rem;
-      color: $col-secondary;
-    }
+    display: inline-block;
+    text-align: right;
+    width: $alignment;
+    padding-right: 1rem;
+    color: $col-secondary;
+
     &--grey {
       color: $col-grey;
     }
