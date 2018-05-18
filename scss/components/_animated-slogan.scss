@@ -3,15 +3,16 @@ $alignment: 60%;
 .slogan__header {
   width: 100%;
   perspective: 100%;
-  position: relative;
+  font-size: 5rem;
 
   &__title {
-    display: inline-block;
-    text-align: right;
-    width: $alignment;
-    padding-right: 1rem;
-    color: $col-secondary;
-
+    @include screen(tab-port) {
+      display: inline-block;
+      text-align: right;
+      width: $alignment;
+      padding-right: 1rem;
+      color: $col-secondary;
+    }
     &--grey {
       color: $col-grey;
     }
@@ -19,7 +20,6 @@ $alignment: 60%;
   &__word {
     color: $col-grey;
     animation-name: slide-in-out;
-    // animation-duration: 3000ms;
     animation-direction: forwards;
     animation-iteration-count: 1;
     animation-timing-function: ease-in-out;
