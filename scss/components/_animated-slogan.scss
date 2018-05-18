@@ -1,34 +1,49 @@
 $alignment: 60%;
+$alignment-small: 100%;
 
 .slogan__header {
   width: 100%;
   perspective: 100%;
-  font-size: 2rem;
+  font-size: 2.5rem;
+  height: 7rem;
   @include screen(tab-port) {
     font-size: 5rem;
+    height: auto;
   }
 
   &__title {
     display: inline-block;
-    text-align: right;
-    width: $alignment;
-    padding-right: 1rem;
+    text-align: center;
+    width: $alignment-small;
     color: $col-secondary;
+    @include screen(tab-port) {
+      text-align: right;
+      width: $alignment;
+      padding-right: 1rem;
+    }
 
     &--grey {
       color: $col-grey;
     }
   }
   &__word {
-    color: $col-grey;
+    @include clearfix;
     animation-name: slide-in-out;
     animation-direction: forwards;
     animation-iteration-count: 1;
     animation-timing-function: ease-in-out;
+    color: $col-grey;
+    display: inline-block;
     opacity: 0;
     position: absolute;
-    top: 0;
-    left: $alignment;
+    text-align: center;
+    width: 100%;
+
+    @include screen(tab-port) {
+      left: $alignment;
+      text-align: left;
+      width: auto;
+    }
   }
 }
 
