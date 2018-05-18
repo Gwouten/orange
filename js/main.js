@@ -1,5 +1,7 @@
 "use strict";
 
+// Basic useful values
+
 // Rotate slogan
 
 var phrases = ["des communes", "des provinces"];
@@ -18,8 +20,8 @@ var communesSlider = new Siema({
 });
 
 var carousel = document.querySelector(".carousel");
-var prev = document.querySelector(".carousel__prev");
-var next = document.querySelector(".carousel__next");
+var carouselPrev = document.querySelector(".carousel__prev");
+var carouselNext = document.querySelector(".carousel__next");
 var autoSlide = setInterval(function () {
   communesSlider.next();
 }, 5000);
@@ -33,10 +35,10 @@ carousel.addEventListener("mouseleave", function () {
   }, 5000);
 });
 
-prev.addEventListener("click", function () {
+carouselPrev.addEventListener("click", function () {
   return communesSlider.prev();
 });
-next.addEventListener("click", function () {
+carouselNext.addEventListener("click", function () {
   return communesSlider.next();
 });
 

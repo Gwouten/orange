@@ -1,6 +1,5 @@
 .two-col-skew {
   width: 100%;
-  position: relative;
   height: 26rem;
   overflow: hidden;
 
@@ -23,7 +22,6 @@
     }
 
     &--image {
-      position: relative;
       img {
         @include anti-skew-center;
         width: 110%;
@@ -36,10 +34,7 @@
   }
 
   &--anti {
-    position: absolute;
-    top: 50%;
-    left: 50%;
+    @include anti-skew-center;
     width: 50%;
-    transform: translate(-50%, -50%) skewX($anti-skew);
   }
 }

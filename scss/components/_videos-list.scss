@@ -1,0 +1,81 @@
+$sidebarHeight: 3rem;
+$slideMargin: 1rem;
+
+.videos {
+  @include clearfix;
+
+  &__slide {
+    color: $col-grey;
+    width: calc(20% - #{$slideMargin});
+    float: left;
+    padding-right: $sidebarHeight;
+
+    &:not(:last-of-type) {
+      margin-right: $slideMargin;
+    }
+
+    &:after {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: $sidebarHeight;
+      color: $col-white;
+      font-family: $font-nav;
+      font-weight: 600;
+      font-style: italic;
+      width: 18.3rem;
+      text-transform: uppercase;
+      text-align: center;
+      font-size: 2.2rem;
+      transform: rotate(-90deg) translateX(3rem);
+      transform-origin: bottom right;
+    }
+
+    &:before {
+      content: "";
+      width: 3.8rem;
+      height: 3.8rem;
+      @include center;
+      z-index: 5;
+    }
+
+    &--rencontre {
+      &:after {
+        content: "rencontre";
+        background-color: $col-secondary;
+      }
+      &:before {
+        background: url("../assets/img/play-orange.svg");
+        pointer-events: none;
+      }
+    }
+
+    &--tutorial {
+      &:after {
+        content: "tutorial";
+        background-color: $col-primary;
+      }
+      &:before {
+        background: url("../assets/img/play-yellow.svg");
+      }
+    }
+  }
+
+  &__link {
+    color: inherit;
+  }
+
+  &__placeholder-image {
+    width: 100%;
+    height: auto;
+  }
+
+  &__text {
+    font-family: $font-nav;
+    font-weight: 600;
+    font-style: italic;
+    color: inherit;
+    text-align: center;
+  }
+}

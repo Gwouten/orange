@@ -1,6 +1,5 @@
 .carousel {
   color: $col-white;
-  position: relative;
 
   &:before,
   &:after {
@@ -57,7 +56,6 @@
     transform: skewX($skew);
 
     &__content {
-      color: currentColor;
       display: block;
       padding: 2rem;
       transform: skewX($anti-skew);
@@ -69,16 +67,12 @@
 
     &--name {
       font-weight: 300;
+      color: currentColor;
+      text-decoration: underline;
     }
   }
 
   &__text {
-    font-family: $font-nav;
     font-size: 2rem;
-  }
-
-  &__link {
-    color: currentColor;
-    text-decoration: underline;
   }
 }

@@ -8,13 +8,12 @@
     width: 35rem;
     padding: 5rem 3rem 5rem 8.5rem;
     margin: 3rem 0;
-    position: relative;
     transform: skewX($skew);
     transition: all 0.5s;
 
     &:hover {
-      width: 45rem;
-      padding-right: 13.5rem;
+      width: 40rem;
+      padding-right: 8rem;
       margin-left: 5rem;
     }
 
@@ -47,7 +46,6 @@
     color: $col-grey;
     display: inline-block;
     font-size: 2.5rem;
-    font-family: $font-nav;
     font-weight: 600;
     line-height: 1;
     transform: skewX($anti-skew);

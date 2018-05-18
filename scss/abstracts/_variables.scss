@@ -18,7 +18,7 @@ $col-instagram: url("../assets/img/instagram-bg.jpg");
 
 // Angle for transforms
 $skew: -8deg;
-$anti-skew: 8deg;
+$anti-skew: -$skew;
 
 // Margin and padding
 $margin-s: 1rem;
