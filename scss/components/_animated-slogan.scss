@@ -6,7 +6,7 @@ $alignment: 60%;
   font-size: 5rem;
 
   &__title {
-    @include (tab-port) {
+    @include screen(tab-port) {
       display: inline-block;
       text-align: right;
       width: $alignment;
