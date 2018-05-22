@@ -2,18 +2,17 @@
   font-family: $font-nav;
   font-style: italic;
   font-weight: 600;
-  overflow: hidden;
   padding: $padding-s 0;
-  margin-bottom: $margin-m;
   width: 100%;
-  height: 100vh;
-  // background-color: $col-white;
+  // height: 100vh;
   z-index: 10;
   position: fixed;
 
   @include screen(tab-land) {
-    position: relative;
     height: auto;
+    margin-bottom: $margin-m;
+    overflow-x: hidden;
+    position: relative;
     position: relative;
     width: auto;
   }
@@ -25,23 +24,28 @@
       background-color: $col-white;
       box-shadow: 0 0.5rem 1rem rgba($col-black, 0.7);
       transform: translate(-50%, -50%) scale(30);
-      transition: all 0.5s;
+      transition: background-color 0.5s, transform 0.5s;
     }
 
-    &:checked ~ .header__logo,
-    &:checked ~ .social-links,
-    &:checked ~ .header__interior-links {
+    &:checked ~ .header__wrapper {
+      height: 100vh;
+      overflow: auto;
+    }
+
+    &:checked ~ .header__wrapper .header__logo,
+    &:checked ~ .header__wrapper .social-links,
+    &:checked ~ .header__wrapper .header__interior-links {
       transform: translateX(0);
       opacity: 1;
     }
     &:checked ~ .header__logo {
-      transition: all 0.5s 0.2s;
+      transition: transform 0.5s 0.5s, opacity 0.5s 0.5s;
     }
     &:checked ~ .social-links {
-      transition: all 0.5s 0.35s;
+      transition: transform 0.5s 0.5s, opacity 0.5s 0.5s;
     }
     &:checked ~ .header__interior-links {
-      transition: all 0.5s 0.5s;
+      transition: transform 0.5s 0.5s, opacity 0.5s 0.5s;
     }
 
     &:checked + label .header__toggle-button__icon {
@@ -54,6 +58,12 @@
     &:checked + label .header__toggle-button__icon:after {
       transform: translate(-50%, 0) rotate(45deg);
     }
+  }
+
+  &__wrapper {
+    height: 0;
+    position: relative;
+    z-index: 999;
   }
 
   &__toggle-button,
@@ -88,7 +98,7 @@
       display: block;
       width: 2.4rem;
       height: 2px;
-      transition: all 0.5s;
+      transition: transform 0.5s, background-color 0.5s;
     }
 
     &__icon:before {
@@ -106,8 +116,9 @@
 
   &__expander {
     background-color: $col-primary;
+    padding: 0;
     transform: scale(0.5);
-    transition: all 0.5s 0.5s;
+    transition: transform 0.5s 0.5s, background-color 0.5s 0.5s;
     z-index: 999;
   }
 
@@ -115,7 +126,7 @@
     margin: 1rem 2rem;
     opacity: 0;
     transform: translateX(-150%);
-    transition: all 0.5s 0.5s;
+    transition: transform 0.5s 0.5s, opacity 0.5s 0.5s;
     width: 50%;
     z-index: 1001;
 
@@ -138,10 +149,11 @@
     right: 0;
     text-align: right;
     transform: translateX(-100%);
-    transition: all 0.5s 0.2s;
+    transition: transform 0.5s 0.2s, opacity 0.5s 0.2s;
     width: 100%;
     z-index: 1001;
     @include screen(tab-port) {
+      padding: 0;
       position: absolute;
       opacity: 1;
       transform: translateX(0);
@@ -174,7 +186,7 @@
       color: $col-grey;
       display: inline-block;
       transform: skewX(skew);
-      transition: all 0.2s;
+      transition: color 0.2s, transform 0.2s;
       @include screen(tab-port) {
         transform: skewX($anti-skew);
       }

@@ -23,6 +23,10 @@ body {
   font-family: $font-nav;
 }
 
+main {
+  overflow-x: hidden;
+}
+
 a {
   text-decoration: none;
 }
