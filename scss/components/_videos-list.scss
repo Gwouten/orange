@@ -3,6 +3,7 @@ $slideMargin: 1rem;
 
 .videos {
   @include clearfix;
+  overflow: hidden;
 
   &__slide {
     color: $col-grey;
