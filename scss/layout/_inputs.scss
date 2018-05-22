@@ -1,5 +1,8 @@
 .input {
-  width: 50%;
+  width: 80%;
+  @include screen(tab-port) {
+    width: 50%;
+  }
 
   &--candidates {
     display: inline-block;
@@ -24,6 +27,8 @@
   }
 
   &__label--text {
+    cursor: text;
+    pointer-events: none;
     @include center;
     width: 100%;
     transition: all 0.3s;

@@ -1,20 +1,37 @@
 .two-col-skew {
   width: 100%;
-  height: 26rem;
   overflow: hidden;
+  @include screen(tab-port) {
+    width: 100%;
+    height: 26rem;
+    overflow: hidden;
+  }
 
   &__inner {
     width: 110%;
-    height: 100%;
+    // height: 100%;
     transform: translateX(-5%);
+    @include screen(tab-port) {
+      width: 110%;
+      height: 100%;
+      transform: translateX(-5%);
+    }
   }
   &__skewed {
-    height: 100%;
-    width: calc(50% - 1px);
+    height: 26rem;
+    width: 100%;
     float: left;
     transform: skewX($skew);
     text-align: center;
     overflow: hidden;
+    @include screen(tab-port) {
+      height: 100%;
+      width: calc(50% - 1px);
+      float: left;
+      transform: skewX($skew);
+      text-align: center;
+      overflow: hidden;
+    }
 
     &--cdh {
       background: $col-cdh;
@@ -35,6 +52,9 @@
 
   &--anti {
     @include anti-skew-center;
-    width: 50%;
+    width: 80%;
+    @include screen(tab-port) {
+      width: 50%;
+    }
   }
 }

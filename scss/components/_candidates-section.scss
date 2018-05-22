@@ -1,10 +1,17 @@
 .candidates {
   &__form {
-    left: 40%;
+    @include screen(tab-port) {
+      left: 40%;
+    }
   }
   &__header {
-    text-align: left;
     line-height: 1;
     margin-bottom: $margin-m;
+    font-size: 2.6rem;
+    text-align: center;
+    @include screen(tab-port) {
+      font-size: 4rem;
+      text-align: left;
+    }
   }
 }
