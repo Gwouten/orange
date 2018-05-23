@@ -16,6 +16,9 @@ $col-twitter: #0bb8ff;
 $col-linkedin: #007ab5;
 $col-instagram: url("../assets/img/instagram-bg.jpg");
 
+// Shadows
+$shadow-regular: 0 0.5rem 1rem rgba($col-black, 0.7);
+
 // Angle for transforms
 $skew: -8deg;
 $anti-skew: -$skew;
