@@ -8,6 +8,10 @@
     display: inline-block;
     margin-right: 1rem;
     width: calc(100% - 6rem);
+
+    .awesomplete {
+      width: 100%;
+    }
   }
 
   &__text {
@@ -18,25 +22,5 @@
     padding: 1rem;
     text-align: center;
     width: 100%;
-    transition: margin-top 0.2s;
-
-    &:focus {
-      margin-top: 1rem;
-    }
-
-    &:placeholder-shown ~ .input__label--text {
-      transform: translate(-50%, -50%);
-      opacity: 0;
-    }
-  }
-
-  &__label--text {
-    @include center;
-    width: 100%;
-    transition: all 0.3s;
-    color: $col-white;
-    font-weight: 600;
-    transform: translate(-50%, -185%);
-    z-index: -1;
   }
 }
