@@ -7,6 +7,7 @@
   &--candidates {
     display: inline-block;
     margin-right: 1rem;
+    width: calc(100% - 6rem);
   }
 
   &__text {
@@ -17,23 +18,25 @@
     padding: 1rem;
     text-align: center;
     width: 100%;
+    transition: margin-top 0.2s;
 
-    &:focus + .input__label--text {
-      transform: translate(-50%, 115%);
-      color: $col-white;
-      font-size: 1.3rem;
-      opacity: 1;
+    &:focus {
+      margin-top: 1rem;
+    }
+
+    &:placeholder-shown ~ .input__label--text {
+      transform: translate(-50%, -50%);
+      opacity: 0;
     }
   }
 
   &__label--text {
-    cursor: text;
-    pointer-events: none;
     @include center;
     width: 100%;
     transition: all 0.3s;
-    opacity: 0.5;
-    color: $col-black;
+    color: $col-white;
     font-weight: 600;
+    transform: translate(-50%, -185%);
+    z-index: -1;
   }
 }

@@ -30,7 +30,13 @@
   }
 
   &--bottom {
-    bottom: 31px;
+    position: absolute;
+    right: 0;
+    transform: translateX(1rem);
+    padding: 0;
+    width: auto;
+    bottom: 30px;
+    z-index: 1;
   }
 
   &__item {
@@ -95,10 +101,6 @@
       transform: skewX($skew);
       background: url("../assets/img/orange-bg.jpg") 60% 50% no-repeat;
       background-size: 200%;
-      display: none;
-      @include screen(phone) {
-        display: list-item;
-      }
 
       &:hover {
         box-shadow: none;

@@ -47,7 +47,11 @@
 </head>
 
 
-<body>
+<body id="top-of-page">
+  <div class="to-top">
+    <a href="#top-of-page" class="to-top__link"></a>
+  </div>
+
 
   <header class="header">
 
@@ -158,7 +162,7 @@
           two-col-skew--anti">
             <h2 class="candidates__header">Vos candidats commune par commune</h2>
             <div class="input input--candidates">
-              <input type="text" class="input__text" id="candidates-input">
+              <input type="text" class="input__text" id="candidates-input" placeholder="Nom ou code postal">
               <label for="candidates-input" class="input__label--text">Nom ou code postal</label>
             </div>
             <input type="submit" class="btn" value="&nbsp;">
@@ -393,7 +397,8 @@
   </footer>
 
   <script src="./js/siema.min.js"></script>
-  <script src="./js/rotateSlogan.js"></script>
+  <script src="./js/awesomplete.js"></script>
+  <script src="./js/functions.js"></script>
   <script src="./js/main.js"></script>
 </body>
 

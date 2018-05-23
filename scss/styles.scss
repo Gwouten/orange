@@ -4,6 +4,9 @@
 // Reset
 @import "../node_modules/normalize.css/normalize.css";
 
+// External stylesheets
+@import "../scss/external/awesomplete.css";
+
 // Abstracts
 @import "abstracts/variables";
 @import "abstracts/mixins";
@@ -20,6 +23,7 @@
 @import "layout/header";
 @import "layout/buttons";
 @import "layout/inputs";
+@import "layout/to-top";
 
 // Components
 @import "components/social-links";

@@ -1,7 +1,5 @@
 "use strict";
 
-// Basic useful values
-
 // Rotate slogan
 
 var phrases = ["des communes", "des provinces"];
@@ -47,3 +45,53 @@ carousel.addEventListener("click", function (e) {
 });
 
 // End siema slider
+
+// To top button
+var toTopElement = document.querySelector(".to-top__link");
+window.addEventListener("scroll", function () {
+  var fromTop = window.scrollY;
+  if (fromTop < 200) {
+    toTopElement.classList.remove("to-top__link--visible");
+  } else if (fromTop >= 200) {
+    toTopElement.classList.add("to-top__link--visible");
+  }
+});
+
+// Scroll to top animation
+toTopElement.addEventListener("click", function (e) {
+  e.preventDefault();
+  scrollTo(0, 1000);
+});
+
+// Awesomplete - for autocompleting form fields
+var inputCandidates = document.querySelector("#candidates-input");
+var inputCandidatesList = [{
+  code: 1000,
+  commune: "Bruxelles",
+  candidats: ["Olivier", "Wouter"]
+}, {
+  code: 1050,
+  commune: "Ixelles",
+  candidats: ["Gilles", "Christophe"]
+}, {
+  code: 3000,
+  commune: "Leuven",
+  candidats: ["Etienne", "Sandro"]
+}];
+
+var candidates = function candidates(list) {
+  new Awesomplete(inputCandidates, {
+    list: list,
+    minChars: 1
+  });
+};
+
+var flattenArray = function flattenArray(accumulator, currentValue) {
+  return accumulator.concat(currentValue);
+};
+
+var fullList = inputCandidatesList.map(function (item) {
+  return Object.values(item).reduce(flattenArray, []);
+}).reduce(flattenArray);
+
+candidates(fullList);
