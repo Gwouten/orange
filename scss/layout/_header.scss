@@ -13,7 +13,6 @@
     margin-bottom: $margin-m;
     overflow-x: hidden;
     position: relative;
-    position: relative;
     width: auto;
   }
 
@@ -64,6 +63,9 @@
     height: 0;
     position: relative;
     z-index: 999;
+    @include screen(tab-port) {
+      height: 15rem;
+    }
   }
 
   &__toggle-button,

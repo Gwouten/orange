@@ -12,10 +12,12 @@
     margin: 0 auto;
 
     &__col {
-      float: left;
-      width: 30%;
-      &:not(:last-of-type) {
-        margin-right: 5%;
+      @include screen(tab-port) {
+        float: left;
+        width: 30%;
+        &:not(:last-of-type) {
+          margin-right: 5%;
+        }
       }
     }
   }
@@ -30,7 +32,11 @@
 
   &__header {
     font-size: 1.6rem;
-    margin-bottom: $margin-m;
+    margin-top: $margin-l;
+    margin-bottom: $margin-s;
+    @include screen(tab-port) {
+      margin-bottom: $margin-m;
+    }
   }
 
   &__text {
