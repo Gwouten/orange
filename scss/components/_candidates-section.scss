@@ -1,4 +1,6 @@
 .candidates {
+  z-index: 1;
+
   &__form {
     @include screen(tab-port) {
       left: 40%;

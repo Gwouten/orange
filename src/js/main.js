@@ -82,7 +82,8 @@ var inputCandidatesList = [
 const candidates = list => {
   new Awesomplete(inputCandidates, {
     list,
-    minChars: 1
+    minChars: 1,
+    maxItems: 15
   });
 };
 
