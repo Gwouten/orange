@@ -9,9 +9,9 @@
   width: 38px;
 
   &--discover {
-    float: right;
+    float: none;
     @include screen(tab-port) {
-      float: left;
+      float: right;
     }
   }
 
