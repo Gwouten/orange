@@ -10,12 +10,35 @@ headline.rotatePhrases();
 // End rotate slogan
 
 // Siema slider
-var communesSlider = new Siema({
-  duration: 1000,
-  easing: "ease-in-out",
-  perPage: 4,
-  loop: true
+var screenSize = window.innerWidth;
+
+var setSlider = function setSlider(screenSize) {
+  var duration = 1000;
+  var easing = "ease-in-out";
+  var perPage = Math.ceil(screenSize / 300);
+  var loop = true;
+
+  var communesSlider = new Siema({
+    duration: duration,
+    easing: easing,
+    perPage: perPage,
+    loop: loop
+  });
+};
+
+setSlider(screenSize);
+
+window.addEventListener("resize", function () {
+  screenSize = this.window.innerWidth;
+  setSlider(screenSize);
 });
+
+// const communesSlider = new Siema({
+//   duration: 1000,
+//   easing: "ease-in-out",
+//   perPage: 3,
+//   loop: true
+// });
 
 var carousel = document.querySelector(".carousel");
 var carouselPrev = document.querySelector(".carousel__prev");
@@ -38,10 +61,6 @@ carouselPrev.addEventListener("click", function () {
 });
 carouselNext.addEventListener("click", function () {
   return communesSlider.next();
-});
-
-carousel.addEventListener("click", function (e) {
-  console.log(e.target);
 });
 
 // End siema slider
@@ -96,3 +115,4 @@ var fullList = inputCandidatesList.map(function (item) {
 }).reduce(flattenArray);
 
 candidates(fullList);
+// End awesomplete

@@ -10,12 +10,35 @@ headline.rotatePhrases();
 // End rotate slogan
 
 // Siema slider
-const communesSlider = new Siema({
-  duration: 1000,
-  easing: "ease-in-out",
-  perPage: 4,
-  loop: true
+let screenSize = window.innerWidth;
+
+const setSlider = screenSize => {
+  const duration = 1000;
+  const easing = "ease-in-out";
+  const perPage = Math.ceil(screenSize / 300);
+  const loop = true;
+
+  const communesSlider = new Siema({
+    duration,
+    easing,
+    perPage,
+    loop
+  });
+};
+
+setSlider(screenSize);
+
+window.addEventListener("resize", function() {
+  screenSize = this.window.innerWidth;
+  setSlider(screenSize);
 });
+
+// const communesSlider = new Siema({
+//   duration: 1000,
+//   easing: "ease-in-out",
+//   perPage: 3,
+//   loop: true
+// });
 
 const carousel = document.querySelector(".carousel");
 const carouselPrev = document.querySelector(".carousel__prev");
@@ -35,10 +58,6 @@ carousel.addEventListener(
 
 carouselPrev.addEventListener("click", () => communesSlider.prev());
 carouselNext.addEventListener("click", () => communesSlider.next());
-
-carousel.addEventListener("click", e => {
-  console.log(e.target);
-});
 
 // End siema slider
 
@@ -98,3 +117,4 @@ const fullList = inputCandidatesList
   .reduce(flattenArray);
 
 candidates(fullList);
+// End awesomplete
