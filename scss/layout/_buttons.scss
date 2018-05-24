@@ -12,6 +12,43 @@
     float: right;
   }
 
+  &--input-reset {
+    background: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    &:before,
+    &:after {
+      @include center;
+      content: "";
+      display: block;
+      width: 2rem;
+      height: 2px;
+      background-color: $col-med-grey;
+      position: absolute;
+      transform: translate(-50%, -50%) rotate(45deg);
+      transition: background-color 0.2s;
+    }
+    &:after {
+      transform: translate(-50%, -50%) rotate(-45deg);
+    }
+
+    &:hover {
+      &:before,
+      &:after {
+        background-color: $col-secondary;
+      }
+    }
+
+    &:active {
+      &:before,
+      &:after {
+        background-color: $col-primary;
+      }
+    }
+  }
+
   &:hover {
     transform: scale(1.1);
   }

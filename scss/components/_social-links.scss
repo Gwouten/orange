@@ -12,7 +12,7 @@
   transition: all 0.5s 0.35s;
   width: 100%;
   z-index: 1001;
-  @include screen(tab-land) {
+  @include screen(tab-port) {
     font-size: 1.3rem;
     font-weight: 600;
     font-style: italic;
