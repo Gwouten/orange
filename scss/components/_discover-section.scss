@@ -1,15 +1,26 @@
 .discover {
   &__content {
-    left: 60%;
+    left: 50%;
+    @include screen(tab-port) {
+      left: 60%;
+    }
   }
   &__heading {
-    text-align: right;
     line-height: 1;
+    font-size: 2.6rem;
+    text-align: center;
+    @include screen(tab-port) {
+      font-size: 4rem;
+      text-align: right;
+    }
   }
   &__text {
-    text-align: right;
+    text-align: center;
     font-family: $font-nav;
     font-size: 2rem;
     font-weight: 600;
+    @include screen(tab-port) {
+      text-align: right;
+    }
   }
 }

@@ -22,7 +22,7 @@
     &:checked ~ .header__expander {
       background-color: $col-white;
       box-shadow: $shadow-regular;
-      transform: translate(-50%, -50%) scale(30);
+      transform: translate(-50%, -50%) scale(47);
       transition: background-color 0.5s, transform 0.5s;
     }
 

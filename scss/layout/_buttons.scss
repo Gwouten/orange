@@ -8,8 +8,11 @@
   transition: transform 0.3s;
   width: 38px;
 
-  &--right {
+  &--discover {
     float: right;
+    @include screen(tab-port) {
+      float: left;
+    }
   }
 
   &--input-reset {
