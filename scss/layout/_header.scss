@@ -8,7 +8,7 @@
   z-index: 10;
   position: fixed;
 
-  @include screen(tab-land) {
+  @include screen(tab-port) {
     height: auto;
     margin-bottom: $margin-m;
     overflow-x: hidden;
@@ -179,7 +179,7 @@
       margin-right: 0;
       padding: 1rem 2rem;
       text-align: center;
-      @include screen(tab-land) {
+      @include screen(tab-port) {
         transform: skewX($skew);
         margin-right: 1rem;
         display: inline-block;
@@ -189,7 +189,7 @@
       &:not(:last-child) {
         border-right: none;
         border-bottom: 1px solid $col-grey;
-        @include screen(tab-land) {
+        @include screen(tab-port) {
           border-right: 1px solid $col-grey;
           border-bottom: none;
         }
