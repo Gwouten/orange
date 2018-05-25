@@ -25,6 +25,10 @@ body {
 
 main {
   overflow-x: hidden;
+  padding-top: 6rem;
+  @include screen(tab-port) {
+    padding-top: 0;
+  }
 }
 
 a {

@@ -4,7 +4,6 @@
   font-weight: 600;
   padding: $padding-s 0;
   width: 100%;
-  // height: 100vh;
   z-index: 10;
   position: fixed;
 
@@ -12,6 +11,7 @@
     height: auto;
     margin-bottom: $margin-m;
     overflow-x: hidden;
+    padding: 0;
     position: relative;
     width: auto;
   }
