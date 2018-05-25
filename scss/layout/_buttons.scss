@@ -2,11 +2,22 @@
   background: url(../assets/img/arrow.svg) center center no-repeat;
   background-size: cover;
   border: none;
+  border: 1px solid $col-white;
+  border-radius: 1000px;
   cursor: pointer;
   display: inline-block;
   height: 38px;
   transition: transform 0.3s;
   width: 38px;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+
+  &--carousel {
+    height: 2rem;
+    width: 2rem;
+  }
 
   &--discover {
     float: none;
@@ -50,9 +61,5 @@
         background-color: $col-primary;
       }
     }
-  }
-
-  &:hover {
-    transform: scale(1.1);
   }
 }
