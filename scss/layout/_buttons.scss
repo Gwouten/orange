@@ -6,9 +6,9 @@
   border-radius: 1000px;
   cursor: pointer;
   display: inline-block;
-  height: 38px;
+  height: 3.8rem;
   transition: transform 0.3s;
-  width: 38px;
+  width: 3.8rem;
 
   &:hover {
     transform: scale(1.1);
@@ -17,6 +17,10 @@
   &--carousel {
     height: 2rem;
     width: 2rem;
+    @include screen(tab-port) {
+      height: 3.8rem;
+      width: 3.8rem;
+    }
   }
 
   &--discover {
