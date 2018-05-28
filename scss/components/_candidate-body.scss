@@ -1,0 +1,39 @@
+$column-gap: 5rem;
+
+.candidate-body {
+  margin-top: $margin-xl;
+
+  &__search {
+    background: $col-cdh;
+    width: calc(50% - #{$column-gap} / 2);
+    border-radius: 3rem;
+    padding: $padding-l;
+
+    &__header {
+      color: $col-white;
+      font-size: 2.5rem;
+      text-align: center;
+      margin-bottom: $margin-m;
+    }
+  }
+  &__resume {
+  }
+  &__textblock {
+    columns: 2 auto;
+    column-gap: $column-gap;
+  }
+  &__header {
+    font-size: 2.5rem;
+    &:not(:first-of-type) {
+      margin-top: $margin-xl;
+    }
+  }
+  &__text {
+    font-size: 1.6rem;
+    margin-top: $margin-s;
+
+    .candidate-body__header + & {
+      margin-top: $margin-m;
+    }
+  }
+}

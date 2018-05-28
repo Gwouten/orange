@@ -32,9 +32,10 @@
 
   &--input-reset {
     background: none;
+    border: none;
     position: absolute;
     top: 0;
-    right: 0;
+    right: 5.2rem;
 
     &:before,
     &:after {

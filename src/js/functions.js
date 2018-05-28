@@ -19,8 +19,6 @@ class RotateSlogan {
       this.cycles === this.numberPhrases ? (this.cycles = 0) : this.cycles++;
 
       setTimeout(() => this.container.removeChild(phraseEl), this.timing);
-    } else {
-      console.log("Error: no element with given id found on page.");
     }
   }
   rotatePhrases() {

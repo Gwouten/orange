@@ -33,8 +33,6 @@ var RotateSlogan = function () {
         setTimeout(function () {
           return _this.container.removeChild(phraseEl);
         }, this.timing);
-      } else {
-        console.log("Error: no element with given id found on page.");
       }
     }
   }, {
