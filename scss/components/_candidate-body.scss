@@ -24,12 +24,18 @@ $column-gap: 5rem;
   &__resume {
     background-color: $col-light-grey;
     border-radius: $brad-m;
-    padding: $padding-l;
-    width: calc(50% - #{$column-gap} / 2);
-
+    padding: $padding-m;
+    width: 100%;
+    margin-top: $margin-m;
+    @include screen(tab-port) {
+      padding: $padding-l;
+      width: calc(50% - #{$column-gap} / 2);
+    }
     &__item {
-      padding: $padding-m 0 $padding-m $padding-l;
-
+      padding: $padding-s 0 $padding-s $padding-l;
+      @include screen(tab-port) {
+        padding: $padding-m 0 $padding-m $padding-l;
+      }
       &:not(:last-of-type) {
         border-bottom: 2px dotted $col-black;
       }
@@ -39,15 +45,21 @@ $column-gap: 5rem;
         position: absolute;
         background: url(../assets/img/icon-bullet.svg) center center no-repeat;
         background-size: contain;
-        top: 1rem;
+        top: 1.25rem;
         left: 0;
-        width: 3.5rem;
-        height: 3.5rem;
+        width: 3rem;
+        height: 3rem;
+        @include screen(tab-port) {
+          top: 1rem;
+          width: 3.5rem;
+          height: 3.5rem;
+        }
       }
     }
   }
 
   &__textblock {
+    margin-top: $margin-m;
     @include screen(tab-port) {
       columns: 2 auto;
       column-gap: $column-gap;

@@ -1,7 +1,10 @@
 .intro {
   margin-top: $margin-xl;
   &__text {
-    font-size: 2.5rem;
+    font-size: 2rem;
     font-weight: 600;
+    @include screen(tab-port) {
+      font-size: 2.5rem;
+    }
   }
 }
