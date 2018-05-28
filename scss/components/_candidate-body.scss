@@ -5,37 +5,62 @@ $column-gap: 5rem;
 
   &__search {
     background: $col-cdh;
-    width: 100%;
-    border-radius: 3rem;
+    border-radius: $brad-m;
     padding: $padding-m;
+    width: 100%;
     @include screen(tab-port) {
-      background: $col-cdh;
-      width: calc(50% - #{$column-gap} / 2);
-      border-radius: 3rem;
       padding: $padding-l;
+      width: calc(50% - #{$column-gap} / 2);
     }
 
     &__header {
       color: $col-white;
       font-size: 2.5rem;
-      text-align: center;
       margin-bottom: $margin-m;
+      text-align: center;
     }
   }
+
   &__resume {
+    background-color: $col-light-grey;
+    border-radius: $brad-m;
+    padding: $padding-l;
+    width: calc(50% - #{$column-gap} / 2);
+
+    &__item {
+      padding: $padding-m 0 $padding-m $padding-l;
+
+      &:not(:last-of-type) {
+        border-bottom: 2px dotted $col-black;
+      }
+
+      &:before {
+        content: "";
+        position: absolute;
+        background: url(../assets/img/icon-bullet.svg) center center no-repeat;
+        background-size: contain;
+        top: 1rem;
+        left: 0;
+        width: 3.5rem;
+        height: 3.5rem;
+      }
+    }
   }
+
   &__textblock {
     @include screen(tab-port) {
       columns: 2 auto;
       column-gap: $column-gap;
     }
   }
+
   &__header {
     font-size: 2.5rem;
     &:not(:first-of-type) {
       margin-top: $margin-xl;
     }
   }
+
   &__text {
     font-size: 1.6rem;
     margin-top: $margin-s;
