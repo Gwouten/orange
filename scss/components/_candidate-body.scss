@@ -5,9 +5,15 @@ $column-gap: 5rem;
 
   &__search {
     background: $col-cdh;
-    width: calc(50% - #{$column-gap} / 2);
+    width: 100%;
     border-radius: 3rem;
-    padding: $padding-l;
+    padding: $padding-m;
+    @include screen(tab-port) {
+      background: $col-cdh;
+      width: calc(50% - #{$column-gap} / 2);
+      border-radius: 3rem;
+      padding: $padding-l;
+    }
 
     &__header {
       color: $col-white;
@@ -19,8 +25,10 @@ $column-gap: 5rem;
   &__resume {
   }
   &__textblock {
-    columns: 2 auto;
-    column-gap: $column-gap;
+    @include screen(tab-port) {
+      columns: 2 auto;
+      column-gap: $column-gap;
+    }
   }
   &__header {
     font-size: 2.5rem;
