@@ -109,6 +109,11 @@
     }
   }
 
+  &__icon {
+    width: 1.6rem;
+    height: 1.6rem;
+  }
+
   &__link:link,
   &__link:active,
   &__link:visited {
@@ -124,11 +129,5 @@
   &__link--social:active,
   &__link--social:visited {
     padding: 0.7rem 1rem 0.9rem;
-  }
-
-  svg {
-    fill: $col-white;
-    width: 1.6rem;
-    height: 1.6rem;
   }
 }

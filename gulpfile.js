@@ -9,6 +9,7 @@ const imageminGuetzli = require("imagemin-guetzli");
 const babel = require("gulp-babel");
 const uglify = require("gulp-uglify");
 const svgSprite = require("gulp-svg-sprite");
+const gzip = require("gulp-gzip");
 
 gulp.task("sass", function() {
   return gulp
@@ -21,6 +22,8 @@ gulp.task("sass", function() {
     .pipe(autoprefix())
     .pipe(cleanCSS())
     .pipe(gulp.dest("css"))
+    .pipe(gzip())
+    .pipe(gulp.dest("css"))
     .pipe(
       browserSync.reload({
         stream: true
@@ -29,7 +32,6 @@ gulp.task("sass", function() {
 });
 
 gulp.task("babel", function() {
-  console.log("babelling");
   return gulp
     .src("src/js/*.js")
     .pipe(
@@ -41,6 +43,9 @@ gulp.task("babel", function() {
       console.log(error.toString());
       this.emit("end");
     })
+    .pipe(uglify())
+    .pipe(gulp.dest("js"))
+    .pipe(gzip())
     .pipe(gulp.dest("js"))
     .pipe(
       browserSync.reload({
@@ -69,19 +74,24 @@ gulp.task("imagemin", ["guetzli"], function() {
   gulp
     .src("assets/img/**/*.{gif,svg,mp4}")
     .pipe(imagemin())
-    .pipe(gulp.dest("img"));
+    .on("error", function(error) {
+      console.log(error.toString());
+      this.emit("end");
+    })
+    .pipe(gulp.dest("dist/assets/img"));
 });
 
 gulp.task("guetzli", function() {
   gulp
     .src("assets/img/**/*.{jpg, png}")
     .pipe(imagemin([imageminGuetzli()]))
-    .pipe(gulp.dest("img"));
+    .pipe(gulp.dest("dist/assets/img"));
 });
 
 gulp.task("package", ["sass", "babel", "imagemin"], function() {
-  gulp.src("css/*.css").pipe(gulp.dest("dist/css"));
-  gulp.src("js/*.js").pipe(gulp.dest("dist/js"));
+  gulp.src("css/*.{css,gz}").pipe(gulp.dest("dist/css"));
+  gulp.src("js/*.{js,gz}").pipe(gulp.dest("dist/js"));
   gulp.src("font").pipe(gulp.dest("dist/font"));
-  gulp.src("**/*.{html,php,ico}").pipe(gulp.dest("dist"));
+  gulp.src("*.{html,php}").pipe(gulp.dest("dist"));
+  gulp.src("favicons").pipe(gulp.dest("dist/favicons"));
 });

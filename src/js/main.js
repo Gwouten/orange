@@ -8,7 +8,7 @@ header.onreadystatechange = function() {
     document.querySelector(".header").innerHTML = this.responseText;
   }
 };
-header.open("GET", "../header.html", true);
+header.open("GET", "header.html", true);
 header.send();
 
 // Footer
@@ -18,13 +18,12 @@ footer.onreadystatechange = function() {
     document.querySelector(".footer").innerHTML = this.responseText;
   }
 };
-footer.open("GET", "../footer.html", true);
+footer.open("GET", "footer.html", true);
 footer.send();
 
 // End import header and footer
 
 // Rotate slogan
-
 const phrases = ["des communes", "des provinces"];
 const headline = new RotateSlogan(phrases, "rw", 6000);
 
@@ -112,13 +111,15 @@ if (inputCandidates !== null) {
     });
   };
 
-  const flattenArray = function flattenArray(accumulator, currentValue) {
+  const flattenArray = function(accumulator, currentValue) {
     return accumulator.concat(currentValue);
   };
 
   const fullList = inputCandidatesList
     .map(function(item) {
-      return Object.values(item).reduce(flattenArray, []);
+      return Object.keys(item)
+        .map(e => item[e])
+        .reduce(flattenArray, []);
     })
     .reduce(flattenArray);
 
