@@ -26,6 +26,19 @@
   }
 }
 
+@supports (display: flex) {
+  .u-section-split {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10rem;
+
+    & > * {
+      float: none;
+    }
+  }
+}
+
 .u-align-right {
   text-align: center !important;
   @include screen(tab-port) {
