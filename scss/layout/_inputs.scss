@@ -22,5 +22,10 @@
     padding: 1rem;
     text-align: center;
     width: 100%;
+    &::-ms-clear {
+      display: none;
+      width: 0;
+      height: 0;
+    }
   }
 }

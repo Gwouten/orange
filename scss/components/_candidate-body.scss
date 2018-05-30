@@ -10,7 +10,7 @@ $column-gap: 5rem;
     width: 100%;
     z-index: 1;
     @include screen(tab-port) {
-      float: left;
+      // float: left;
       margin-bottom: $margin-l;
       padding: $padding-l;
       width: calc(50% - #{$column-gap} / 2);
@@ -32,8 +32,8 @@ $column-gap: 5rem;
     margin-top: $margin-m;
     z-index: 1;
     @include screen(tab-port) {
-      float: right;
-      margin: 0 0 $margin-m $margin-l;
+      // float: right;
+      // margin: 0 0 $margin-m $margin-l;
       padding: $padding-l;
       width: calc(50% - #{$column-gap} / 2);
     }
@@ -67,7 +67,7 @@ $column-gap: 5rem;
   &__textblock {
     margin-top: $margin-m;
     @include screen(tab-port) {
-      column-gap: $column-gap;
+      width: 50%;
     }
   }
 

@@ -9,7 +9,20 @@
   padding: 0 3rem;
 
   @include screen(tab-port) {
-    padding: 0 5rem;
+    padding: 0 10rem;
+  }
+}
+
+.u-section-split {
+  @include clearfix;
+  margin-bottom: 10rem;
+
+  & > :first-child {
+    float: left;
+  }
+
+  & > :last-child {
+    float: right;
   }
 }
 
