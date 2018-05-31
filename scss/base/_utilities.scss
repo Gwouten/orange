@@ -15,7 +15,7 @@
 
 .u-section-split {
   @include clearfix;
-  margin-bottom: 10rem;
+  margin-bottom: 5rem;
 
   & > :first-child {
     float: left;
@@ -31,10 +31,10 @@
     align-items: center;
     display: flex;
     justify-content: space-between;
-    margin-bottom: 10rem;
+    margin-bottom: 5rem;
 
     & > * {
-      float: none;
+      float: none !important;
     }
   }
 }
