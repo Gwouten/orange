@@ -61,9 +61,11 @@
 
   &__wrapper {
     height: 0;
-    position: relative;
+    position: absolute;
     z-index: 999;
+    top: 0;
     @include screen(tab-port) {
+      position: relative;
       height: auto;
     }
   }
@@ -141,7 +143,7 @@
     }
 
     &--mobile {
-      position: absolute;
+      // position: absolute;
       background-color: $col-white;
       box-shadow: $shadow-regular;
       padding: 1rem 18rem 1rem 1rem;

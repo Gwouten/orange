@@ -1,0 +1,9 @@
+.result-body {
+  margin-top: $margin-m;
+  @include screen(tab-port) {
+    margin-top: $margin-xl;
+  }
+  &__header {
+    color: $col-grey;
+  }
+}

@@ -20,6 +20,33 @@
     }
   }
 
+  &--narrow {
+    margin-top: 0rem;
+    height: 10rem;
+    .two-col-skew__skewed--cdh {
+      background-position-x: -10rem;
+      @include screen(tab-port) {
+        background-size: 110%;
+        background-position-x: 0;
+      }
+    }
+    .two-col-skew__skewed:first-of-type {
+      width: 100%;
+      @include screen(tab-port) {
+        width: 70%;
+      }
+    }
+    .two-col-skew__skewed:last-of-type {
+      width: 100%;
+      @include screen(tab-port) {
+        width: 30%;
+      }
+    }
+    .two-col-skew__skewed--cdh__header {
+      margin: 0;
+    }
+  }
+
   &__inner {
     width: 110%;
     transform: translateX(-5%);

@@ -6,6 +6,7 @@
   box-sizing: inherit;
   position: relative;
   -webkit-font-smoothing: subpixel-antialiased;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 *:focus {
@@ -26,7 +27,7 @@ body {
 
 main {
   overflow-x: hidden;
-  padding-top: 6rem;
+  padding-top: 7.5rem;
   @include screen(tab-port) {
     padding-top: 0;
   }

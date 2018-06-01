@@ -3,6 +3,17 @@ $column-gap: 5rem;
 .candidate-body {
   margin-top: $margin-xl;
 
+  & > * {
+    @include screen(phone) {
+      margin: $margin-m 0;
+    }
+    & > * {
+      @include screen(phone) {
+        margin: $margin-m 0;
+      }
+    }
+  }
+
   &__search {
     background: $col-cdh;
     border-radius: $brad-m;
@@ -11,7 +22,7 @@ $column-gap: 5rem;
     z-index: 1;
     @include screen(tab-port) {
       padding: $padding-l;
-      width: calc(50% - #{$column-gap} / 2);
+      width: 50%;
     }
 
     &__header {
@@ -33,7 +44,7 @@ $column-gap: 5rem;
       // float: right;
       // margin: 0 0 $margin-m $margin-l;
       padding: $padding-l;
-      width: calc(50% - #{$column-gap} / 2);
+      width: 50%;
     }
     &__item {
       padding: $padding-s 0 $padding-s $padding-l;

@@ -11,6 +11,11 @@
   @include screen(tab-port) {
     padding: 0 10rem;
   }
+
+  &--followed-by-quote {
+    margin-left: auto;
+    margin-right: 0;
+  }
 }
 
 .u-section-split {
@@ -18,11 +23,15 @@
   margin-bottom: 5rem;
 
   & > :first-child {
-    float: left;
+    @include screen(tab-port) {
+      float: left;
+    }
   }
 
   & > :last-child {
-    float: right;
+    @include screen(tab-port) {
+      float: right;
+    }
   }
 }
 
@@ -32,6 +41,10 @@
     display: flex;
     justify-content: space-between;
     margin-bottom: 5rem;
+    flex-direction: column;
+    @include screen(tab-port) {
+      flex-direction: row;
+    }
 
     & > * {
       float: none !important;
