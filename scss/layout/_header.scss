@@ -143,13 +143,15 @@
     }
 
     &--mobile {
-      // position: absolute;
+      display: block;
       background-color: $col-white;
       box-shadow: $shadow-regular;
       padding: 1rem 18rem 1rem 1rem;
       width: 100%;
       margin-top: -1rem;
       max-height: 8rem;
+      z-index: 1;
+      outline: 1px solid red;
       @include screen(tab-port) {
         display: none;
       }
