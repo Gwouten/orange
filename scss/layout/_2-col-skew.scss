@@ -24,6 +24,13 @@
     }
   }
 
+  &--large {
+    height: 36rem;
+    @include screen(tab-port) {
+      height: 40rem;
+    }
+  }
+
   &--narrow {
     margin-top: 0rem;
     height: 10rem;
@@ -94,7 +101,15 @@
         @include screen(tab-port) {
           left: 3rem;
           bottom: 2rem;
-          transform: translateX(0);
+          transform: translateX(0) skewX($anti-skew);
+          width: 70%;
+        }
+      }
+
+      &__wrapper-candidate {
+        @include screen(tab-port) {
+          left: calc(10% + 5rem);
+          transform: translate(0, -50%) skewX($anti-skew);
           width: 70%;
         }
       }
@@ -109,16 +124,17 @@
         }
 
         &--commune {
+          bottom: 0;
           font-size: 6rem;
+          margin: 0;
+          position: absolute;
           text-align: left;
           width: 100%;
-          margin: 0;
-          bottom: 0;
-          position: absolute;
         }
 
         &--firstname {
           display: block;
+          font-size: 2.5rem;
         }
       }
 
@@ -131,6 +147,24 @@
         @include screen(tab-port) {
           margin-bottom: 1rem;
           text-align: left;
+        }
+      }
+
+      &__quote {
+        color: $col-black;
+        font-size: 2rem;
+        font-weight: 600;
+        line-height: 1.2;
+        margin-top: $margin-l;
+        padding-left: 4rem;
+        text-align: left;
+
+        &:before {
+          content: "“";
+          position: absolute;
+          top: -1.4rem;
+          left: 0;
+          font-size: 10rem;
         }
       }
     }

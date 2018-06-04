@@ -28,6 +28,10 @@
       font-size: 1.6rem;
     }
 
+    &--no-arrow {
+      padding-left: 0;
+    }
+
     &:first-of-type {
       @include screen(tab-port) {
         padding-left: 5rem;

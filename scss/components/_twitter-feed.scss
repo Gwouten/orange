@@ -4,6 +4,12 @@
     width: 50%;
   }
 
+  .candidate-body__propositions > & {
+    @include screen(tab-port) {
+      width: 100%;
+    }
+  }
+
   &__wrapper {
     box-shadow: $shadow-regular;
     width: 100%;

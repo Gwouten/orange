@@ -14,6 +14,24 @@ $column-gap: 5rem;
     }
   }
 
+  &__propositions {
+    width: calc(50% - 2.5rem);
+  }
+
+  &__overview {
+    width: calc(50% - 2.5rem);
+
+    &__header {
+      color: $col-primary;
+      font-style: normal;
+      margin-bottom: $margin-m;
+    }
+
+    &__text {
+      margin-bottom: $margin-m;
+    }
+  }
+
   &__search {
     background: $col-cdh;
     border-radius: $brad-m;
@@ -69,6 +87,13 @@ $column-gap: 5rem;
           width: 3.5rem;
           height: 3.5rem;
         }
+      }
+    }
+
+    .candidate-body__propositions & {
+      @include screen(tab-port) {
+        width: 100%;
+        margin: 0 0 $margin-l 0;
       }
     }
   }
