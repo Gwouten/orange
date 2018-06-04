@@ -28,10 +28,6 @@
       font-size: 1.6rem;
     }
 
-    &--no-arrow {
-      padding-left: 0;
-    }
-
     &:first-of-type {
       @include screen(tab-port) {
         padding-left: 5rem;
@@ -60,6 +56,20 @@
           transform: translate(1rem, -50%) rotate(-100grad);
         }
       }
+    }
+
+    &--no-arrow:first-of-type {
+      @include screen(tab-port) {
+        padding-left: 0;
+      }
+
+      &:before {
+        display: none;
+      }
+    }
+
+    &--align-left {
+      text-align: left;
     }
 
     &:nth-of-type(3) {
