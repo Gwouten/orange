@@ -5,6 +5,10 @@
     height: 26rem;
   }
 
+  & + .two-col-skew {
+    margin-top: $margin-m;
+  }
+
   &--anti {
     @include anti-skew-center;
     width: 80%;
@@ -111,6 +115,10 @@
           margin: 0;
           bottom: 0;
           position: absolute;
+        }
+
+        &--firstname {
+          display: block;
         }
       }
 
