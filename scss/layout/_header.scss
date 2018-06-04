@@ -151,7 +151,6 @@
       margin-top: -1rem;
       max-height: 8rem;
       z-index: 1;
-      outline: 1px solid red;
       @include screen(tab-port) {
         display: none;
       }

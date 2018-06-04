@@ -20,9 +20,12 @@ html {
 body {
   box-sizing: border-box;
   font-family: "Open Sans", sans-serif;
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   line-height: 1.5;
   font-family: $font-nav;
+  @include screen(tab-port) {
+    font-size: 1.4rem;
+  }
 }
 
 main {
@@ -35,6 +38,7 @@ main {
 
 a {
   text-decoration: none;
+  color: currentColor;
 }
 ul {
   list-style: none;

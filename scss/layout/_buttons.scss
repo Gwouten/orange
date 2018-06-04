@@ -28,6 +28,7 @@
 
   &--discover {
     float: none;
+    display: inline-block;
     @include screen(tab-port) {
       float: right;
     }
