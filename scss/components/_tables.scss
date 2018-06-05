@@ -24,8 +24,13 @@
     padding: 1rem 0;
     width: 25%;
     font-size: 1.3rem;
+    vertical-align: top;
     @include screen(tab-port) {
       font-size: 1.6rem;
+    }
+
+    &__header {
+      display: block;
     }
 
     &:first-of-type {
