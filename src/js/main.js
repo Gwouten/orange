@@ -31,7 +31,7 @@ headline.rotatePhrases();
 // End rotate slogan
 
 // Siema slider
-if (document.querySelector(".siema") !== null) {
+if (document.querySelector(".projects") !== null) {
   const communesSlider = new Siema({
     duration: 1000,
     easing: "ease-in-out",
@@ -43,7 +43,7 @@ if (document.querySelector(".siema") !== null) {
     loop: true
   });
 
-  const carousel = document.querySelector(".carousel");
+  const carousel = document.querySelector(".projects");
   const carouselPrev = document.querySelector(".carousel__prev");
   const carouselNext = document.querySelector(".carousel__next");
   let autoSlide = setInterval(function() {
@@ -126,3 +126,37 @@ if (inputCandidates !== null) {
   candidates(fullList);
 }
 // End awesomplete
+
+// Youtube videos
+
+const youtube = document.querySelectorAll(".youtube");
+
+youtube.forEach(video => {
+  const source = `https://img.youtube.com/vi/${
+    video.dataset.embed
+  }/sddefault.jpg`;
+
+  // Load thumbnails
+  const image = new Image();
+
+  image.src = source;
+  image.addEventListener("load", () => {
+    video.appendChild(image);
+  });
+
+  video.addEventListener("click", function() {
+    const iframe = document.createElement("iframe");
+
+    iframe.setAttribute("frameborder", "0");
+    iframe.setAttribute("allowfullscreen", "0");
+    iframe.setAttribute(
+      "src",
+      `https://www.youtube.com/embed/${
+        video.dataset.embed
+      }?rel=0&showinfo=0&autoplay=1`
+    );
+
+    this.innerHTML = "";
+    this.appendChild(iframe);
+  });
+});

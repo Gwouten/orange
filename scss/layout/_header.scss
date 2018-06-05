@@ -2,10 +2,11 @@
   font-family: $font-nav;
   font-style: italic;
   font-weight: 600;
-  padding: $padding-s 0;
+  padding: 0;
   width: 100%;
   z-index: 10;
   position: fixed;
+  height: 7.5rem;
 
   @include screen(tab-port) {
     height: auto;
@@ -29,6 +30,7 @@
     &:checked ~ .header__wrapper {
       height: 100vh;
       overflow: auto;
+      z-index: 999;
     }
 
     &:checked ~ .header__wrapper .header__logo,
@@ -62,7 +64,7 @@
   &__wrapper {
     height: 0;
     position: absolute;
-    z-index: 999;
+    z-index: 1;
     top: 0;
     @include screen(tab-port) {
       position: relative;
@@ -123,7 +125,7 @@
     padding: 0;
     transform: scale(0.5);
     transition: transform 0.5s 0.5s, background-color 0.5s 0.5s;
-    z-index: 999;
+    z-index: 998;
   }
 
   &__logo {
@@ -143,16 +145,18 @@
     }
 
     &--mobile {
-      display: block;
       background-color: $col-white;
       box-shadow: $shadow-regular;
-      padding: 1rem 18rem 1rem 1rem;
-      width: 100%;
-      margin-top: -1rem;
-      max-height: 8rem;
-      z-index: 1;
+      display: block;
+      height: 100%;
+      z-index: 900;
       @include screen(tab-port) {
         display: none;
+      }
+
+      &__image {
+        height: 100%;
+        padding: 1rem 2rem;
       }
     }
   }

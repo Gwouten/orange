@@ -1,82 +1,78 @@
-$sidebarHeight: 3rem;
-$slideMargin: 1rem;
-
 .videos {
-  @include clearfix;
-  overflow: hidden;
+  display: flex;
+  flex-wrap: wrap;
+
+  &__header {
+    width: 100%;
+  }
 
   &__slide {
-    color: $col-grey;
-    width: calc(20% - #{$slideMargin});
-    float: left;
-    padding-right: $sidebarHeight;
-
-    &:not(:last-of-type) {
-      margin-right: $slideMargin;
-    }
+    // outline: 1px solid red;
+    height: 50vw;
+    padding: 1rem;
+    width: 50vw;
 
     &:after {
-      content: "";
       position: absolute;
       top: 0;
-      right: 0;
-      height: $sidebarHeight;
-      color: $col-white;
-      font-family: $font-nav;
-      font-weight: 600;
-      font-style: italic;
-      width: 18.3rem;
-      text-transform: uppercase;
+      left: 0;
       text-align: center;
-      font-size: 2.2rem;
-      transform: rotate(-90deg) translateX(3rem);
-      transform-origin: bottom right;
-    }
-
-    &:before {
-      content: "";
-      width: 3.8rem;
-      height: 3.8rem;
-      @include center;
-      z-index: 5;
+      color: $col-white;
+      width: calc(50vw - 2rem);
+      transform-origin: top right;
+      transform: translate(-1.3rem, 1rem) rotate(300grad);
+      height: 2.4rem;
+      padding-top: 0.3rem;
+      font-size: 1.4rem;
     }
 
     &--rencontre {
       &:after {
-        content: "rencontre";
+        content: "Rencontre";
         background-color: $col-secondary;
       }
-      &:before {
-        background: url("../assets/img/play-orange.svg");
-        pointer-events: none;
+
+      & .videos__placeholder-image {
+        &:before {
+          background: url(../assets/img/play-orange.svg);
+        }
       }
     }
 
     &--tutorial {
       &:after {
-        content: "tutorial";
+        content: "Tutorial";
         background-color: $col-primary;
       }
-      &:before {
-        background: url("../assets/img/play-yellow.svg");
+
+      & .videos__placeholder-image {
+        &:before {
+          background: url(../assets/img/play-yellow.svg);
+        }
       }
     }
   }
 
-  &__link {
-    color: inherit;
-  }
+  .videos__placeholder-image {
+    &:before {
+      content: "";
+      background-size: contain;
+      @include center;
+      width: 4rem;
+      height: 4rem;
+      z-index: 1;
+    }
 
-  &__placeholder-image {
-    width: 100%;
-    height: auto;
+    & > img {
+      width: 100%;
+    }
   }
 
   &__text {
     font-family: $font-nav;
     font-weight: 600;
-    font-style: italic;
-    color: inherit;
-    text-align: center;
+    line-height: 1.2;
+    font-size: 1.4rem;
+    padding-right: 3rem;
   }
 }

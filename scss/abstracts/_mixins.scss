@@ -44,7 +44,7 @@ Base > typography > general layout + grid > page layout > components
     } // 600px/16 = 37.5em NOT rem
   }
   @if $breakpoint == tab-port {
-    @media only screen and (min-width: 56.25em) {
+    @media only screen and (min-width: 59em) {
       @content;
     }
   }
