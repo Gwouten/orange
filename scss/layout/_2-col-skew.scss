@@ -25,7 +25,7 @@
   }
 
   &--large {
-    height: 36rem;
+    height: 55rem;
     @include screen(tab-port) {
       height: 40rem;
     }
@@ -58,6 +58,23 @@
     }
   }
 
+  &--commune {
+    @include screen(phone) {
+      height: 39rem;
+    }
+
+    .two-col-skew__skewed--image {
+      @include screen(phone) {
+        height: 29rem;
+      }
+    }
+    .two-col-skew__skewed--cdh {
+      @include screen(phone) {
+        height: 10rem;
+      }
+    }
+  }
+
   &__inner {
     width: 110%;
     transform: translateX(-5%);
@@ -81,6 +98,12 @@
       text-align: center;
     }
 
+    &--commune {
+      @include screen(phone) {
+        height: 10rem;
+      }
+    }
+
     &--cdh {
       background: $col-cdh;
       color: $col-white;
@@ -98,6 +121,9 @@
       }
 
       &__wrapper-commune {
+        left: 5%;
+        transform: translate(0, -50%) skewX($anti-skew);
+        width: 100vw;
         @include screen(tab-port) {
           left: 3rem;
           bottom: 2rem;
@@ -115,33 +141,44 @@
       }
 
       &__header {
-        margin-bottom: $margin-m;
+        margin-top: 0;
+        margin-bottom: $margin-s;
         font-size: 2.6rem;
         text-align: center;
         @include screen(tab-port) {
           font-size: 4rem;
+          margin-bottom: $margin-m;
           text-align: left;
         }
 
         &--commune {
           bottom: 0;
-          font-size: 6rem;
-          margin: 0;
-          position: absolute;
-          text-align: left;
-          width: 100%;
+          font-size: 3rem;
+          width: 100vw;
+          @include screen(tab-port) {
+            font-size: 6rem;
+            margin: 0;
+            position: absolute;
+            text-align: left;
+            width: 100%;
+          }
         }
 
         &--firstname {
           display: block;
-          font-size: 2.5rem;
+          font-size: 2rem;
+          margin-bottom: $margin-s;
+          @include screen(tab-port) {
+            font-size: 2.5rem;
+            margin-bottom: $margin-m;
+          }
         }
       }
 
       &__subheader {
         text-align: center;
         font-family: $font-nav;
-        font-size: 2rem;
+        font-size: 1.8rem;
         font-weight: 600;
         margin-bottom: 2rem;
         @include screen(tab-port) {
@@ -152,19 +189,26 @@
 
       &__quote {
         color: $col-black;
-        font-size: 2rem;
         font-weight: 600;
         line-height: 1.2;
-        margin-top: $margin-l;
-        padding-left: 4rem;
+        padding-left: 3rem;
         text-align: left;
-
+        margin-top: $margin-m;
+        @include screen(tab-port) {
+          font-size: 2rem;
+          margin-top: $margin-l;
+          padding-left: 4rem;
+        }
         &:before {
           content: "“";
           position: absolute;
-          top: -1.4rem;
+          top: -1rem;
           left: 0;
-          font-size: 10rem;
+          font-size: 7rem;
+          @include screen(tab-port) {
+            top: -1.4rem;
+            font-size: 10rem;
+          }
         }
       }
     }

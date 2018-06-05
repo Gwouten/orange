@@ -34,10 +34,10 @@
     }
 
     &:first-of-type {
+      font-weight: 600;
+      text-align: left;
       @include screen(tab-port) {
         padding-left: 5rem;
-        text-align: left;
-        font-weight: 600;
       }
 
       &:before {

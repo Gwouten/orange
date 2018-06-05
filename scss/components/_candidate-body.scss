@@ -15,16 +15,26 @@ $column-gap: 5rem;
   }
 
   &__propositions {
-    width: calc(50% - 2.5rem);
+    width: 100%;
+    margin: 0;
+    @include screen(tab-port) {
+      width: calc(50% - 2.5rem);
+    }
   }
 
   &__overview {
-    width: calc(50% - 2.5rem);
-
+    width: 100%;
+    margin: 0;
+    @include screen(tab-port) {
+      width: calc(50% - 2.5rem);
+    }
     &__header {
       color: $col-primary;
       font-style: normal;
       margin-bottom: $margin-m;
+      @include screen(phone) {
+        font-size: 3rem;
+      }
     }
 
     &__text {
