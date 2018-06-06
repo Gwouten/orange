@@ -1,4 +1,4 @@
-"use strict";
+("use strict");
 
 // Import header and footer into pages
 // Header
@@ -129,34 +129,67 @@ if (inputCandidates !== null) {
 
 // Youtube videos
 
+// 2. This code loads the IFrame Player API code asynchronously.
+const tag = document.createElement("script");
+
+tag.src = "https://www.youtube.com/iframe_api";
+const firstScriptTag = document.getElementsByTagName("script")[0];
+firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+// 3. This function creates an <iframe> (and YouTube player)
+//    after the API code downloads.
 const youtube = document.querySelectorAll(".youtube");
-
-youtube.forEach(video => {
-  const source = `https://img.youtube.com/vi/${
-    video.dataset.embed
-  }/sddefault.jpg`;
-
-  // Load thumbnails
-  const image = new Image();
-
-  image.src = source;
-  image.addEventListener("load", () => {
-    video.appendChild(image);
+function onYouTubeIframeAPIReady() {
+  youtube.forEach(video => {
+    const id = video.dataset.id;
+    const player = new YT.Player(video, {
+      height: "450",
+      width: "800",
+      videoId: id,
+      playerVars: {
+        rel: 0
+      },
+      events: {
+        onReady: cuePlayer
+      }
+    });
   });
 
-  video.addEventListener("click", function() {
-    const iframe = document.createElement("iframe");
+  // player = new YT.Player(youtubeFrame, {
+  //   height: "390",
+  //   width: "640",
+  //   videoId: "GTHxIVoaAeY",
+  //   playerVars: {
+  //     modestbranding: 1,
+  //     fs: 0
+  //   },
+  //   events: {
+  //     onReady: cuePlayer,
+  //     onStateChange: onPlayerStateChange
+  //   }
+  // });
+}
 
-    iframe.setAttribute("frameborder", "0");
-    iframe.setAttribute("allowfullscreen", "0");
-    iframe.setAttribute(
-      "src",
-      `https://www.youtube.com/embed/${
-        video.dataset.embed
-      }?rel=0&showinfo=0&autoplay=1`
-    );
+// 4. The API will call this function when the video player is ready.
+// function onPlayerReady(event) {
+//   event.target.playVideo();
+// }
 
-    this.innerHTML = "";
-    this.appendChild(iframe);
-  });
-});
+function cuePlayer(e) {
+  const id = e.target.a.dataset.id;
+  e.target.cueVideoById(id);
+}
+
+// 5. The API calls this function when the player's state changes.
+//    The function indicates that when playing a video (state=1),
+//    the player should play for six seconds and then stop.
+let done = false;
+function onPlayerStateChange(event) {
+  if (event.data == YT.PlayerState.PLAYING && !done) {
+    setTimeout(stopVideo, 6000);
+    done = true;
+  }
+}
+function stopVideo() {
+  player.stopVideo();
+}

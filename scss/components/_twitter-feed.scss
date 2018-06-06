@@ -1,5 +1,8 @@
 .twitter-feed {
   width: 100%;
+  border-radius: $padding-m;
+  background-color: $col-light-grey;
+  padding: $padding-m;
   @include screen(tab-port) {
     width: 50%;
   }
@@ -11,6 +14,7 @@
   }
 
   &__wrapper {
+    background-color: $col-white;
     box-shadow: $shadow-regular;
     width: 100%;
     height: 20rem;
