@@ -1,0 +1,92 @@
+.video-box {
+  box-shadow: $shadow-regular;
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+  position: fixed;
+
+  &--active {
+    @include center;
+    opacity: 1;
+    pointer-events: all;
+    position: fixed;
+    width: 45%;
+    max-width: 72rem;
+    z-index: 100;
+
+    &:after {
+      content: "";
+      @include center;
+      background-color: rgba($col-black, 0.5);
+      height: 100vh;
+      width: 100vw;
+      z-index: -1;
+    }
+  }
+
+  &__close {
+    background: none;
+    border: none;
+    text-shadow: $shadow-regular;
+    color: $col-white;
+    cursor: pointer;
+    font-family: $font-nav;
+    font-size: 2rem;
+    padding: 0 1rem;
+    position: absolute;
+    right: -3rem;
+    z-index: 200;
+  }
+
+  &__video {
+    padding-top: 56.25%;
+    width: 100%;
+    background-color: $col-black;
+  }
+
+  &__controls {
+    background-color: $col-white;
+    padding: $padding-m;
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    height: 4rem;
+    margin-bottom: $margin-s;
+
+    &__title {
+      font-size: 3rem;
+      margin: 0;
+      align-self: center;
+    }
+
+    &__stats {
+      width: 10rem;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      height: 100%;
+
+      &__views {
+        font-size: 1.8rem;
+        width: 100%;
+        text-align: right;
+        height: 60%;
+      }
+
+      &__likes,
+      &__dislikes {
+        font-size: 1.4rem;
+        height: 40%;
+      }
+
+      .thumbs-up,
+      .thumbs-down {
+        width: 1.5rem;
+        height: auto;
+        transform: translateY(2px);
+      }
+    }
+  }
+}

@@ -129,67 +129,44 @@ if (inputCandidates !== null) {
 
 // Youtube videos
 
-// 2. This code loads the IFrame Player API code asynchronously.
-const tag = document.createElement("script");
+// Show/hide the popup
+const closeButton = document.querySelector(".video-box__close");
+closeButton.addEventListener("click", function(e) {
+  e.target.parentNode.classList.remove("video-box--active");
+});
 
-tag.src = "https://www.youtube.com/iframe_api";
-const firstScriptTag = document.getElementsByTagName("script")[0];
-firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+const videos = document.querySelectorAll(".youtube");
+const vidContainer = document.querySelector(".video-box");
 
-// 3. This function creates an <iframe> (and YouTube player)
-//    after the API code downloads.
-const youtube = document.querySelectorAll(".youtube");
-function onYouTubeIframeAPIReady() {
-  youtube.forEach(video => {
-    const id = video.dataset.id;
-    const player = new YT.Player(video, {
-      height: "450",
-      width: "800",
-      videoId: id,
-      playerVars: {
-        rel: 0
-      },
-      events: {
-        onReady: cuePlayer
-      }
-    });
+videos.forEach(video => {
+  // Get video thumbnail from Youtube
+  const id = video.search.slice(3);
+
+  const image = document.createElement("img");
+  image.setAttribute("src", `https://i.ytimg.com/vi/${id}/hqdefault.jpg`);
+
+  video.innerHTML = "";
+  video.appendChild(image);
+
+  // Open popup with video on click
+  video.addEventListener("click", e => {
+    e.preventDefault();
+    console.log("clicked");
+
+    // If element exists, remove it
+    const vidBox = document.querySelector(".video-box__video");
+    if (vidBox !== null) {
+      vidContainer.removeChild(vidBox);
+    }
+
+    // Create new element
+    const videoBox = document.createElement("div");
+    const vidBoxTemplate = `
+      
+    `;
+    videoBox.classList.add("video-box__video");
+    videoBox.innerHTLM = vidBoxTemplate;
+
+    vidContainer.appendChild(videoBox);
   });
-
-  // player = new YT.Player(youtubeFrame, {
-  //   height: "390",
-  //   width: "640",
-  //   videoId: "GTHxIVoaAeY",
-  //   playerVars: {
-  //     modestbranding: 1,
-  //     fs: 0
-  //   },
-  //   events: {
-  //     onReady: cuePlayer,
-  //     onStateChange: onPlayerStateChange
-  //   }
-  // });
-}
-
-// 4. The API will call this function when the video player is ready.
-// function onPlayerReady(event) {
-//   event.target.playVideo();
-// }
-
-function cuePlayer(e) {
-  const id = e.target.a.dataset.id;
-  e.target.cueVideoById(id);
-}
-
-// 5. The API calls this function when the player's state changes.
-//    The function indicates that when playing a video (state=1),
-//    the player should play for six seconds and then stop.
-let done = false;
-function onPlayerStateChange(event) {
-  if (event.data == YT.PlayerState.PLAYING && !done) {
-    setTimeout(stopVideo, 6000);
-    done = true;
-  }
-}
-function stopVideo() {
-  player.stopVideo();
-}
+});
