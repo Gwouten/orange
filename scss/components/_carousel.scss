@@ -6,7 +6,7 @@
     content: "";
     position: absolute;
     top: 0;
-    height: calc(100% - 2px);
+    height: 100%;
     width: 5rem;
     z-index: 1;
     @include screen(tab-port) {
@@ -59,7 +59,7 @@
   }
 
   &__slide {
-    margin: 0 1px 2px 1px;
+    margin: 0 1px;
     background-color: $col-grey;
     transform: skewX($skew);
 
@@ -85,5 +85,18 @@
 
   &__text {
     font-size: 2rem;
+  }
+
+  &--projects {
+    margin-bottom: 2px;
+  }
+
+  &--videos {
+    &:before {
+      display: none;
+    }
+    &:after {
+      display: none;
+    }
   }
 }

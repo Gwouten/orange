@@ -31,8 +31,7 @@ headline.rotatePhrases();
 // End rotate slogan
 
 // Siema slider
-function siema(element, autoplay) {
-  debugger;
+function siema(element, autoplay, draggable) {
   const sliderContainer = document.querySelector(".carousel");
 
   if (sliderContainer !== null) {
@@ -45,17 +44,24 @@ function siema(element, autoplay) {
         900: 3,
         1200: 4
       },
-      loop: true
+      loop: true,
+      draggable
     });
 
     // Create next/prev buttons
-    const nextButton = document.createElement("button");
-    nextButton.classList.add("btn", "btn--carousel", "carousel__next");
-    sliderContainer.appendChild(nextButton);
+    Siema.prototype.createButtons = function(e) {
+      console.log(e);
+      const nextButton = document.createElement("button");
+      nextButton.classList.add("btn", "btn--carousel", "carousel__next");
+      sliderContainer.appendChild(nextButton);
 
-    const prevButton = document.createElement("button");
-    prevButton.classList.add("btn", "btn--carousel", "carousel__prev");
-    sliderContainer.appendChild(prevButton);
+      const prevButton = document.createElement("button");
+      prevButton.classList.add("btn", "btn--carousel", "carousel__prev");
+      sliderContainer.appendChild(prevButton);
+    };
+
+    slider.createButtons();
+    window.addEventListener("resize", () => slider.createButtons());
 
     const carousel = document.querySelector(`.${element}`);
     const carouselPrev = document.querySelector(".carousel__prev");

@@ -149,15 +149,18 @@
 
 .video-list {
   &__header {
+    margin-bottom: $margin-s;
   }
-  &__item {
-  }
-}
 
-.youtube {
-  border: none;
-  display: inline-block;
-  // outline: 1px solid red;
-  padding-top: calc(55% / 5);
-  width: 20%;
+  &__list {
+  }
+
+  &__item {
+    margin: 0 0.5rem;
+
+    .youtube {
+      display: block;
+      padding-top: 55%;
+    }
+  }
 }
