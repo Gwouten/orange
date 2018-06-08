@@ -31,36 +31,54 @@ headline.rotatePhrases();
 // End rotate slogan
 
 // Siema slider
-if (document.querySelector(".projects") !== null) {
-  const communesSlider = new Siema({
-    duration: 1000,
-    easing: "ease-in-out",
-    perPage: {
-      600: 2,
-      900: 3,
-      1200: 4
-    },
-    loop: true
-  });
+function siema(element, autoplay) {
+  debugger;
+  const sliderContainer = document.querySelector(".carousel");
 
-  const carousel = document.querySelector(".projects");
-  const carouselPrev = document.querySelector(".carousel__prev");
-  const carouselNext = document.querySelector(".carousel__next");
-  let autoSlide = setInterval(function() {
-    communesSlider.next();
-  }, 5000);
+  if (sliderContainer !== null) {
+    const slider = new Siema({
+      selector: `.${element}`,
+      duration: 1000,
+      easing: "ease-in-out",
+      perPage: {
+        600: 2,
+        900: 3,
+        1200: 4
+      },
+      loop: true
+    });
 
-  carousel.addEventListener("mouseenter", () => clearInterval(autoSlide));
-  carousel.addEventListener(
-    "mouseleave",
-    () =>
-      (autoSlide = setInterval(function() {
-        communesSlider.next();
-      }, 5000))
-  );
+    // Create next/prev buttons
+    const nextButton = document.createElement("button");
+    nextButton.classList.add("btn", "btn--carousel", "carousel__next");
+    sliderContainer.appendChild(nextButton);
 
-  carouselPrev.addEventListener("click", () => communesSlider.prev());
-  carouselNext.addEventListener("click", () => communesSlider.next());
+    const prevButton = document.createElement("button");
+    prevButton.classList.add("btn", "btn--carousel", "carousel__prev");
+    sliderContainer.appendChild(prevButton);
+
+    const carousel = document.querySelector(`.${element}`);
+    const carouselPrev = document.querySelector(".carousel__prev");
+    const carouselNext = document.querySelector(".carousel__next");
+
+    if (autoplay) {
+      let autoSlide = setInterval(function() {
+        slider.next();
+      }, 5000);
+
+      carousel.addEventListener("mouseenter", () => clearInterval(autoSlide));
+      carousel.addEventListener(
+        "mouseleave",
+        () =>
+          (autoSlide = setInterval(function() {
+            slider.next();
+          }, 5000))
+      );
+    }
+
+    carouselPrev.addEventListener("click", () => slider.prev());
+    carouselNext.addEventListener("click", () => slider.next());
+  }
 }
 // End siema slider
 
