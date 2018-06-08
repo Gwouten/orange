@@ -1,27 +1,26 @@
 .video-box {
+  @include center;
+  animation: fade-in 0.5s 0.5s forwards;
   box-shadow: $shadow-regular;
+  max-width: 72rem;
   opacity: 0;
-  transition: opacity 0.3s;
-  pointer-events: none;
   position: fixed;
+  width: 45%;
+  transition: opacity 0.5s 0.5s;
+  z-index: 100;
 
-  &--active {
+  &:after {
+    content: "";
     @include center;
-    opacity: 1;
-    pointer-events: all;
-    position: fixed;
-    width: 45%;
-    max-width: 72rem;
-    z-index: 100;
+    background-color: rgba($col-black, 0.5);
+    height: 100vh;
+    width: 100vw;
+    z-index: -1;
+  }
 
-    &:after {
-      content: "";
-      @include center;
-      background-color: rgba($col-black, 0.5);
-      height: 100vh;
-      width: 100vw;
-      z-index: -1;
-    }
+  &--close {
+    animation: fade-out 0.5s 0.5s forwards;
+    opacity: 1;
   }
 
   &__close {
@@ -42,6 +41,14 @@
     padding-top: 56.25%;
     width: 100%;
     background-color: $col-black;
+
+    iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
   }
 
   &__controls {
@@ -81,12 +88,64 @@
         height: 40%;
       }
 
-      .thumbs-up,
-      .thumbs-down {
+      &__icon {
         width: 1.5rem;
         height: auto;
         transform: translateY(2px);
+
+        &--large {
+          width: 2rem;
+        }
       }
     }
   }
+
+  &__meta {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: $margin-m;
+    text-align: left;
+
+    &__share {
+      align-items: center;
+      display: flex;
+      justify-content: space-between;
+
+      &__button {
+        background-color: $col-grey;
+        color: $col-white;
+        display: block;
+        font-size: 1.2rem;
+        padding: 0rem 1rem 0.5rem 2rem;
+        height: 2rem;
+        border: 2px solid $col-white;
+        border-radius: 2px;
+
+        &--facebook {
+          background: url("../assets/img/icon-sprite-facebook.svg") no-repeat
+            $col-facebook;
+          background-size: contain;
+          border-color: $col-facebook;
+          margin-right: 1rem;
+        }
+
+        &--twitter {
+          background: url("../assets/img/icon-sprite-twitter.svg") no-repeat
+            $col-twitter;
+          background-size: contain;
+          border-color: $col-twitter;
+        }
+      }
+    }
+  }
+
+  &__description {
+    &__date {
+      font-weight: 600;
+      margin-bottom: $margin-s;
+    }
+  }
+}
+
+.video-list {
 }

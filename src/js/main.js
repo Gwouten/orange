@@ -129,44 +129,122 @@ if (inputCandidates !== null) {
 
 // Youtube videos
 
-// Show/hide the popup
-const closeButton = document.querySelector(".video-box__close");
-closeButton.addEventListener("click", function(e) {
-  e.target.parentNode.classList.remove("video-box--active");
-});
+// Working order: Load data from Youtube API => insert data in vidBoxTemplate => use template to render element on page
+
+const today = new Date();
+const dummy = {
+  viewCount: 4128,
+  likeCount: 1564,
+  dislikeCount: 54,
+  video: {
+    href: "https://www.youtube.com/watch?v=8JnfIa84TnU",
+    title: "Testing video"
+  },
+  date: `${today.getDate()}/${today.getMonth() + 1}/${today.getFullYear()}`
+};
+// Load data from Youtube
+const data = dummy;
 
 const videos = document.querySelectorAll(".youtube");
-const vidContainer = document.querySelector(".video-box");
+const mainEl = document.querySelector("main");
 
 videos.forEach(video => {
-  // Get video thumbnail from Youtube
-  const id = video.search.slice(3);
+  // Make list of video thumbnails from Youtube
+  let id = video.dataset.href.split("=");
+  id = id[id.length - 1];
+  console.dir(video);
+  video.style.backgroundImage = `https://i.ytimg.com/vi/${id}/hqdefault.jpg`;
+  // const image = document.createElement("img");
+  // image.setAttribute("src", `https://i.ytimg.com/vi/${id}/hqdefault.jpg`);
 
-  const image = document.createElement("img");
-  image.setAttribute("src", `https://i.ytimg.com/vi/${id}/hqdefault.jpg`);
-
-  video.innerHTML = "";
-  video.appendChild(image);
+  // video.innerHTML = "";
+  // video.appendChild(image);
 
   // Open popup with video on click
+  console.log(video.childNodes);
   video.addEventListener("click", e => {
-    e.preventDefault();
-    console.log("clicked");
-
     // If element exists, remove it
-    const vidBox = document.querySelector(".video-box__video");
+    const vidBox = document.querySelector(".video-box");
+    console.log(vidBox);
     if (vidBox !== null) {
-      vidContainer.removeChild(vidBox);
+      mainEl.removeChild(vidBox);
     }
 
-    // Create new element
-    const videoBox = document.createElement("div");
-    const vidBoxTemplate = `
-      
-    `;
-    videoBox.classList.add("video-box__video");
-    videoBox.innerHTLM = vidBoxTemplate;
+    createVidBox(id, data);
 
-    vidContainer.appendChild(videoBox);
+    // Add close button functionality
+    document
+      .querySelector(".video-box__close")
+      .addEventListener("click", function(e) {
+        console.log(vidBox);
+        document.querySelector(".video-box").classList.add("video-box--close");
+        setTimeout(function() {
+          mainEl.removeChild(document.querySelector(".video-box"));
+        }, 1000);
+      });
   });
 });
+
+const createVidBox = (id, data) => {
+  const vidBoxTemplate = `
+  <div class="video-box">
+  <!-- close button -->
+  <button class="video-box__close">X</button>
+  
+  <!-- video -->
+  <div class="video-box__video">
+    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/${id}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+  </div>
+  
+  <!-- controls -->
+  <div class="video-box__controls">
+  
+    <!-- header -->
+    <div class="video-box__header">
+      <h1 class="video-box__header__title">${data.video.title}</h1>
+      <div class="video-box__header__stats">
+        <h2 class="video-box__header__stats__views">
+          <img src="assets/img/views.svg" alt="" class="video-box__header__stats__icon video-box__header__stats__icon--large"> ${
+            data.viewCount
+          }
+        </h2>
+        <h6 class="video-box__header__stats__likes">
+          <img src="assets/img/thumbs-up.svg" alt="" class="video-box__header__stats__icon"> ${
+            data.likeCount
+          }
+        </h6>
+        <h6 class="video-box__header__stats__dislikes">
+          <img src="assets/img/thumbs-down.svg" alt="" class="video-box__header__stats__icon"> ${
+            data.dislikeCount
+          }
+        </h6>
+      </div>
+    </div>
+  
+    <!-- meta -->
+    <div class="video-box__meta">
+      <div class="g-ytsubscribe" data-channel="ocentre" data-layout="full" data-count="default"></div>
+      <div class="video-box__meta__share">
+        <a href="http://www.facebook.com/sharer.php?u=${
+          data.video.href
+        }" class="video-box__meta__share__button video-box__meta__share__button--facebook">Share on Facebook</a>
+        <a href="https://twitter.com/intent/tweet?text=${
+          data.video.title
+        }&url=${
+    data.video.href
+  }" class="video-box__meta__share__button video-box__meta__share__button--twitter">Share on Twitter</a>
+      </div>
+    </div>
+  
+    <!-- Description -->
+    <div class="video-box__description">
+      <p class="video-box__description__date">Ajoutée le ${data.date}
+      </p>
+      <p class="video-box__description__description">Et error perferendis omnis dolor ea. Earum dolores non tenetur. Cumque velit deserunt aut et rerum. Sequi nostrum
+        culpa eum ratione et architecto quo qui autem. Qui minus debitis.</p>
+    </div>
+  </div>
+  </div>
+  `;
+  mainEl.innerHTML += vidBoxTemplate;
+};
