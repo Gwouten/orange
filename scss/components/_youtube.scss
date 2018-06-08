@@ -19,7 +19,7 @@
   }
 
   &--close {
-    animation: fade-out 0.5s 0.5s forwards;
+    animation: fade-out 0.5s forwards;
     opacity: 1;
   }
 
@@ -148,4 +148,14 @@
 }
 
 .video-list {
+  &__item {
+  }
+}
+
+.youtube {
+  border: none;
+  display: inline-block;
+  // outline: 1px solid red;
+  padding-top: calc(55% / 5);
+  width: 20%;
 }

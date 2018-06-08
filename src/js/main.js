@@ -152,20 +152,13 @@ videos.forEach(video => {
   // Make list of video thumbnails from Youtube
   let id = video.dataset.href.split("=");
   id = id[id.length - 1];
-  console.dir(video);
-  video.style.backgroundImage = `https://i.ytimg.com/vi/${id}/hqdefault.jpg`;
-  // const image = document.createElement("img");
-  // image.setAttribute("src", `https://i.ytimg.com/vi/${id}/hqdefault.jpg`);
-
-  // video.innerHTML = "";
-  // video.appendChild(image);
+  video.style.background = `url(https://i.ytimg.com/vi/${id}/hqdefault.jpg) center center no-repeat`;
+  video.style.backgroundSize = "cover";
 
   // Open popup with video on click
-  console.log(video.childNodes);
   video.addEventListener("click", e => {
     // If element exists, remove it
     const vidBox = document.querySelector(".video-box");
-    console.log(vidBox);
     if (vidBox !== null) {
       mainEl.removeChild(vidBox);
     }
@@ -176,7 +169,6 @@ videos.forEach(video => {
     document
       .querySelector(".video-box__close")
       .addEventListener("click", function(e) {
-        console.log(vidBox);
         document.querySelector(".video-box").classList.add("video-box--close");
         setTimeout(function() {
           mainEl.removeChild(document.querySelector(".video-box"));
@@ -187,7 +179,6 @@ videos.forEach(video => {
 
 const createVidBox = (id, data) => {
   const vidBoxTemplate = `
-  <div class="video-box">
   <!-- close button -->
   <button class="video-box__close">X</button>
   
@@ -223,7 +214,7 @@ const createVidBox = (id, data) => {
   
     <!-- meta -->
     <div class="video-box__meta">
-      <div class="g-ytsubscribe" data-channel="ocentre" data-layout="full" data-count="default"></div>
+    <div class="video-box__meta__subscribe"></div>
       <div class="video-box__meta__share">
         <a href="http://www.facebook.com/sharer.php?u=${
           data.video.href
@@ -244,7 +235,19 @@ const createVidBox = (id, data) => {
         culpa eum ratione et architecto quo qui autem. Qui minus debitis.</p>
     </div>
   </div>
-  </div>
   `;
-  mainEl.innerHTML += vidBoxTemplate;
+  const filledOutTemplate = document.createElement("div");
+  filledOutTemplate.classList.add("video-box");
+  filledOutTemplate.innerHTML = vidBoxTemplate;
+  mainEl.appendChild(filledOutTemplate);
+
+  // Render Youtube subscribe button
+  const ytSubscribeContainer = document.querySelector(
+    ".video-box__meta__subscribe"
+  );
+  const ytSubscribeOptions = {
+    channel: "ocentre",
+    layout: "full"
+  };
+  gapi.ytsubscribe.render(ytSubscribeContainer, ytSubscribeOptions);
 };
