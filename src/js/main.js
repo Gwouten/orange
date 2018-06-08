@@ -166,14 +166,13 @@ videos.forEach(video => {
     createVidBox(id, data);
 
     // Add close button functionality
-    document
-      .querySelector(".video-box__close")
-      .addEventListener("click", function(e) {
-        document.querySelector(".video-box").classList.add("video-box--close");
-        setTimeout(function() {
-          mainEl.removeChild(document.querySelector(".video-box"));
-        }, 1000);
-      });
+    const closeTrigger = document.querySelector(".video-box");
+    closeTrigger.addEventListener("click", function(e) {
+      document.querySelector(".video-box").classList.add("video-box--close");
+      setTimeout(function() {
+        mainEl.removeChild(document.querySelector(".video-box"));
+      }, 1000);
+    });
   });
 });
 
