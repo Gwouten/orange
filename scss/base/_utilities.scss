@@ -54,6 +54,10 @@
     &--align-top {
       align-items: flex-start;
     }
+
+    &--no-bottom-margin {
+      margin-bottom: 0;
+    }
   }
 }
 

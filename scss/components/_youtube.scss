@@ -1,3 +1,45 @@
+%contains-iframe {
+  padding-top: 56.25%;
+  width: 100%;
+  background-color: $col-black;
+}
+
+%iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.video-hero {
+  background: linear-gradient(to right, $col-med-grey, $col-light-grey);
+  margin: $margin-m 0;
+  padding: $padding-m;
+
+  &__video-container {
+    @extend %contains-iframe;
+    width: 50%;
+    padding-top: calc(56.25% / 2);
+
+    iframe {
+      @extend %iframe;
+    }
+  }
+  &__info {
+    width: 50%;
+    padding: 0 2rem;
+  }
+  &__header {
+    font-size: 2.6rem;
+  }
+  &__date {
+    margin-bottom: $margin-s;
+  }
+  &__description {
+  }
+}
+
 .video-box {
   @include center;
   animation: fade-in 0.75s 0.1s forwards;
@@ -38,16 +80,10 @@
   }
 
   &__video {
-    padding-top: 56.25%;
-    width: 100%;
-    background-color: $col-black;
+    @extend %contains-iframe;
 
     iframe {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+      @extend %iframe;
     }
   }
 
