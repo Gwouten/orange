@@ -1,6 +1,6 @@
 .video-box {
   @include center;
-  animation: fade-in 0.5s 0.5s forwards;
+  animation: fade-in 0.75s 0.1s forwards;
   box-shadow: $shadow-regular;
   max-width: 72rem;
   opacity: 0;
@@ -105,6 +105,7 @@
     justify-content: space-between;
     margin-bottom: $margin-m;
     text-align: left;
+    min-height: 4.8rem;
 
     &__share {
       align-items: center;
@@ -161,6 +162,18 @@
     .youtube {
       display: block;
       padding-top: 55%;
+
+      &::before {
+        @include center;
+        content: "";
+        background: url(../assets/img/play-yellow.svg);
+        width: 5rem;
+        height: 5rem;
+
+        &:hover {
+          transform: scale(1.1);
+        }
+      }
     }
   }
 }
