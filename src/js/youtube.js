@@ -5,8 +5,7 @@
 // Load data from Youtube
 const yt_api_key = "AIzaSyAXUGrOIVhDVVhldzfuPfTha2TDdolKMQk";
 const videos = document.querySelectorAll(".youtube");
-console.log(videos.length);
-const mainEl = document.querySelector("main");
+const mainEl = document.querySelector(".yt-container");
 
 videos.forEach(video => {
   // Request data from Youtube
@@ -73,13 +72,12 @@ videos.forEach(video => {
       }
     }
   };
-  xhttp.open("GET", yt_endpoint, true);
+  xhttp.open("GET", yt_endpoint, false);
   xhttp.send();
 });
 
 const createVidBox = (data, publicationDate, videoUrl) => {
   data = data.items[0];
-  console.log(data);
   const vidBoxTemplate = `
   <!-- close button -->
   <button class="video-box__close">X</button>

@@ -45,6 +45,12 @@
   <meta property="og:locale:alternate" content="nl_be" />
   <meta property="og:locale:alternate" content="en_US" />
   <link rel="stylesheet" href="css/styles.css">
+  <script>
+    window.__gcfg = {
+      parseTags: "onload"
+    }
+  </script>
+  <script src="https://apis.google.com/js/platform.js"></script>
 </head>
 
 
@@ -55,7 +61,7 @@
 
   <header class="header"></header>
 
-  <main>
+  <main class="yt-container">
 
     <section class="two-col-skew candidates">
       <div class="two-col-skew__inner">
@@ -205,61 +211,46 @@
       </div>
     </div>
 
-    <div class="carousel-videos videos">
-      <h1 class="videos__header">Vidéos</h1>
-      <div class="videos__slide videos__slide--rencontre">
-        <a href="#" class="videos__link">
-          <div class="videos__placeholder-image">
-            <img src="./assets/img/5038585.jpg" alt="">
-          </div>
-          <p class="videos__text">Comment voter valablement?</p>
-        </a>
+    <section class="video-list">
+      <h3 class="video-list__header u-wrapper">
+        Vidéos
+      </h3>
+
+      <div class="carousel carousel--youtube video-list__list">
+        <div class="video-list__item">
+          <a class="youtube" data-href="https://www.youtube.com/watch?v=JNG51-02y-A"></a>
+        </div>
+        <div class="video-list__item">
+          <a class="youtube" data-href="https://www.youtube.com/watch?v=GTHxIVoaAeY"></a>
+        </div>
+        <div class="video-list__item">
+          <a class="youtube" data-href="https://www.youtube.com/watch?v=paD23GxxTDU"></a>
+        </div>
+        <div class="video-list__item">
+          <a class="youtube" data-href="https://www.youtube.com/watch?v=5G2OqLQ3vVY"></a>
+        </div>
+        <div class="video-list__item">
+          <a class="youtube" data-href="https://www.youtube.com/watch?v=vRk4bn32IV8"></a>
+        </div>
+        <div class="video-list__item">
+          <a class="youtube" data-href="https://www.youtube.com/watch?v=HKm-uV_tkvE"></a>
+        </div>
       </div>
-      <div class="videos__slide videos__slide--tutorial">
-        <a href="#" class="videos__link">
-          <div class="videos__placeholder-image">
-            <img src="./assets/img/5038585.jpg" alt="">
-          </div>
-          <p class="videos__text">Comment voter valablement?</p>
-        </a>
-      </div>
-      <div class="videos__slide videos__slide--rencontre">
-        <a href="#" class="videos__link">
-          <div class="videos__placeholder-image">
-            <img src="./assets/img/5038585.jpg" alt="">
-          </div>
-          <p class="videos__text">Comment voter valablement?</p>
-        </a>
-      </div>
-      <div class="videos__slide videos__slide--rencontre">
-        <a href="#" class="videos__link">
-          <div class="videos__placeholder-image">
-            <img src="./assets/img/5038585.jpg" alt="">
-          </div>
-          <p class="videos__text">Comment voter valablement?</p>
-        </a>
-      </div>
-      <div class="videos__slide videos__slide--tutorial">
-        <a href="#" class="videos__link">
-          <div class="videos__placeholder-image">
-            <img src="./assets/img/5038585.jpg" alt="">
-          </div>
-          <p class="videos__text">Comment voter valablement?</p>
-        </a>
-      </div>
-    </div>
+
+    </section>
 
   </main>
 
-  <footer class="footer">
-  </footer>
+  <footer class="footer"></footer>
 
   <script src="js/siema.min.js"></script>
   <script src="js/awesomplete.js"></script>
   <script src="js/functions.js"></script>
+  <script src="js/youtube.js"></script>
   <script src="js/main.js"></script>
   <script>
     siema("carousel--projects");
+    siema("carousel--youtube", false, false);
   </script>
 </body>
 

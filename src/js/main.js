@@ -36,7 +36,8 @@ headline.rotatePhrases();
 
 // Siema slider
 function siema(element, autoplay = true, draggable = true) {
-  const sliderContainer = document.querySelector(".carousel");
+  const sliderContainer = document.querySelector(`.${element}`);
+  console.log(sliderContainer.children.length);
 
   if (sliderContainer !== null) {
     const slider = new Siema({
@@ -53,29 +54,37 @@ function siema(element, autoplay = true, draggable = true) {
     });
 
     // Create next/prev buttons
-    Siema.prototype.createButtons = function() {
+    Siema.prototype.createButtons = function(element) {
       const nextButton = document.createElement("button");
-      nextButton.classList.add("btn", "btn--carousel", "carousel__next");
+      nextButton.classList.add(
+        "btn",
+        "btn--carousel",
+        "carousel__next",
+        `${element}__next`
+      );
       sliderContainer.appendChild(nextButton);
 
       const prevButton = document.createElement("button");
-      prevButton.classList.add("btn", "btn--carousel", "carousel__prev");
+      prevButton.classList.add(
+        "btn",
+        "btn--carousel",
+        "carousel__prev",
+        `${element}__prev`
+      );
       sliderContainer.appendChild(prevButton);
     };
 
     // Make buttons work
-    const carousel = document.querySelector(`.${element}`);
-
-    Siema.prototype.bindButtons = function() {
-      const carouselPrev = document.querySelector(".carousel__prev");
-      const carouselNext = document.querySelector(".carousel__next");
+    Siema.prototype.bindButtons = function(element) {
+      const carouselPrev = document.querySelector(`.${element}__prev`);
+      const carouselNext = document.querySelector(`.${element}__next`);
 
       carouselPrev.addEventListener("click", () => slider.prev());
       carouselNext.addEventListener("click", () => slider.next());
     };
 
-    slider.createButtons();
-    slider.bindButtons();
+    slider.createButtons(element);
+    slider.bindButtons(element);
     window.addEventListener("resize", () => {
       clearTimeout(timeout);
       timeout = setTimeout(() => {
@@ -89,8 +98,10 @@ function siema(element, autoplay = true, draggable = true) {
         slider.next();
       }, 5000);
 
-      carousel.addEventListener("mouseenter", () => clearInterval(autoSlide));
-      carousel.addEventListener(
+      sliderContainer.addEventListener("mouseenter", () =>
+        clearInterval(autoSlide)
+      );
+      sliderContainer.addEventListener(
         "mouseleave",
         () =>
           (autoSlide = setInterval(function() {

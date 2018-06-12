@@ -95,12 +95,17 @@
     margin-bottom: 2px;
   }
 
-  &--videos {
+  &--youtube {
     &:before {
       display: none;
     }
     &:after {
       display: none;
     }
+  }
+
+  &--videos {
+    height: 25rem;
+    margin-bottom: 2rem;
   }
 }

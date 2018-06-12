@@ -6,7 +6,7 @@
       $col-primary;
     background-size: 100%;
     border-radius: 1000px;
-    bottom: 10rem;
+    bottom: 8rem;
     box-shadow: 0 -0.5rem 1rem rgba($col-black, 0.7);
     cursor: pointer;
     display: block;
@@ -17,6 +17,9 @@
     transition: transform 0.2s;
     width: 4rem;
     z-index: 1000;
+    @include screen(tab-port) {
+      bottom: 10rem;
+    }
   }
 
   &__link:hover,

@@ -3,7 +3,7 @@ class RotateSlogan {
     (this.phrases = phrases),
       (this.container = document.querySelector(`#${container}`)),
       (this.timing = timing),
-      (this.interval = timing / 3 * 2),
+      (this.interval = (timing / 3) * 2),
       (this.cycles = 0),
       (this.numberPhrases = this.phrases.length - 1);
   }
@@ -31,7 +31,7 @@ class RotateSlogan {
 
 // Animated scrolling
 const scrollTo = function(to, duration) {
-  const element = document.scrollingElement || document.documentElement,
+  const element = document.scrollingElement /*|| document.documentElement*/,
     start = element.scrollTop,
     change = to - start,
     startDate = +new Date(),
@@ -41,9 +41,9 @@ const scrollTo = function(to, duration) {
     // d = duration
     easeInOutQuad = function(t, b, c, d) {
       t /= d / 2;
-      if (t < 1) return c / 2 * t * t + b;
+      if (t < 1) return (c / 2) * t * t + b;
       t--;
-      return -c / 2 * (t * (t - 2) - 1) + b;
+      return (-c / 2) * (t * (t - 2) - 1) + b;
     },
     animateScroll = function() {
       const currentDate = +new Date();
