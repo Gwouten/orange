@@ -4,13 +4,9 @@ $column-gap: 5rem;
   margin-top: $margin-xl;
 
   & > * {
-    @include screen(phone) {
-      margin: $margin-m 0;
-    }
+    margin: $margin-m 0;
     & > * {
-      @include screen(phone) {
-        margin: $margin-m 0;
-      }
+      margin: $margin-m 0;
     }
   }
 
