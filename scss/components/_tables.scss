@@ -38,6 +38,8 @@
       text-align: left;
       @include screen(tab-port) {
         padding-left: 5rem;
+        display: inline-block;
+        width: 100%;
       }
 
       &:before {
@@ -48,17 +50,19 @@
           content: "";
           background: url(../assets/img/arrow.svg) center 60% $col-primary;
           background-size: 90%;
+          backface-visibility: hidden;
+          border: 1px solid $col-white;
           left: 0;
-          width: 2.5rem;
-          height: 2.5rem;
-          transform: translate(0, -50%) rotate(-100grad);
+          width: 2rem;
+          height: 2rem;
+          transform: translate(0, -50%) translateZ(0) rotate(-100grad);
           border-radius: 1000px;
           transition: transform 0.2s;
         }
 
         .table__link:hover &,
         .table__link:focus & {
-          transform: translate(1rem, -50%) rotate(-100grad);
+          transform: translate(1rem, -50%) translateZ(0) rotate(-100grad);
         }
       }
     }

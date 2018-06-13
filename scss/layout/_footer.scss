@@ -39,5 +39,7 @@
 
   &__text {
     margin-bottom: $margin-s;
+    text-rendering: optimizeLegibility;
+    font-weight: 400;
   }
 }

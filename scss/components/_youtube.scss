@@ -20,6 +20,7 @@
   @include screen(tab-port) {
     margin: $margin-m 0;
     padding: $padding-m;
+    background-size: 150%;
   }
   &__video-container {
     @extend %contains-iframe;
@@ -123,6 +124,7 @@
     @include screen(phone) {
       height: calc(85vh - 90vw * 56.25 / 100);
       overflow: scroll;
+      transform: translateZ(0);
     }
   }
 
@@ -239,6 +241,7 @@
     .youtube {
       display: block;
       padding-top: 55%;
+      cursor: pointer;
     }
   }
 }
