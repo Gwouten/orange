@@ -53,14 +53,14 @@
       transition: transform 0.5s 0.5s, opacity 0.5s 0.5s;
     }
 
-    &:checked + label .header__toggle-button__icon {
+    &:checked ~ label .header__toggle-button__icon {
       background-color: transparent;
       transform: translate(-50%, 0) rotate(90deg);
     }
-    &:checked + label .header__toggle-button__icon:before {
+    &:checked ~ label .header__toggle-button__icon:before {
       transform: translate(-50%, 0) rotate(135deg);
     }
-    &:checked + label .header__toggle-button__icon:after {
+    &:checked ~ label .header__toggle-button__icon:after {
       transform: translate(-50%, 0) rotate(45deg);
     }
   }
@@ -134,7 +134,7 @@
     background-color: $col-primary;
     padding: 0;
     transform: scale(0.5);
-    transition: transform 1.5s, background-color 0.5s 0.5s;
+    transition: background-color 5s, transform 3s;
     z-index: 997;
   }
 
