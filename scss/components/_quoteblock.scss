@@ -1,5 +1,6 @@
 .quoteblock {
   margin-bottom: -6rem;
+  max-width: 74rem;
   width: 100%;
   @include screen(tab-port) {
     margin-bottom: 0;
@@ -10,23 +11,22 @@
   }
   &__quote {
     background-color: $col-secondary;
+    box-shadow: $shadow-regular;
     color: $col-white;
     font-family: $font-nav;
     font-weight: 600;
     font-style: italic;
-    box-shadow: $shadow-regular;
     font-size: 2rem;
     padding: 1rem 1rem 1rem 2rem;
     width: 85%;
-    @include screen(phone) {
-      top: -6rem;
-    }
+    transform: translateY(-6rem);
     @include screen(tab-port) {
-      position: absolute;
-      font-size: 3rem;
+      bottom: 10%;
+      font-size: 2.2rem;
       line-height: 1.2;
       padding: 1rem 3rem 1rem 5rem;
-      bottom: 10%;
+      position: absolute;
+      transform: translateY(0);
       width: 95%;
     }
     &:before {
@@ -47,9 +47,7 @@
     }
 
     &--right {
-      @include screen(phone) {
-        left: 10%;
-      }
+      left: 10%;
       @include screen(tab-port) {
         right: 10%;
       }

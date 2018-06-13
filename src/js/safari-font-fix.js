@@ -7,15 +7,11 @@ document.addEventListener("DOMContentLoaded", function() {
   var is_mac = navigator.userAgent.indexOf("Mac OS") != -1;
   var is_windows = !is_mac;
 
-  console.log(is_chrome, is_safari);
-
   if (is_chrome && is_safari) {
     is_safari = false;
   }
-  console.log(is_chrome, is_safari);
 
   if (is_safari || is_windows) {
     document.querySelector("body").style.webkitTextStroke = "0.5px";
   }
-  console.log(is_chrome, is_safari);
 });

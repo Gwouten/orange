@@ -45,6 +45,7 @@ $column-gap: 5rem;
   &__search {
     background: $col-cdh;
     border-radius: $brad-m;
+    margin-top: $margin-l;
     padding: $padding-m;
     width: 100%;
     z-index: 1;
@@ -66,7 +67,8 @@ $column-gap: 5rem;
     border-radius: $brad-m;
     padding: $padding-m;
     width: 100%;
-    margin-top: $margin-m;
+    // margin-top: $margin-m;
+    margin-bottom: $margin-l;
     z-index: 1;
     @include screen(tab-port) {
       // float: right;

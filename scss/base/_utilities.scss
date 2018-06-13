@@ -4,17 +4,21 @@
 
 .u-wrapper {
   width: 100%;
-  max-width: 120rem;
+  max-width: 80rem;
   margin: 0 auto;
   padding: 0 3rem;
 
   @include screen(tab-port) {
     padding: 0 10rem;
+    max-width: 120rem;
   }
 
   &--followed-by-quote {
-    margin-left: auto;
-    margin-right: 0;
+    @include screen(tab-port) {
+      margin-left: auto;
+      margin-right: 0;
+      padding: 0 6rem 0 0;
+    }
   }
 }
 
