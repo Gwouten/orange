@@ -15,9 +15,9 @@
 
   &--followed-by-quote {
     @include screen(tab-port) {
-      margin-left: auto;
       margin-right: 0;
-      padding: 0 6rem 0 0;
+      max-width: 40rem;
+      padding: 0 5rem 0 0;
     }
   }
 }
@@ -61,6 +61,10 @@
 
     &--no-bottom-margin {
       margin-bottom: 0;
+    }
+
+    &--contains-quote {
+      // justify-content: flex-end;
     }
   }
 }

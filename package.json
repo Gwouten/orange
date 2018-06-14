@@ -8,7 +8,8 @@
     "package": "gulp package",
     "generateSprite": "gulp generateSprite",
     "removeDistFolder": "rm -rf dist",
-    "build": "npm-run-all removeDistFolder package"
+    "build": "npm-run-all removeDistFolder package",
+    "upload": "gulp upload"
   },
   "author": "Wouter Deloof",
   "license": "ISC",
@@ -25,7 +26,9 @@
     "gulp-sass": "^3.1.0",
     "gulp-svg-sprite": "^1.4.0",
     "gulp-uglify": "^3.0.0",
-    "imagemin-guetzli": "^1.0.0"
+    "gulp-util": "^3.0.8",
+    "imagemin-guetzli": "^1.0.0",
+    "vinyl-ftp": "^0.6.1"
   },
   "dependencies": {
     "normalize.css": "^7.0.0",

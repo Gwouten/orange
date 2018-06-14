@@ -1,8 +1,6 @@
 ("use strict");
 
 //Debouncing variables
-let timeout = false;
-const delay = 250;
 
 // Import header and footer into pages
 // Header
@@ -86,6 +84,9 @@ function siema(element, autoplay = true, draggable = true) {
     slider.createButtons(element);
     slider.bindButtons(element);
     window.addEventListener("resize", () => {
+      let timeout = false;
+      const delay = 250;
+
       clearTimeout(timeout);
       timeout = setTimeout(() => {
         slider.createButtons();
@@ -116,6 +117,9 @@ function siema(element, autoplay = true, draggable = true) {
 // To top button
 const toTopElement = document.querySelector(".to-top__link");
 window.addEventListener("scroll", () => {
+  let timeout = false;
+  const delay = 250;
+
   clearTimeout(timeout);
   timeout = setTimeout(() => {
     const fromTop = window.scrollY;
@@ -178,3 +182,28 @@ if (inputCandidates !== null) {
   candidates(fullList);
 }
 // End awesomplete
+
+// Set margin for u-wrapper--followed-by-quote
+const setQuoteMargin = () => {
+  const width = window.innerWidth;
+  const element = document.querySelector(".u-wrapper--followed-by-quote");
+  if (element === null) {
+    return;
+  } else {
+    if (width >= 1200) {
+      element.style.marginLeft = `${(width - 1200) / 2 + 100}px`;
+    } else if (width < 975) {
+      element.style.marginLeft = `auto`;
+    } else {
+      return;
+    }
+  }
+};
+setQuoteMargin();
+window.addEventListener("resize", function() {
+  let timeout;
+  const delay = 250;
+
+  clearTimeout(timeout);
+  timeout = setTimeout(setQuoteMargin(), delay);
+});

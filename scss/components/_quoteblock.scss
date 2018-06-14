@@ -47,10 +47,10 @@
     }
 
     &--right {
-      left: 10%;
-      @include screen(tab-port) {
-        right: 10%;
+      @include screen(phone) {
+        left: 10%;
       }
+      right: 10%;
     }
   }
 

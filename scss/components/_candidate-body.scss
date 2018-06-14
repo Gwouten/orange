@@ -4,9 +4,11 @@ $column-gap: 5rem;
   margin-top: $margin-xl;
 
   & > * {
-    margin: $margin-m auto;
+    margin-top: $margin-m;
+    margin-bottom: $margin-m;
     & > * {
-      margin: $margin-m auto;
+      margin-top: $margin-m;
+      margin-bottom: $margin-m;
     }
   }
 

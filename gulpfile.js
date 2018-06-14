@@ -10,6 +10,36 @@ const babel = require("gulp-babel");
 const uglify = require("gulp-uglify");
 const svgSprite = require("gulp-svg-sprite");
 const gzip = require("gulp-gzip");
+const gutil = require("gulp-util");
+const ftp = require("vinyl-ftp");
+
+// FTP config
+var user = "concertoyd"; /*process.env.FTP_USER;*/
+var password = "VzZCMfqA7mD8"; /*process.env.FTP_PWD;*/
+var host = "ftp.concerto.space";
+var port = 21;
+var localFilesGlob = ["./dist/**/*"];
+var remoteFolder = "/www/communales/";
+
+// Connect to FTP
+function getFtpConnection() {
+  return ftp.create({
+    host,
+    port,
+    user,
+    password,
+    parallel: 5,
+    log: gutil.log
+  });
+}
+
+gulp.task("upload", ["package"], function() {
+  const conn = getFtpConnection();
+  return gulp
+    .src("./dist/**/*")
+    .pipe(conn.newer(remoteFolder))
+    .pipe(conn.dest(remoteFolder));
+});
 
 gulp.task("sass", function() {
   return gulp
@@ -91,7 +121,7 @@ gulp.task("guetzli", function() {
 gulp.task("package", ["sass", "babel", "imagemin"], function() {
   gulp.src("css/*.{css,gz}").pipe(gulp.dest("dist/css"));
   gulp.src("js/*.{js,gz}").pipe(gulp.dest("dist/js"));
-  gulp.src("font").pipe(gulp.dest("dist/font"));
+  // gulp.src("font").pipe(gulp.dest("dist/font"));
   gulp.src("*.{html,php}").pipe(gulp.dest("dist"));
-  gulp.src("favicons").pipe(gulp.dest("dist/favicons"));
+  gulp.src("favicons/*").pipe(gulp.dest("dist/favicons"));
 });
