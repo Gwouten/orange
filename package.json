@@ -6,10 +6,12 @@
   "scripts": {
     "start": "gulp watch",
     "package": "gulp package",
-    "generateSprite": "gulp generateSprite",
     "removeDistFolder": "rm -rf dist",
     "build": "npm-run-all removeDistFolder package",
-    "upload": "gulp upload"
+    "upload": "gulp upload",
+    "concat": "gulp concat",
+    "removeDirectory": "gulp removeDirectory",
+    "upload:prod": "npm-run-all removeDirectory upload"
   },
   "author": "Wouter Deloof",
   "license": "ISC",
@@ -21,6 +23,7 @@
     "gulp-autoprefixer": "^4.0.0",
     "gulp-babel": "^7.0.1",
     "gulp-clean-css": "^3.0.0",
+    "gulp-concat": "^2.6.1",
     "gulp-gzip": "^1.4.2",
     "gulp-imagemin": "^3.1.1",
     "gulp-sass": "^3.1.0",
@@ -31,6 +34,7 @@
     "vinyl-ftp": "^0.6.1"
   },
   "dependencies": {
+    "babel-polyfill": "^6.26.0",
     "normalize.css": "^7.0.0",
     "npm-run-all": "^4.1.3",
     "siema": "^1.5.1"

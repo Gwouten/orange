@@ -12,6 +12,7 @@ const svgSprite = require("gulp-svg-sprite");
 const gzip = require("gulp-gzip");
 const gutil = require("gulp-util");
 const ftp = require("vinyl-ftp");
+const concat = require("gulp-concat");
 
 // FTP config
 var user = "concertoyd"; /*process.env.FTP_USER;*/
@@ -33,8 +34,18 @@ function getFtpConnection() {
   });
 }
 
+gulp.task("removeDirectory", function() {
+  const conn = getFtpConnection();
+  conn.rmdir(remoteFolder, function(error) {
+    console.log(error);
+  });
+});
+
 gulp.task("upload", ["package"], function() {
   const conn = getFtpConnection();
+  conn.rmdir(remoteFolder, function(error) {
+    console.log(error);
+  });
   return gulp
     .src("./dist/**/*")
     .pipe(conn.newer(remoteFolder))
@@ -84,6 +95,21 @@ gulp.task("babel", function() {
     );
 });
 
+gulp.task("concat", ["babel"], function() {
+  return gulp
+    .src([
+      "js/siema.min.js",
+      "js/awesomplete.js",
+      "js/functions.js",
+      "js/youtube.js",
+      "js/main.js"
+    ])
+    .pipe(concat("bundle.js"))
+    .pipe(gulp.dest("js"))
+    .pipe(gzip())
+    .pipe(gulp.dest("js"));
+});
+
 gulp.task("watch", ["browserSync", "sass", "babel"], function() {
   gulp.watch("scss/**/*.scss", ["sass"]);
   gulp.watch("src/js/*.js", ["babel"]);
@@ -118,9 +144,18 @@ gulp.task("guetzli", function() {
     .pipe(gulp.dest("dist/assets/img"));
 });
 
-gulp.task("package", ["sass", "babel", "imagemin"], function() {
+gulp.task("package", ["imagemin", "sass", "concat"], function() {
   gulp.src("css/*.{css,gz}").pipe(gulp.dest("dist/css"));
-  gulp.src("js/*.{js,gz}").pipe(gulp.dest("dist/js"));
+  gulp
+    .src([
+      "js/bundle.js",
+      "js/bundle.gz",
+      "js/twitter.js",
+      "js/twitter.gz",
+      "js/safari-font-fix.js",
+      "js/safari-font-fix.gz"
+    ])
+    .pipe(gulp.dest("dist/js"));
   // gulp.src("font").pipe(gulp.dest("dist/font"));
   gulp.src("*.{html,php}").pipe(gulp.dest("dist"));
   gulp.src("favicons/*").pipe(gulp.dest("dist/favicons"));

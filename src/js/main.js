@@ -35,7 +35,6 @@ headline.rotatePhrases();
 // Siema slider
 function siema(element, autoplay = true, draggable = true) {
   const sliderContainer = document.querySelector(`.${element}`);
-  console.log(sliderContainer.children.length);
 
   if (sliderContainer !== null) {
     const slider = new Siema({
@@ -187,9 +186,7 @@ if (inputCandidates !== null) {
 const setQuoteMargin = () => {
   const width = window.innerWidth;
   const element = document.querySelector(".u-wrapper--followed-by-quote");
-  if (element === null) {
-    return;
-  } else {
+  if (element !== null) {
     if (width >= 1200) {
       element.style.marginLeft = `${(width - 1200) / 2 + 100}px`;
     } else if (width < 975) {
@@ -199,7 +196,7 @@ const setQuoteMargin = () => {
     }
   }
 };
-setQuoteMargin();
+document.addEventListener("DOMContentLoaded", setQuoteMargin());
 window.addEventListener("resize", function() {
   let timeout;
   const delay = 250;
