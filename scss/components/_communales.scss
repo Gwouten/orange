@@ -1,4 +1,11 @@
 .section-communales {
+  &__header {
+    font-size: 4rem;
+    margin-top: $margin-l;
+    margin-bottom: $margin-l;
+    color: $col-secondary;
+  }
+
   &__text {
     font-size: 1.6rem;
     margin-top: $margin-s;
@@ -17,6 +24,7 @@
 
     &__item {
       padding: $padding-l $padding-m $padding-m $padding-m;
+      background-color: lighten($col-light-grey, 6%);
       @include screen(tab-port) {
         border: 1px solid $col-light-grey;
         margin: 3rem 0;
@@ -28,6 +36,7 @@
           box-shadow: 0 0.5rem 1rem rgba($col-black, 0.7);
 
           &:before {
+            background-color: $col-secondary;
             box-shadow: 0 0.5rem 1rem rgba($col-black, 0.7);
             transform: translate(-50%, calc(-50% - 1rem));
           }
@@ -36,7 +45,7 @@
 
       &:before {
         @include center;
-        background-color: $col-secondary;
+        background-color: $col-med-grey;
         border-radius: 1000px;
         color: $col-white;
         content: counter(counter);

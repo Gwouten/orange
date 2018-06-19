@@ -6,7 +6,7 @@ $col-white: #fff;
 $col-black: #222;
 $col-grey: #4d4d4d;
 $col-light-grey: lighten($col-grey, 60%);
-$col-med-grey: lighten($col-grey, 40%);
+$col-med-grey: lighten($col-grey, 20%);
 $col-dark-grey: darken($col-grey, 30%);
 
 $col-cdh: url("../assets/img/orange-bg.jpg") 70% 60% no-repeat;
@@ -24,6 +24,7 @@ $skew: -8deg;
 $anti-skew: -$skew;
 
 // Margin and padding
+$margin-hair: 2px;
 $margin-s: 1rem;
 $margin-m: 2rem;
 $margin-l: 4rem;

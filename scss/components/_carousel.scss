@@ -79,6 +79,8 @@
 
   &__header {
     font-size: 2rem;
+    margin-bottom: 0.75rem;
+    line-height: 1.4;
 
     &--name {
       font-weight: 300;
@@ -89,6 +91,7 @@
 
   &__text {
     font-size: 2rem;
+    line-height: 1.2;
   }
 
   &--projects {
@@ -107,5 +110,13 @@
   &--videos {
     height: 25rem;
     margin-bottom: 2rem;
+  }
+
+  &--themes {
+    margin-top: $margin-hair;
+
+    .carousel__slide {
+      height: 10rem;
+    }
   }
 }
