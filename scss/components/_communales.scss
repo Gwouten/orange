@@ -31,7 +31,7 @@
           box-shadow: 0 0.5rem 1rem rgba($col-black, 0.7);
 
           &:before {
-            background-color: $col-secondary;
+            // background: $col-cdh;
             box-shadow: 0 0.5rem 1rem rgba($col-black, 0.7);
             transform: translate(-50%, calc(-50% - 1rem));
           }
@@ -40,19 +40,20 @@
 
       &:before {
         @include center;
-        background-color: $col-med-grey;
-        border-radius: 1000px;
-        color: $col-white;
-        content: counter(counter);
+        background: $col-cdh;
+        background-size: 150%;
+        border-radius: 0.5rem;
+        color: $col-black;
+        content: "Engagement " counter(counter);
         counter-increment: counter;
         display: block;
-        font-size: 3rem;
+        font-size: 1.8rem;
         font-weight: 600;
-        height: 5rem;
-        padding-top: 0.4rem;
+        height: 3rem;
+        padding: 0.1rem 0 0;
         text-align: center;
         top: 0;
-        width: 5rem;
+        width: 16rem;
         transition: all 0.2s;
       }
     }
