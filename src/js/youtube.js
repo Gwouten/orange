@@ -15,9 +15,7 @@ videos.forEach(video => {
 
   const xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
-    console.log(this.readyState, this.status);
     if (this.readyState == 4 && this.status == 200) {
-      console.log(this.readyState, this.status);
       const res = JSON.parse(this.responseText);
       const data = res.items[0];
       const date = new Date(data.snippet.publishedAt);

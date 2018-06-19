@@ -83,7 +83,6 @@ const setQuoteHeight = function(element, height) {
 const setQuoteMargin = () => {
   const element = document.querySelector(".u-wrapper--followed-by-quote");
   if (element !== null) {
-    console.log("found!");
     if (windowWidth >= 1200) {
       element.style.marginLeft = `${getMargin(windowWidth)}px`;
     } else if (windowWidth < 975) {
@@ -114,7 +113,6 @@ const onLoad = function() {
 
   if (textAfterQuote !== null) {
     if (windowWidth >= 975) {
-      console.log("Loaded");
       setQuoteMargin();
       setTextblockSize(textAfterQuote);
     } else {
