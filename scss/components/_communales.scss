@@ -1,9 +1,15 @@
 .section-communales {
   &__header {
-    font-size: 4rem;
-    margin-top: $margin-l;
-    margin-bottom: $margin-l;
+    text-align: center;
     color: $col-secondary;
+    margin-top: $margin-m;
+    margin-bottom: $margin-l;
+    font-size: 3rem;
+    @include screen(tab-port) {
+      margin-top: $margin-l;
+      font-size: 4rem;
+      text-align: left;
+    }
   }
 
   &__ordered-list {
@@ -20,9 +26,10 @@
     &__item {
       padding: $padding-l $padding-m $padding-m $padding-m;
       background-color: lighten($col-light-grey, 6%);
+      margin: $margin-m 0;
       @include screen(tab-port) {
         border: 1px solid $col-light-grey;
-        margin: 3rem 0;
+        margin: $margin-m 0;
         width: calc(100% / 3 - 2rem);
         transition: all 0.2s;
 

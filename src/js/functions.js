@@ -59,3 +59,140 @@ const scrollTo = function(to, duration) {
     };
   animateScroll();
 };
+
+// Scroll to theme section
+const setThemeLinks = function() {
+  const themesLinks = document.querySelectorAll(".carousel--themes a");
+  if (themesLinks !== null) {
+    themesLinks.forEach(link => {
+      link.addEventListener("click", function(e) {
+        e.preventDefault();
+        let headerHeight = -160;
+        if (windowWidth < 975) {
+          headerHeight = 100;
+        }
+        console.log(windowWidth, headerHeight);
+        const id = e.target.href.split("#")[1];
+        const target = document.querySelector(`#${id}`);
+        const dist =
+          target.offsetTop - target.scrollTop + target.clientTop - headerHeight;
+        scrollTo(dist, 1000);
+      });
+    });
+  }
+};
+
+// Siema slider
+function siema(element, autoplay = true, draggable = true) {
+  const sliderContainer = document.querySelector(`.${element}`);
+
+  if (sliderContainer !== null) {
+    const slider = new Siema({
+      selector: `.${element}`,
+      duration: 1000,
+      easing: "ease-in-out",
+      perPage: {
+        600: 2,
+        900: 3,
+        1200: 4
+      },
+      loop: true,
+      draggable
+    });
+
+    // Create next/prev buttons
+    Siema.prototype.createButtons = function(element) {
+      const nextButton = document.createElement("button");
+      nextButton.classList.add(
+        "btn",
+        "btn--carousel",
+        "carousel__next",
+        `${element}__next`
+      );
+      sliderContainer.appendChild(nextButton);
+
+      const prevButton = document.createElement("button");
+      prevButton.classList.add(
+        "btn",
+        "btn--carousel",
+        "carousel__prev",
+        `${element}__prev`
+      );
+      sliderContainer.appendChild(prevButton);
+    };
+
+    // Make buttons work
+    Siema.prototype.bindButtons = function(element) {
+      const carouselPrev = document.querySelector(`.${element}__prev`);
+      const carouselNext = document.querySelector(`.${element}__next`);
+
+      carouselPrev.addEventListener("click", () => slider.prev());
+      carouselNext.addEventListener("click", () => slider.next());
+    };
+
+    slider.createButtons(element);
+    slider.bindButtons(element);
+    window.addEventListener("resize", () => {
+      slider.createButtons();
+      slider.bindButtons();
+    });
+
+    if (autoplay) {
+      let autoSlide = setInterval(function() {
+        slider.next();
+      }, 5000);
+
+      sliderContainer.addEventListener("mouseenter", () =>
+        clearInterval(autoSlide)
+      );
+      sliderContainer.addEventListener(
+        "mouseleave",
+        () =>
+          (autoSlide = setInterval(function() {
+            slider.next();
+          }, 5000))
+      );
+    }
+  }
+}
+
+// Scroll to top animation
+const scrollToTop = function(el) {
+  window.addEventListener("scroll", () => {
+    let timeout = false;
+    const delay = 250;
+
+    clearTimeout(timeout);
+    timeout = setTimeout(() => {
+      const fromTop = window.scrollY;
+      if (fromTop < 200) {
+        el.classList.remove("to-top__link--visible");
+      } else if (fromTop >= 200) {
+        el.classList.add("to-top__link--visible");
+      }
+    }, delay);
+  });
+};
+
+// Import header and footer into pages
+const placeFixedElements = function() {
+  // Header
+  const header = new XMLHttpRequest();
+  header.onreadystatechange = function() {
+    if (this.readyState === 4 && this.status === 200) {
+      document.querySelector(".header").innerHTML = this.responseText;
+    }
+  };
+  header.open("GET", "header.html", true);
+  header.send();
+
+  // Footer
+  const footer = new XMLHttpRequest();
+  footer.onreadystatechange = function() {
+    if (this.readyState === 4 && this.status === 200) {
+      document.querySelector(".footer").innerHTML = this.responseText;
+    }
+  };
+  footer.open("GET", "footer.html", true);
+  footer.send();
+};

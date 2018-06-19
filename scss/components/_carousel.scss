@@ -116,7 +116,25 @@
     margin-top: $margin-hair;
 
     .carousel__slide {
-      height: 10rem;
+      height: 8rem;
+      @include screen(tab-port) {
+        height: 10rem;
+      }
+
+      &__content {
+        padding: 0 4rem;
+        display: flex;
+        align-items: center;
+        height: 100%;
+      }
+    }
+    .carousel__header {
+      text-align: center;
+      width: 100%;
+      margin: 0;
+      @include screen(tab-port) {
+        text-align: left;
+      }
     }
   }
 }
