@@ -15,7 +15,9 @@ videos.forEach(video => {
 
   const xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
+    console.log(this.readyState, this.status);
     if (this.readyState == 4 && this.status == 200) {
+      console.log(this.readyState, this.status);
       const res = JSON.parse(this.responseText);
       const data = res.items[0];
       const date = new Date(data.snippet.publishedAt);
@@ -26,7 +28,7 @@ videos.forEach(video => {
       video.classList.forEach(item => classArray.push(item));
 
       // Is the video the Hero video or not?
-      if (classArray.indexOf("youtube-hero") > -1) {
+      if (classArray.includes("youtube-hero")) {
         document.querySelector(
           ".video-hero__video-container"
         ).innerHTML = `<iframe width="100%" height="100%" src="https://www.youtube.com/embed/${

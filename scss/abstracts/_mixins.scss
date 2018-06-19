@@ -12,6 +12,13 @@
   transform: translate(-50%, -50%) skewX($anti-skew);
 }
 
+@mixin anti-skew-top {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, 0) skewX($anti-skew);
+}
+
 @mixin clearfix {
   content: "";
   clear: both;

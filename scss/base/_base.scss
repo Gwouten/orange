@@ -34,6 +34,8 @@ main {
   padding-top: 7.5rem;
   @include screen(tab-port) {
     padding-top: 0;
+    animation: fade-in 0.5s 0.75s forwards;
+    opacity: 0;
   }
 }
 

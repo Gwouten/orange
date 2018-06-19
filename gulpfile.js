@@ -72,9 +72,9 @@ gulp.task("sass", function() {
     );
 });
 
-gulp.task("babel", function() {
+gulp.task("babel", ["concat"], function() {
   return gulp
-    .src("src/js/*.js")
+    .src("js/*.js")
     .pipe(
       babel({
         presets: ["env"]
@@ -95,14 +95,14 @@ gulp.task("babel", function() {
     );
 });
 
-gulp.task("concat", ["babel"], function() {
+gulp.task("concat", function() {
   return gulp
     .src([
-      "js/siema.min.js",
-      "js/awesomplete.js",
-      "js/functions.js",
-      "js/youtube.js",
-      "js/main.js"
+      "src/js/siema.min.js",
+      "src/js/awesomplete.js",
+      "src/js/functions.js",
+      "src/js/youtube.js",
+      "src/js/main.js"
     ])
     .pipe(concat("bundle.js"))
     .pipe(gulp.dest("js"))

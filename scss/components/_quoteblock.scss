@@ -1,16 +1,23 @@
 .quoteblock {
-  margin-bottom: -6rem;
+  margin-bottom: 0;
   max-width: 74rem;
   width: 100%;
+  background: url("../assets/img/anxiete-ecole-enfants.jpg") right center
+    no-repeat;
+  background-size: cover;
   @include screen(tab-port) {
     margin-bottom: 0;
+    padding-top: calc(56.25% / 2);
     width: 50%;
   }
+
   &__image {
     width: 100%;
   }
+
   &__quote {
-    background-color: $col-secondary;
+    background: $col-cdh;
+    bottom: 0;
     box-shadow: $shadow-regular;
     color: $col-white;
     font-family: $font-nav;
@@ -19,7 +26,7 @@
     font-size: 2rem;
     padding: 1rem 1rem 1rem 2rem;
     width: 85%;
-    transform: translateY(-6rem);
+    transform: translateY(1rem);
     @include screen(tab-port) {
       bottom: 10%;
       font-size: 2.2rem;
@@ -29,6 +36,7 @@
       transform: translateY(0);
       width: 95%;
     }
+
     &:before {
       content: "“";
       position: absolute;
@@ -57,5 +65,10 @@
   & + .u-wrapper {
     margin-left: 0;
     margin-right: auto;
+  }
+
+  &--inside-column {
+    width: 100%;
+    margin-top: $margin-l;
   }
 }

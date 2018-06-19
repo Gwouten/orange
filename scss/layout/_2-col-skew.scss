@@ -7,6 +7,7 @@
 
   & + .two-col-skew {
     margin-top: $margin-m;
+    margin-bottom: $margin-l;
   }
 
   &--anti {
@@ -80,20 +81,25 @@
     transform: translateX(-5%);
     height: 100%;
     @include screen(tab-port) {
+      display: flex;
       width: 110%;
       transform: translateX(-5%);
+    }
+
+    & > div:first-of-type {
+      margin-right: 2px;
     }
   }
   &__skewed {
     height: 50%;
     width: 100%;
-    float: left;
+    // float: left;
     transform: skewX($skew);
     text-align: center;
     @include screen(tab-port) {
       height: 100%;
       width: calc(50% - 1px);
-      float: left;
+      // float: left;
       transform: skewX($skew);
       text-align: center;
     }
@@ -217,7 +223,7 @@
     &--image {
       overflow: hidden;
       img {
-        @include anti-skew-center;
+        @include anti-skew-top;
         width: 110%;
       }
     }

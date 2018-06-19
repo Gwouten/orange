@@ -183,24 +183,65 @@ if (inputCandidates !== null) {
 // End awesomplete
 
 // Set margin for u-wrapper--followed-by-quote
+let windowWidth = window.innerWidth;
+
+const getMargin = function(width) {
+  return (width - 1000) / 2;
+};
+
+const setQuoteHeight = function(element, height) {
+  element.parentNode.children[0].style.paddingTop = `${height}px`;
+};
+
 const setQuoteMargin = () => {
-  const width = window.innerWidth;
   const element = document.querySelector(".u-wrapper--followed-by-quote");
   if (element !== null) {
-    if (width >= 1200) {
-      element.style.marginLeft = `${(width - 1200) / 2 + 100}px`;
-    } else if (width < 975) {
+    console.log("found!");
+    if (windowWidth >= 1200) {
+      element.style.marginLeft = `${getMargin(windowWidth)}px`;
+    } else if (windowWidth < 975) {
       element.style.marginLeft = `auto`;
     } else {
       return;
     }
   }
 };
-document.addEventListener("DOMContentLoaded", setQuoteMargin());
+
+// Setup textblock when preceded by quoteblock element
+const setTextblockSize = function(element) {
+  if (windowWidth >= 1200) {
+    element.style.marginRight = `${getMargin(windowWidth)}px`;
+  } else if (1200 > windowWidth && windowWidth >= 975) {
+    const siblingWidth = document.querySelector(".candidate-body__textblock")
+      .offsetWidth;
+    element.style.width = `${siblingWidth}px`;
+  }
+
+  setQuoteHeight(element, element.offsetHeight);
+};
+
+const onLoad = function() {
+  const textAfterQuote = document.querySelector(
+    ".quoteblock + .candidate-body__textblock"
+  );
+
+  if (textAfterQuote !== null) {
+    if (windowWidth >= 975) {
+      console.log("Loaded");
+      setQuoteMargin();
+      setTextblockSize(textAfterQuote);
+    } else {
+      textAfterQuote.style.cssText = "";
+      setQuoteHeight(textAfterQuote, textAfterQuote.offsetHeight);
+    }
+  }
+};
+document.addEventListener("DOMContentLoaded", onLoad());
 window.addEventListener("resize", function() {
+  windowWidth = window.innerWidth;
   let timeout;
   const delay = 250;
 
   clearTimeout(timeout);
-  timeout = setTimeout(setQuoteMargin(), delay);
+  timeout = setTimeout(onLoad(), delay);
 });
