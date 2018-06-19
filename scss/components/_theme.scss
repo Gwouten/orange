@@ -1,0 +1,23 @@
+.theme {
+  &__header {
+    font-size: 4rem;
+    color: $col-secondary;
+  }
+  &__content {
+    align-items: flex-start;
+    display: flex;
+    justify-content: space-between;
+
+    &__image {
+      margin-right: 5rem;
+      height: auto;
+      width: 20%;
+    }
+
+    &__text {
+      &:first-of-type {
+        margin-top: 0;
+      }
+    }
+  }
+}

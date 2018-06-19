@@ -6,11 +6,6 @@
     color: $col-secondary;
   }
 
-  &__text {
-    font-size: 1.6rem;
-    margin-top: $margin-s;
-  }
-
   &__ordered-list {
     counter-reset: counter;
     display: flex;

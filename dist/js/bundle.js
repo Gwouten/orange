@@ -1555,14 +1555,8 @@ function siema(element, autoplay = true, draggable = true) {
     slider.createButtons(element);
     slider.bindButtons(element);
     window.addEventListener("resize", () => {
-      let timeout = false;
-      const delay = 250;
-
-      clearTimeout(timeout);
-      timeout = setTimeout(() => {
-        slider.createButtons();
-        slider.bindButtons();
-      }, delay);
+      slider.createButtons();
+      slider.bindButtons();
     });
 
     if (autoplay) {

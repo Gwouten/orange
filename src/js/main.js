@@ -130,6 +130,20 @@ toTopElement.addEventListener("click", function(e) {
   scrollTo(0, 1000);
 });
 
+// Scroll to theme section
+const themesLinks = document.querySelectorAll(".carousel--themes a");
+if (themesLinks !== null) {
+  themesLinks.forEach(link => {
+    link.addEventListener("click", function(e) {
+      e.preventDefault();
+      const id = e.target.href.split("#")[1];
+      const target = document.querySelector(`#${id}`);
+      const dist = target;
+      console.dir(dist);
+    });
+  });
+}
+
 // Awesomplete - for autocompleting form fields
 
 const inputCandidates = document.querySelector(".input__text"); // form on index.html

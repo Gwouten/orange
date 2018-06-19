@@ -139,9 +139,6 @@ $column-gap: 5rem;
   }
 
   &__text {
-    font-size: 1.6rem;
-    margin-top: $margin-s;
-
     .candidate-body__header + & {
       margin-top: $margin-m;
     }
