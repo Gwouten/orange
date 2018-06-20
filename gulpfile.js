@@ -120,7 +120,7 @@ gulp.task("concat", function() {
 gulp.task("watch", ["browserSync", "sass", "babel", "include"], function() {
   gulp.watch("scss/**/*.scss", ["sass"]);
   gulp.watch("src/js/*.js", ["babel"]);
-  gulp.watch("*.html", reload);
+  gulp.watch("*.html", {}, reload);
   gulp.watch("*.php", reload);
 });
 
