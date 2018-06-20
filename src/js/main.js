@@ -1,7 +1,7 @@
 ("use strict");
 
-// Import header and footer into pages
-placeFixedElements();
+// Set current page indicator in navigation menu
+setCurrentPageIndicator();
 
 // Rotate slogan
 const phrases = ["des communes", "des provinces"];

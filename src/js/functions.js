@@ -173,62 +173,41 @@ const scrollToTop = function(el) {
   });
 };
 
-// Import header and footer into pages
-const placeFixedElements = function() {
-  // Header
-  const header = new XMLHttpRequest();
-  header.onreadystatechange = function() {
-    if (this.readyState === 4 && this.status === 200) {
-      document.querySelector(".header").innerHTML = this.responseText;
-      setCurrentPageIndicator();
-    }
-  };
-  header.open("GET", "header.html", true);
-  header.send();
-
-  // Footer
-  const footer = new XMLHttpRequest();
-  footer.onreadystatechange = function() {
-    if (this.readyState === 4 && this.status === 200) {
-      document.querySelector(".footer").innerHTML = this.responseText;
-    }
-  };
-  footer.open("GET", "footer.html", true);
-  footer.send();
-};
-
 // Indicate current page in navigation
 const setCurrentPageIndicator = function() {
   const navEl = document.querySelector(".header__interior-links ul");
   const currentPage = window.location.href.split("/");
   const l = currentPage.length - 1;
-  const setUnderline = index => {
+  const setActiveMenuItem = index => {
     navEl.children[index].children[0].classList.add("current");
   };
 
   switch (currentPage[l]) {
+    case "":
+      setActiveMenuItem(0);
+      break;
     case "index.html":
-      setUnderline(0);
+      setActiveMenuItem(0);
       break;
     case "communales.html":
-      setUnderline(1);
+      setActiveMenuItem(1);
       break;
     case "provinces.html":
-      setUnderline(2);
+      setActiveMenuItem(2);
       break;
     case "candidats.html":
-      setUnderline(3);
+      setActiveMenuItem(3);
       break;
     case "le-cdh.html":
-      setUnderline(4);
+      setActiveMenuItem(4);
       break;
     case "videos.html":
-      setUnderline(5);
+      setActiveMenuItem(5);
       break;
     case "themes.html":
-      setUnderline(6);
+      setActiveMenuItem(6);
       break;
     default:
-      console.log("default");
+      break;
   }
 };

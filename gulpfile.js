@@ -13,6 +13,7 @@ const gzip = require("gulp-gzip");
 const gutil = require("gulp-util");
 const ftp = require("vinyl-ftp");
 const concat = require("gulp-concat");
+const include = require("gulp-include");
 
 // FTP config
 var user = "concertoyd"; /*process.env.FTP_USER;*/
@@ -21,6 +22,12 @@ var host = "ftp.concerto.space";
 var port = 21;
 var localFilesGlob = ["./dist/**/*"];
 var remoteFolder = "/www/communales/";
+
+// How to handle errors withour crashing the watch task
+const errorHandler = function(error) {
+  console.log(error.toString());
+  this.emit("end");
+};
 
 // Connect to FTP
 function getFtpConnection() {
@@ -46,19 +53,20 @@ gulp.task("upload", ["package"], function() {
   conn.rmdir(remoteFolder, function(error) {
     console.log(error);
   });
-  return gulp
-    .src("./dist/**/*")
-    .pipe(conn.newer(remoteFolder))
-    .pipe(conn.dest(remoteFolder));
+  return (
+    gulp
+      .src("./dist/**/*")
+      // .pipe(conn.newer(remoteFolder))
+      .pipe(conn.dest(remoteFolder))
+  );
 });
 
 gulp.task("sass", function() {
   return gulp
     .src("scss/**/*.scss")
     .pipe(sass())
-    .on("error", function(error) {
-      console.log(error.toString());
-      this.emit("end");
+    .on("error", function(er) {
+      errorHandler(er);
     })
     .pipe(autoprefix())
     .pipe(cleanCSS())
@@ -80,9 +88,8 @@ gulp.task("babel", ["concat"], function() {
         presets: ["env"]
       })
     )
-    .on("error", function(error) {
-      console.log(error.toString());
-      this.emit("end");
+    .on("error", function(er) {
+      errorHandler(er);
     })
     .pipe(uglify())
     .pipe(gulp.dest("js"))
@@ -110,7 +117,7 @@ gulp.task("concat", function() {
     .pipe(gulp.dest("js"));
 });
 
-gulp.task("watch", ["browserSync", "sass", "babel"], function() {
+gulp.task("watch", ["browserSync", "sass", "babel", "include"], function() {
   gulp.watch("scss/**/*.scss", ["sass"]);
   gulp.watch("src/js/*.js", ["babel"]);
   gulp.watch("*.html", reload);
@@ -144,7 +151,7 @@ gulp.task("guetzli", function() {
     .pipe(gulp.dest("dist/assets/img"));
 });
 
-gulp.task("package", ["imagemin", "sass", "concat"], function() {
+gulp.task("package", ["include", "sass", "babel", "imagemin"], function() {
   gulp.src("css/*.{css,gz}").pipe(gulp.dest("dist/css"));
   gulp
     .src([
@@ -157,6 +164,16 @@ gulp.task("package", ["imagemin", "sass", "concat"], function() {
     ])
     .pipe(gulp.dest("dist/js"));
   // gulp.src("font").pipe(gulp.dest("dist/font"));
-  gulp.src("*.{html,php}").pipe(gulp.dest("dist"));
+  gulp.src("html-include/*.{html,php}").pipe(gulp.dest("dist"));
   gulp.src("favicons/*").pipe(gulp.dest("dist/favicons"));
+});
+
+gulp.task("include", function() {
+  gulp
+    .src("*.html")
+    .pipe(include())
+    .on("error", function(er) {
+      errorHandler(er);
+    })
+    .pipe(gulp.dest("html-include"));
 });
