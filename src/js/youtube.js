@@ -3,6 +3,7 @@
 // Working order: Load data from Youtube API => insert data in vidBoxTemplate => use template to render element on page
 
 // Load data from Youtube
+siema("video-list__list", false, false);
 const yt_api_key = "AIzaSyAXUGrOIVhDVVhldzfuPfTha2TDdolKMQk";
 const videos = document.querySelectorAll(".youtube");
 const mainEl = document.querySelector(".yt-container");
@@ -21,10 +22,8 @@ videos.forEach(video => {
       const date = new Date(data.snippet.publishedAt);
       const publicationDate =
         date.getDate() + "-" + (date.getMonth() + 1) + "-" + date.getFullYear();
-
       const classArray = [];
       video.classList.forEach(item => classArray.push(item));
-
       // Is the video the Hero video or not?
       if (classArray.includes("youtube-hero")) {
         document.querySelector(
@@ -47,7 +46,6 @@ videos.forEach(video => {
             : data.snippet.thumbnails.high.url
         }) center center no-repeat`;
         video.style.backgroundSize = "cover";
-
         // Open popup with video on click
         video.addEventListener("click", e => {
           // If element exists, remove it
@@ -55,9 +53,7 @@ videos.forEach(video => {
           if (vidBox !== null) {
             mainEl.removeChild(vidBox);
           }
-
           createVidBox(res, publicationDate, video.dataset.href);
-
           // Add close button functionality
           const closeTrigger = document.querySelector(".video-box");
           closeTrigger.addEventListener("click", function(e) {
@@ -72,7 +68,7 @@ videos.forEach(video => {
       }
     }
   };
-  xhttp.open("GET", yt_endpoint, false);
+  xhttp.open("GET", yt_endpoint, true);
   xhttp.send();
 });
 
