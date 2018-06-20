@@ -120,7 +120,7 @@ gulp.task("concat", function() {
 gulp.task("watch", ["browserSync", "sass", "babel", "include"], function() {
   gulp.watch("scss/**/*.scss", ["sass"]);
   gulp.watch("src/js/*.js", ["babel"]);
-  gulp.watch("*.html", {}, reload);
+  gulp.watch("src/html/*.html", ["include"]);
   gulp.watch("*.php", reload);
 });
 
@@ -164,16 +164,21 @@ gulp.task("package", ["include", "sass", "babel", "imagemin"], function() {
     ])
     .pipe(gulp.dest("dist/js"));
   // gulp.src("font").pipe(gulp.dest("dist/font"));
-  gulp.src("html-include/*.{html,php}").pipe(gulp.dest("dist"));
+  gulp.src("*.{html,php}").pipe(gulp.dest("dist"));
   gulp.src("favicons/*").pipe(gulp.dest("dist/favicons"));
 });
 
 gulp.task("include", function() {
   gulp
-    .src("*.html")
+    .src("src/html/*.html")
     .pipe(include())
     .on("error", function(er) {
       errorHandler(er);
     })
-    .pipe(gulp.dest("html-include"));
+    .pipe(gulp.dest("./"))
+    .pipe(
+      browserSync.reload({
+        stream: true
+      })
+    );
 });
