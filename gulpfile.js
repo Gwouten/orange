@@ -21,7 +21,7 @@ var password = "VzZCMfqA7mD8"; /*process.env.FTP_PWD;*/
 var host = "ftp.concerto.space";
 var port = 21;
 var localFilesGlob = ["./dist/**/*"];
-var remoteFolder = "/www/communales/";
+var remoteFolder = "/www/gulp-upload-test/";
 
 // How to handle errors withour crashing the watch task
 const errorHandler = function(error) {
@@ -41,7 +41,7 @@ function getFtpConnection() {
   });
 }
 
-gulp.task("removeDirectory", function() {
+gulp.task("removeRemoteDirectory", function() {
   const conn = getFtpConnection();
   conn.rmdir(remoteFolder, function(error) {
     console.log(error);
@@ -50,12 +50,9 @@ gulp.task("removeDirectory", function() {
 
 gulp.task("upload", ["package"], function() {
   const conn = getFtpConnection();
-  conn.rmdir(remoteFolder, function(error) {
-    console.log(error);
-  });
   return (
     gulp
-      .src("./dist/**/*")
+      .src(localFilesGlob)
       // .pipe(conn.newer(remoteFolder))
       .pipe(conn.dest(remoteFolder))
   );
@@ -151,16 +148,16 @@ gulp.task("guetzli", function() {
     .pipe(gulp.dest("dist/assets/img"));
 });
 
-gulp.task("package", ["include", "sass", "babel", "imagemin"], function() {
+gulp.task("package", function() {
   gulp.src("css/*.{css,gz}").pipe(gulp.dest("dist/css"));
   gulp
     .src([
       "js/bundle.js",
-      "js/bundle.gz",
+      "js/bundle.js.gz",
       "js/twitter.js",
-      "js/twitter.gz",
+      "js/twitter.js.gz",
       "js/safari-font-fix.js",
-      "js/safari-font-fix.gz"
+      "js/safari-font-fix.js.gz"
     ])
     .pipe(gulp.dest("dist/js"));
   // gulp.src("font").pipe(gulp.dest("dist/font"));

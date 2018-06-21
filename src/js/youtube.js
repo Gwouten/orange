@@ -2,18 +2,10 @@
 
 // Working order: Load data from Youtube API => insert data in vidBoxTemplate => use template to render element on page
 
-// Load data from Youtube
-siema("video-list__list", false, false);
-const yt_api_key = "AIzaSyAXUGrOIVhDVVhldzfuPfTha2TDdolKMQk";
-const videos = document.querySelectorAll(".youtube");
-const mainEl = document.querySelector(".yt-container");
+// Functions
 
-videos.forEach(video => {
-  // Request data from Youtube
-  let id = video.dataset.href.split("=");
-  id = id[id.length - 1];
-  const yt_endpoint = `https://www.googleapis.com/youtube/v3/videos?part=snippet,statistics&id=${id}&key=${yt_api_key}`;
-
+// Fetch video info from Youtube
+const getVideoInfo = (video, yt_endpoint) => {
   const xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
@@ -70,8 +62,9 @@ videos.forEach(video => {
   };
   xhttp.open("GET", yt_endpoint, true);
   xhttp.send();
-});
+};
 
+// Videobox template
 const createVidBox = (data, publicationDate, videoUrl) => {
   data = data.items[0];
   const vidBoxTemplate = `
@@ -150,3 +143,17 @@ const createVidBox = (data, publicationDate, videoUrl) => {
   };
   gapi.ytsubscribe.render(ytSubscribeContainer, ytSubscribeOptions);
 };
+
+siema("video-list__list", false, false);
+const yt_api_key = "AIzaSyAXUGrOIVhDVVhldzfuPfTha2TDdolKMQk";
+const videos = document.querySelectorAll(".youtube");
+const mainEl = document.querySelector(".yt-container");
+
+videos.forEach(video => {
+  // Request data from Youtube
+  let id = video.dataset.href.split("=");
+  id = id[id.length - 1];
+  const yt_endpoint = `https://www.googleapis.com/youtube/v3/videos?part=snippet,statistics&id=${id}&key=${yt_api_key}`;
+
+  getVideoInfo(video, yt_endpoint);
+});
