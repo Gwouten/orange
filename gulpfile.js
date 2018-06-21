@@ -16,12 +16,12 @@ const concat = require("gulp-concat");
 const include = require("gulp-include");
 
 // FTP config
-var user = "concertoyd"; /*process.env.FTP_USER;*/
-var password = "VzZCMfqA7mD8"; /*process.env.FTP_PWD;*/
-var host = "ftp.concerto.space";
+var user = "lescommuua"; /*process.env.FTP_USER;*/
+var password = "mhC4GUQV4qs2"; /*process.env.FTP_PWD;*/
+var host = "ftp.cluster026.hosting.ovh.net";
 var port = 21;
 var localFilesGlob = ["./dist/**/*"];
-var remoteFolder = "/www/gulp-upload-test/";
+var remoteFolder = "/dev2/";
 
 // How to handle errors withour crashing the watch task
 const errorHandler = function(error) {
@@ -49,6 +49,16 @@ gulp.task("removeRemoteDirectory", function() {
 });
 
 gulp.task("upload", ["package"], function() {
+  const conn = getFtpConnection();
+  return (
+    gulp
+      .src(localFilesGlob)
+      // .pipe(conn.newer(remoteFolder))
+      .pipe(conn.dest(remoteFolder))
+  );
+});
+
+gulp.task("upload-styling", function() {
   const conn = getFtpConnection();
   return (
     gulp
@@ -163,6 +173,20 @@ gulp.task("package", function() {
   // gulp.src("font").pipe(gulp.dest("dist/font"));
   gulp.src("*.{html,php}").pipe(gulp.dest("dist"));
   gulp.src("favicons/*").pipe(gulp.dest("dist/favicons"));
+});
+
+gulp.task("package-styling", function() {
+  gulp.src("css/*.{css,gz}").pipe(gulp.dest("dist/css"));
+  gulp
+    .src([
+      "js/bundle.js",
+      "js/bundle.js.gz",
+      "js/twitter.js",
+      "js/twitter.js.gz",
+      "js/safari-font-fix.js",
+      "js/safari-font-fix.js.gz"
+    ])
+    .pipe(gulp.dest("dist/js"));
 });
 
 gulp.task("include", function() {

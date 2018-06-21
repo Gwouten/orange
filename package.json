@@ -9,13 +9,16 @@
     "sass": "gulp sass",
     "include": "gulp include",
     "package": "gulp package",
+    "package-styling": "gulp package-styling",
     "imagemin": "gulp imagemin",
     "removeLocalDistFolder": "rm -rf dist",
     "build": "npm-run-all removeDistFolder package",
     "upload": "gulp upload",
+    "upload-styling": "gulp upload-styling",
     "concat": "gulp concat",
     "removeRemoteDirectory": "gulp removeRemoteDirectory",
-    "upload:prod": "run-s removeLocalDistFolder babel sass include package imagemin removeRemoteDirectory upload"
+    "upload:prod": "run-s removeLocalDistFolder babel sass include package imagemin upload",
+    "upload:styling": "run-s babel sass package-styling upload-styling"
   },
   "author": "Wouter Deloof",
   "license": "ISC",
