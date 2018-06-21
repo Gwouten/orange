@@ -1,6 +1,7 @@
 .two-col-skew {
   width: 100%;
   height: 52rem;
+  overflow-x: hidden;
   @include screen(tab-port) {
     height: 26rem;
   }

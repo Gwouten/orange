@@ -4,9 +4,9 @@
   font-weight: 600;
   padding: 0;
   width: 100%;
-  z-index: 10;
   position: fixed;
   height: 7.5rem;
+  z-index: 10;
 
   @include screen(tab-port) {
     height: auto;
