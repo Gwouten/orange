@@ -62,7 +62,7 @@ gulp.task("upload-styling", function() {
   const conn = getFtpConnection();
   return (
     gulp
-      .src(localFilesGlob)
+      .src(["./dist/css/*", "./dist/js/*"])
       // .pipe(conn.newer(remoteFolder))
       .pipe(conn.dest(remoteFolder))
   );
