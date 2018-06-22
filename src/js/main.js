@@ -24,39 +24,36 @@ toTopElement.addEventListener("click", function(e) {
 setThemeLinks();
 
 // Awesomplete - for autocompleting form fields
-const setAwesomplete = function() {
-  const inputCandidatesElement = document.querySelector(".input__text");
-  if (inputCandidatesElement !== null) {
-    const candidates = list => {
-      new Awesomplete(inputCandidatesElement, {
-        list,
-        minChars: 2,
-        maxItems: 30
-      });
-    };
-    candidates(["Wouter"]);
+const inputCandidatesElement = document.querySelector(".input__text");
+if (inputCandidatesElement !== null) {
+  console.log("Awesomplete");
+  const candidates = list => {
+    new Awesomplete(inputCandidatesElement, {
+      list,
+      minChars: 2,
+      maxItems: 30
+    });
+  };
 
-    // const request = new XMLHttpRequest();
-    // request.onreadystatechange = function() {
-    //   if (this.readyState == 4 && this.status == 200) {
-    //     // Clean up responseText
-    //     const data = this.responseText
-    //       .trim() // Remove leading and trailing spaces
-    //       .slice(1, -2) // Remove '[' and ']'
-    //       .trim() // Remove leading and trailing spaces
-    //       .split(",") // Make array
-    //       .forEach(entry => {
-    //         entry = entry.trim().slice(1, -1);
-    //       });
-    //     console.log(data);
-    //     candidates(data);
-    //   }
-    // };
-    // request.open("GET", "http://dev2.lescommunales2018.be/generate.php", true);
-    // request.send();
+  let generateListUrl = "http://dev2.lescommunales2018.be/generate_all.php";
+  if (document.querySelector("#candidate-search") !== null) {
+    generateListUrl = "http://dev2.lescommunales2018.be/generate_candidats.php";
   }
-};
-setAwesomplete();
+  console.log(generateListUrl);
+
+  const request = new XMLHttpRequest();
+  request.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      // Clean up responseText
+      const res = this.responseText.toString();
+      const data = res.split("|");
+
+      candidates(data);
+    }
+  };
+  request.open("GET", generateListUrl, true);
+  request.send();
+}
 // End awesomplete
 
 // Set margin for u-wrapper--followed-by-quote
