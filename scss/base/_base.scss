@@ -31,7 +31,6 @@ body {
 
 main {
   padding-top: 7.5rem;
-  z-index: 800;
   @include screen(tab-port) {
     padding-top: 0;
     animation: fade-in 0.5s 0.75s forwards;

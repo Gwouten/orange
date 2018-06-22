@@ -58,13 +58,23 @@ gulp.task("upload", ["package"], function() {
   );
 });
 
-gulp.task("upload-styling", function() {
+gulp.task("upload-css", function() {
   const conn = getFtpConnection();
   return (
     gulp
-      .src(["./dist/css/*", "./dist/js/*"])
+      .src("dist/css/*")
       // .pipe(conn.newer(remoteFolder))
-      .pipe(conn.dest(remoteFolder))
+      .pipe(conn.dest(remoteFolder + "/css"))
+  );
+});
+
+gulp.task("upload-js", function() {
+  const conn = getFtpConnection();
+  return (
+    gulp
+      .src("dist/js/*")
+      // .pipe(conn.newer(remoteFolder))
+      .pipe(conn.dest(remoteFolder + "/js"))
   );
 });
 

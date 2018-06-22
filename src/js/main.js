@@ -24,49 +24,39 @@ toTopElement.addEventListener("click", function(e) {
 setThemeLinks();
 
 // Awesomplete - for autocompleting form fields
+const setAwesomplete = function() {
+  const inputCandidatesElement = document.querySelector(".input__text");
+  if (inputCandidatesElement !== null) {
+    const candidates = list => {
+      new Awesomplete(inputCandidatesElement, {
+        list,
+        minChars: 2,
+        maxItems: 30
+      });
+    };
+    candidates(["Wouter"]);
 
-const inputCandidates = document.querySelector(".input__text"); // form on index.html
-if (inputCandidates !== null) {
-  var inputCandidatesList = [
-    {
-      code: 1000,
-      commune: "Bruxelles",
-      candidats: ["Olivier", "Wouter"]
-    },
-    {
-      code: 1050,
-      commune: "Ixelles",
-      candidats: ["Gilles", "Christophe"]
-    },
-    {
-      code: 3000,
-      commune: "Leuven",
-      candidats: ["Etienne", "Sandro"]
-    }
-  ];
-
-  const candidates = list => {
-    new Awesomplete(inputCandidates, {
-      list,
-      minChars: 1,
-      maxItems: 15
-    });
-  };
-
-  const flattenArray = function(accumulator, currentValue) {
-    return accumulator.concat(currentValue);
-  };
-
-  const fullList = inputCandidatesList
-    .map(function(item) {
-      return Object.keys(item)
-        .map(e => item[e])
-        .reduce(flattenArray, []);
-    })
-    .reduce(flattenArray);
-
-  candidates(fullList);
-}
+    // const request = new XMLHttpRequest();
+    // request.onreadystatechange = function() {
+    //   if (this.readyState == 4 && this.status == 200) {
+    //     // Clean up responseText
+    //     const data = this.responseText
+    //       .trim() // Remove leading and trailing spaces
+    //       .slice(1, -2) // Remove '[' and ']'
+    //       .trim() // Remove leading and trailing spaces
+    //       .split(",") // Make array
+    //       .forEach(entry => {
+    //         entry = entry.trim().slice(1, -1);
+    //       });
+    //     console.log(data);
+    //     candidates(data);
+    //   }
+    // };
+    // request.open("GET", "http://dev2.lescommunales2018.be/generate.php", true);
+    // request.send();
+  }
+};
+setAwesomplete();
 // End awesomplete
 
 // Set margin for u-wrapper--followed-by-quote

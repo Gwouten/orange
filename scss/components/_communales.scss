@@ -27,6 +27,7 @@
       padding: $padding-l $padding-m $padding-m $padding-m;
       background-color: lighten($col-light-grey, 6%);
       margin: $margin-m 0;
+      width: 100%;
       @include screen(tab-port) {
         border: 1px solid $col-light-grey;
         margin: $margin-m 0;
@@ -50,7 +51,7 @@
         background: $col-cdh;
         background-size: 150%;
         border-radius: 0.5rem;
-        color: $col-black;
+        color: $col-white;
         content: "Engagement " counter(counter);
         counter-increment: counter;
         display: block;

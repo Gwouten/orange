@@ -103,6 +103,7 @@
       // float: left;
       transform: skewX($skew);
       text-align: center;
+      overflow: hidden;
     }
 
     &--commune {
