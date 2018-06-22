@@ -14,7 +14,7 @@
     "upload-js": "gulp upload-js",
     "imagemin": "gulp imagemin",
     "removeLocalDistFolder": "rm -rf dist",
-    "build": "npm-run-all removeDistFolder package",
+    "build": "run-s removeLocalDistFolder imagemin babel sass include package",
     "upload": "gulp upload",
     "upload-styling": "gulp upload-styling",
     "concat": "gulp concat",

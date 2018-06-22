@@ -97,7 +97,7 @@ gulp.task("sass", function() {
     );
 });
 
-gulp.task("babel", ["concat"], function() {
+gulp.task("babel", ["concat", "extra-scripts"], function() {
   return gulp
     .src("js/*.js")
     .pipe(
@@ -129,6 +129,14 @@ gulp.task("concat", function() {
       "src/js/main.js"
     ])
     .pipe(concat("bundle.js"))
+    .pipe(gulp.dest("js"))
+    .pipe(gzip())
+    .pipe(gulp.dest("js"));
+});
+
+gulp.task("extra-scripts", function() {
+  return gulp
+    .src(["src/js/twitter.js", "src/js/safari-font-fix.js"])
     .pipe(gulp.dest("js"))
     .pipe(gzip())
     .pipe(gulp.dest("js"));

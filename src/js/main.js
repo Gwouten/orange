@@ -26,7 +26,6 @@ setThemeLinks();
 // Awesomplete - for autocompleting form fields
 const inputCandidatesElement = document.querySelector(".input__text");
 if (inputCandidatesElement !== null) {
-  console.log("Awesomplete");
   const candidates = list => {
     new Awesomplete(inputCandidatesElement, {
       list,
@@ -35,25 +34,29 @@ if (inputCandidatesElement !== null) {
     });
   };
 
-  let generateListUrl = "http://dev2.lescommunales2018.be/generate_all.php";
-  if (document.querySelector("#candidate-search") !== null) {
-    generateListUrl = "http://dev2.lescommunales2018.be/generate_candidats.php";
-  }
-  console.log(generateListUrl);
-
-  const request = new XMLHttpRequest();
-  request.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-      // Clean up responseText
-      const res = this.responseText.toString();
-      const data = res.split("|");
-
-      candidates(data);
+  if (!window.location.href.includes("http://localhost:3000/")) {
+    let generateListUrl = "http://dev2.lescommunales2018.be/generate_all.php";
+    if (document.querySelector("#candidate-search") !== null) {
+      generateListUrl =
+        "http://dev2.lescommunales2018.be/generate_candidats.php";
     }
-  };
-  request.open("GET", generateListUrl, true);
-  request.send();
+    const request = new XMLHttpRequest();
+    request.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        // Clean up responseText
+        const res = this.responseText.toString();
+        const data = res.split("|");
+
+        candidates(data);
+      }
+    };
+    request.open("GET", generateListUrl, true);
+    request.send();
+  } else {
+    candidates(["data"]);
+  }
 }
+
 // End awesomplete
 
 // Set margin for u-wrapper--followed-by-quote

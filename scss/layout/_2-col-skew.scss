@@ -1,9 +1,13 @@
 .two-col-skew {
   width: 100%;
   height: 52rem;
-  overflow-x: hidden;
   @include screen(tab-port) {
     height: 26rem;
+  }
+  &:first-of-type {
+    @include screen(tab-port) {
+      z-index: 10;
+    }
   }
 
   & + .two-col-skew {
@@ -103,7 +107,6 @@
       // float: left;
       transform: skewX($skew);
       text-align: center;
-      overflow: hidden;
     }
 
     &--commune {

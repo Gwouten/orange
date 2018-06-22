@@ -26,6 +26,8 @@ body {
   min-height: 100vh;
   @include screen(tab-port) {
     font-size: 1.4rem;
+    overflow-x: hidden;
+    overflow-y: auto;
   }
 }
 
