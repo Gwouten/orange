@@ -126,6 +126,7 @@ gulp.task("concat", function() {
       "src/js/awesomplete.js",
       "src/js/functions.js",
       "src/js/youtube.js",
+      "src/js/privacy.js",
       "src/js/main.js"
     ])
     .pipe(concat("bundle.js"))

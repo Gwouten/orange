@@ -1,0 +1,48 @@
+<div class="video-box">
+    <!-- close button -->
+    <button class="video-box__close">X</button>
+
+    <!-- video -->
+    <div class="video-box__video"></div>
+
+    <!-- controls -->
+    <div class="video-box__controls">
+
+        <!-- header -->
+        <div class="video-box__header">
+            <h1 class="video-box__header__title">Youtube Title</h1>
+            <div class="video-box__header__stats">
+                <h2 class="video-box__header__stats__views">
+                    <!-- ${statistics.viewCount} -->
+                    <img src="assets/img/views.svg" alt="" class="video-box__header__stats__icon video-box__header__stats__icon--large"> 4158
+                </h2>
+                <h6 class="video-box__header__stats__likes">
+                    <!-- ${statistics.likeCount} -->
+                    <img src="assets/img/thumbs-up.svg" alt="" class="video-box__header__stats__icon"> 459
+                </h6>
+                <h6 class="video-box__header__stats__dislikes">
+                    <!-- ${statistics.dislikeCount} -->
+                    <img src="assets/img/thumbs-down.svg" alt="" class="video-box__header__stats__icon"> 21
+                </h6>
+            </div>
+        </div>
+
+        <!-- meta -->
+        <div class="video-box__meta">
+            <div class="g-ytsubscribe" data-channel="ocentre" data-layout="full" data-count="default"></div>
+            <div class="video-box__meta__share">
+                <a href="http://www.facebook.com/sharer.php?u=${video.href}" class="video-box__meta__share__button video-box__meta__share__button--facebook">Share on Facebook</a>
+                <a href="https://twitter.com/intent/tweet?text=${Youtube title}&url=${video.href}" class="video-box__meta__share__button video-box__meta__share__button--twitter">Share on Twitter</a>
+            </div>
+        </div>
+
+        <!-- Description -->
+        <div class="video-box__description">
+            <p class="video-box__description__date">Ajoutée le 06/06/2018
+                <!-- ${date} -->
+            </p>
+            <p class="video-box__description__description">Et error perferendis omnis dolor ea. Earum dolores non tenetur. Cumque velit deserunt aut et rerum. Sequi nostrum
+                culpa eum ratione et architecto quo qui autem. Qui minus debitis.</p>
+        </div>
+    </div>
+</div>

@@ -175,7 +175,7 @@ const scrollToTop = function(el) {
 
 // Indicate current page in navigation
 const setCurrentPageIndicator = function() {
-  const navEl = document.querySelector(".header__interior-links ul");
+  const navEl = document.querySelector(".header__interior-links");
   const currentPage = window.location.href.split("/");
   const l = currentPage.length - 1;
   const setActiveMenuItem = index => {

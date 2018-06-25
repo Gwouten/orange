@@ -3,4 +3,13 @@
     font-size: 2rem;
     margin-top: $margin-l;
   }
+
+  &__link {
+    text-decoration: underline;
+    transition: color 0.2s;
+
+    &:hover {
+      color: $col-secondary;
+    }
+  }
 }
