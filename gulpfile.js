@@ -22,12 +22,6 @@ var port = 21;
 var localFilesGlob = ["./dist/**/*"];
 var remoteFolder = "/dev2/";
 
-// How to handle errors withour crashing the watch task
-const errorHandler = function(error) {
-  console.log(error.toString());
-  this.emit("end");
-};
-
 // Connect to FTP
 function getFtpConnection() {
   return ftp.create({
@@ -81,8 +75,9 @@ gulp.task("sass", function() {
   return gulp
     .src("scss/**/*.scss")
     .pipe(sass())
-    .on("error", function(er) {
-      errorHandler(er);
+    .on("error", function(error) {
+      console.log(error.toString());
+      this.emit("end");
     })
     .pipe(autoprefix())
     .pipe(cleanCSS())
@@ -104,8 +99,9 @@ gulp.task("babel", ["concat", "extra-scripts"], function() {
         presets: ["env"]
       })
     )
-    .on("error", function(er) {
-      errorHandler(er);
+    .on("error", function(error) {
+      console.log(error.toString());
+      this.emit("end");
     })
     .pipe(uglify())
     .pipe(gulp.dest("js"))
@@ -211,8 +207,9 @@ gulp.task("include", function() {
   gulp
     .src("src/html/*.html")
     .pipe(include())
-    .on("error", function(er) {
-      errorHandler(er);
+    .on("error", function(error) {
+      console.log(error.toString());
+      this.emit("end");
     })
     .pipe(gulp.dest("./"))
     .pipe(

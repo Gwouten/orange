@@ -53,7 +53,8 @@ if (inputCandidatesElement !== null) {
     new Awesomplete(inputCandidatesElement, {
       list,
       minChars: 2,
-      maxItems: 30
+      maxItems: 30,
+      autoFirst: true
     });
   };
 

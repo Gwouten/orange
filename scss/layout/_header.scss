@@ -148,11 +148,12 @@
     z-index: 1001;
 
     @include screen(tab-port) {
-      margin: 1.5rem 3rem;
-      opacity: 1;
       height: 12rem;
+      margin: 1.5rem 3rem;
+      max-width: 50rem;
+      opacity: 1;
+      transform: translateX(0) translateY(1rem);
       width: auto;
-      transform: translateX(0);
     }
 
     &--mobile {

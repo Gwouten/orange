@@ -1,0 +1,51 @@
+.disclaimer {
+  margin-top: $margin-xl;
+  counter-reset: disclaimer-counter;
+
+  &__header {
+    font-size: 3rem;
+  }
+
+  &__subheader {
+    font-size: 2.4rem;
+    margin-top: $margin-m;
+    counter-increment: disclaimer-counter;
+    &:before {
+      content: counter(disclaimer-counter) ". ";
+    }
+  }
+
+  &__subheader-3 {
+    font-size: 1.6rem;
+    margin-top: $margin-m;
+  }
+
+  &__list {
+    & + * {
+      margin-top: $margin-m;
+    }
+
+    &__item {
+      margin-top: $margin-s;
+      font-size: 1.6rem;
+
+      &:before {
+        content: "- ";
+      }
+    }
+  }
+
+  a {
+    text-decoration: underline;
+    transition: color 0.2s;
+
+    &:hover {
+      color: $col-secondary;
+    }
+  }
+  img {
+    width: 606px;
+    height: 480px;
+    margin-top: $margin-m;
+  }
+}

@@ -77,7 +77,7 @@
   
       <div class="header__wrapper">
   
-          <a href="index.html">
+          <a href="index.html" class="header__link-logo">
               <img src="./assets/img/header-logo.svg" alt="cdH Logo - Les Communales 2018" class="header__logo">
           </a>
   
@@ -125,7 +125,7 @@
               </ul>
           </nav>
   
-          <nav>
+          <nav class="header__interior-links-wrapper">
               <ul class="header__interior-links">
                   <li class="header__interior-links__item">
                       <a href="index.html" class="header__interior-links__link">Accueil</a>
@@ -213,9 +213,9 @@
 
         <div class="search-box u-50">
           <h2 class="search-box__header">Trouvez un(e) candidat(e)</h2>
-          <form action="result.html">
+          <form action="result.html" method="POST">
             <div class="input input--candidate-search">
-              <input type="text" class="input__text" id="candidate-search" placeholder="Nom, commune ou code postale" data-source="communes">
+              <input type="text" class="input__text" name="search" id="candidate-search" placeholder="Nom, commune ou code postale" data-source="communes">
               <button type="reset" class="btn btn--input-reset"></button>
               <input type="submit" class="btn btn--submit" value="&nbsp;">
             </div>
