@@ -42,6 +42,11 @@
     margin-bottom: 0;
   }
 
+  &--even-margin {
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+  }
+
   &--align-left {
     justify-content: flex-start;
   }
@@ -74,4 +79,8 @@
 .u-strong {
   font-weight: 600;
   color: $col-secondary;
+}
+
+.u-50 {
+  width: calc(50% - 2.5rem) !important;
 }

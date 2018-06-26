@@ -25,6 +25,29 @@ setThemeLinks();
 
 // Awesomplete - for autocompleting form fields
 const inputCandidatesElement = document.querySelector(".input__text");
+
+// Check what list to use based on data-source attribute
+const generateListUrl = element => {
+  const source = element.dataset.source;
+  switch (source) {
+    case "all":
+      console.log("http://dev2.lescommunales2018.be/generate_all.php");
+      return "http://dev2.lescommunales2018.be/generate_all.php";
+    case "candidats":
+      console.log("http://dev2.lescommunales2018.be/generate_candidats.php");
+      return "http://dev2.lescommunales2018.be/generate_candidats.php";
+    case "communes":
+      console.log("http://dev2.lescommunales2018.be/generate_cp.php");
+      return "http://dev2.lescommunales2018.be/generate_cp.php";
+    case "provinces":
+      console.log("http://dev2.lescommunales2018.be/generate_all.php");
+      return "http://dev2.lescommunales2018.be/generate_all.php";
+    default:
+      console.log("default");
+      return "http://dev2.lescommunales2018.be/generate_all.php";
+  }
+};
+
 if (inputCandidatesElement !== null) {
   const candidates = list => {
     new Awesomplete(inputCandidatesElement, {
@@ -35,11 +58,6 @@ if (inputCandidatesElement !== null) {
   };
 
   if (!window.location.href.includes("http://localhost:3000/")) {
-    let generateListUrl = "http://dev2.lescommunales2018.be/generate_all.php";
-    if (document.querySelector("#candidate-search") !== null) {
-      generateListUrl =
-        "http://dev2.lescommunales2018.be/generate_candidats.php";
-    }
     const request = new XMLHttpRequest();
     request.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
@@ -50,10 +68,11 @@ if (inputCandidatesElement !== null) {
         candidates(data);
       }
     };
-    request.open("GET", generateListUrl, true);
+    request.open("GET", generateListUrl(inputCandidatesElement), true);
     request.send();
   } else {
     candidates(["data"]);
+    generateListUrl(inputCandidatesElement);
   }
 }
 

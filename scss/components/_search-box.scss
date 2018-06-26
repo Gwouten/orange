@@ -1,0 +1,19 @@
+.search-box {
+  background: $col-cdh;
+  border-radius: $brad-m;
+  margin-top: $margin-l;
+  padding: $padding-m;
+  width: 100%;
+  z-index: 1;
+  @include screen(tab-port) {
+    padding: $padding-l;
+    margin-top: 0;
+  }
+
+  &__header {
+    color: $col-white;
+    font-size: 2.5rem;
+    margin-bottom: $margin-m;
+    text-align: center;
+  }
+}

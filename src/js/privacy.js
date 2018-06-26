@@ -2,8 +2,9 @@
 function getCookie(cname) {
   var name = cname + "=";
   var decodedCookie = decodeURIComponent(document.cookie);
-  var ca = decodedCookie.split(";");
-  if (!ca.includes("cdh-accepted=true") && !ca.includes(" cdh-accepted=true")) {
+  var ca = decodedCookie.split("; ");
+  console.log(ca);
+  if (!ca.includes("cdh-accepted=true")) {
     document.querySelector(".privacy").classList.add("slideInFromBottom");
   } else {
     return;
