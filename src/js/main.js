@@ -27,26 +27,26 @@ setThemeLinks();
 const inputCandidatesElement = document.querySelector(".input__text");
 
 // Check what list to use based on data-source attribute
-const generateListUrl = element => {
-  const source = element.dataset.source;
-  switch (source) {
-    case "all":
-      console.log("http://dev2.lescommunales2018.be/generate_all.php");
-      return "http://dev2.lescommunales2018.be/generate_all.php";
-    case "candidats":
-      console.log("http://dev2.lescommunales2018.be/generate_candidats.php");
-      return "http://dev2.lescommunales2018.be/generate_candidats.php";
-    case "communes":
-      console.log("http://dev2.lescommunales2018.be/generate_cp.php");
-      return "http://dev2.lescommunales2018.be/generate_cp.php";
-    case "provinces":
-      console.log("http://dev2.lescommunales2018.be/generate_all.php");
-      return "http://dev2.lescommunales2018.be/generate_all.php";
-    default:
-      console.log("default");
-      return "http://dev2.lescommunales2018.be/generate_all.php";
-  }
-};
+// const generateListUrl = element => {
+//   const source = element.dataset.source;
+//   switch (source) {
+//     case "all":
+//       console.log("http://dev2.lescommunales2018.be/generate_all.php");
+//       return "http://dev2.lescommunales2018.be/generate_all.php";
+//     case "candidats":
+//       console.log("http://dev2.lescommunales2018.be/generate_candidats.php");
+//       return "http://dev2.lescommunales2018.be/generate_candidats.php";
+//     case "communes":
+//       console.log("http://dev2.lescommunales2018.be/generate_cp.php");
+//       return "http://dev2.lescommunales2018.be/generate_cp.php";
+//     case "provinces":
+//       console.log("http://dev2.lescommunales2018.be/generate_all.php");
+//       return "http://dev2.lescommunales2018.be/generate_all.php";
+//     default:
+//       console.log("default");
+//       return "http://dev2.lescommunales2018.be/generate_all.php";
+//   }
+// };
 
 if (inputCandidatesElement !== null) {
   const candidates = list => {
@@ -68,11 +68,15 @@ if (inputCandidatesElement !== null) {
         candidates(data);
       }
     };
-    request.open("GET", generateListUrl(inputCandidatesElement), true);
+    request.open(
+      "GET",
+      "http://dev2.lescommunales2018.be/generate_all.php",
+      true
+    );
     request.send();
   } else {
     candidates(["data"]);
-    generateListUrl(inputCandidatesElement);
+    // generateListUrl(inputCandidatesElement);
   }
 }
 
