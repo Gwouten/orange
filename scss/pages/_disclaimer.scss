@@ -44,8 +44,9 @@
     }
   }
   img {
-    width: 606px;
-    height: 480px;
+    width: 100%;
+    max-width: 606px;
+    height: auto;
     margin-top: $margin-m;
   }
 }

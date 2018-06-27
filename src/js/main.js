@@ -58,7 +58,10 @@ if (inputCandidatesElement !== null) {
     });
   };
 
-  if (!window.location.href.includes("http://localhost:3000/")) {
+  if (
+    !window.location.href.includes("http://localhost:3000/") &&
+    !window.location.href.includes("192.168.30.24:3000/")
+  ) {
     const request = new XMLHttpRequest();
     request.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {

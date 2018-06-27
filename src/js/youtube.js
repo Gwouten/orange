@@ -98,7 +98,7 @@ const createVidBox = (data, publicationDate, videoUrl) => {
           }
         </h6>
         <h6 class="video-box__header__stats__dislikes ${
-          data.statistics.likeCount == undefined ? "u-hidden" : ""
+          data.statistics.dislikeCount == undefined ? "u-hidden" : ""
         }">
           <img src="assets/img/thumbs-down.svg" alt="" class="video-box__header__stats__icon"> ${
             data.statistics.dislikeCount

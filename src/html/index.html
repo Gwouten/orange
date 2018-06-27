@@ -76,7 +76,8 @@
           two-col-skew__skewed--cdh__wrapper-right">
             <h2 class="two-col-skew__skewed--cdh__header">Vos candidats commune par commune</h2>
             <div class="input">
-              <input type="text" class="input__text" name="search" id="candidates-input" placeholder="Nom, commune ou code postale" data-source="all">
+              <input type="text" class="input__text" name="search" id="candidates-input" placeholder="Nom, commune ou code postale" data-source="all"
+                autocomplete="off">
               <button type="reset" class="btn btn--input-reset"></button>
               <input type="submit" class="btn btn--submit" value="&nbsp;">
             </div>
@@ -261,7 +262,7 @@
 
   <script src="js/bundle.js"></script>
   <script>
-    siema("carousel--projects");
+    siema("carousel--projects", true, true, 12000);
   </script>
 </body>
 

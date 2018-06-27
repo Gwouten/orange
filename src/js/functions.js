@@ -82,7 +82,7 @@ const setThemeLinks = function() {
 };
 
 // Siema slider
-function siema(element, autoplay = true, draggable = true) {
+function siema(element, autoplay = true, draggable = true, interval = 5000) {
   const sliderContainer = document.querySelector(`.${element}`);
 
   if (sliderContainer !== null) {
@@ -139,7 +139,7 @@ function siema(element, autoplay = true, draggable = true) {
     if (autoplay) {
       let autoSlide = setInterval(function() {
         slider.next();
-      }, 5000);
+      }, interval);
 
       sliderContainer.addEventListener("mouseenter", () =>
         clearInterval(autoSlide)
@@ -149,7 +149,7 @@ function siema(element, autoplay = true, draggable = true) {
         () =>
           (autoSlide = setInterval(function() {
             slider.next();
-          }, 5000))
+          }, interval))
       );
     }
   }

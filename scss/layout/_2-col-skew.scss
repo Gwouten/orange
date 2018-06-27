@@ -16,9 +16,10 @@
   }
 
   &--anti {
-    @include anti-skew-center;
+    @include center;
     width: 80%;
     @include screen(tab-port) {
+      @include anti-skew-center;
       width: 50%;
     }
   }
@@ -82,8 +83,7 @@
   }
 
   &__inner {
-    width: 110%;
-    transform: translateX(-5%);
+    width: 100%;
     height: 100%;
     @include screen(tab-port) {
       display: flex;
@@ -95,16 +95,14 @@
       margin-right: 2px;
     }
   }
+
   &__skewed {
     height: 50%;
     width: 100%;
-    // float: left;
-    transform: skewX($skew);
     text-align: center;
     @include screen(tab-port) {
       height: 100%;
       width: calc(50% - 1px);
-      // float: left;
       transform: skewX($skew);
       text-align: center;
     }
@@ -228,8 +226,11 @@
     &--image {
       overflow: hidden;
       img {
-        @include anti-skew-top;
+        @include center;
         width: 110%;
+        @include screen(tab-port) {
+          @include anti-skew-center;
+        }
       }
     }
 

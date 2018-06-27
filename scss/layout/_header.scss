@@ -11,7 +11,7 @@
   @include screen(tab-port) {
     height: auto;
     margin-bottom: $margin-m;
-    overflow-x: hidden;
+    overflow: hidden;
     padding: 0;
     position: relative;
     width: auto;
@@ -73,7 +73,9 @@
     top: 0;
     width: 100%;
     z-index: 998;
+    display: none;
     @include screen(tab-port) {
+      display: block;
       position: relative;
       height: auto;
     }
@@ -187,6 +189,7 @@
     transition: transform 0.5s 0.2s, opacity 0.5s 0.2s;
     width: 100%;
     z-index: 1001;
+    line-height: 1.2;
     @include screen(tab-port) {
       padding: 0;
       position: absolute;

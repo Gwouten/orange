@@ -4,13 +4,13 @@
 // Reset
 @import "../node_modules/normalize.css/normalize.css";
 
-// External stylesheets
-@import "../scss/external/awesomplete.css";
-@import "../scss/external/privacy.scss";
-
 // Abstracts
 @import "abstracts/variables";
 @import "abstracts/mixins";
+
+// External stylesheets
+@import "../scss/external/awesomplete.css";
+@import "../scss/external/privacy.scss";
 
 // Base styling
 @import "base/typography";
