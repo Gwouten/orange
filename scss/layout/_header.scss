@@ -30,6 +30,7 @@
     &:checked ~ .header__wrapper {
       height: 100vh;
       overflow: auto;
+      pointer-events: all;
       z-index: 999;
     }
 
@@ -73,9 +74,10 @@
     top: 0;
     width: 100%;
     z-index: 998;
-    display: none;
+    pointer-events: none;
     @include screen(tab-port) {
       display: block;
+      pointer-events: all;
       position: relative;
       height: auto;
     }

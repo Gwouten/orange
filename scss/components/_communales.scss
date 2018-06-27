@@ -5,6 +5,7 @@
     margin-top: $margin-m;
     margin-bottom: $margin-l;
     font-size: 3rem;
+    order: 2;
     @include screen(tab-port) {
       margin-top: $margin-l;
       font-size: 4rem;

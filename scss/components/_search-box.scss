@@ -5,6 +5,7 @@
   padding: $padding-m;
   width: 100%;
   z-index: 1;
+  order: 1;
   @include screen(tab-port) {
     padding: $padding-l;
     margin-top: 0;

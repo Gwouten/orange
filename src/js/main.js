@@ -49,10 +49,17 @@ const inputCandidatesElement = document.querySelector(".input__text");
 // };
 
 if (inputCandidatesElement !== null) {
+  inputCandidatesElement.addEventListener("awesomplete-select", function(e) {
+    const form = document.querySelector("form");
+    console.log(e.text.value);
+    inputCandidatesElement.value = e.text.value;
+    form.submit();
+  });
+
   const candidates = list => {
     new Awesomplete(inputCandidatesElement, {
       list,
-      minChars: 2,
+      minChars: 3,
       maxItems: 30,
       autoFirst: true
     });
@@ -74,12 +81,14 @@ if (inputCandidatesElement !== null) {
     };
     request.open(
       "GET",
-      "http://dev2.lescommunales2018.be/generate_all.php",
+      window.location.protocol === "https:"
+        ? "https://dev2.lescommunales2018.be/generate_all.php"
+        : "http://dev2.lescommunales2018.be/generate_all.php",
       true
     );
     request.send();
   } else {
-    candidates(["data"]);
+    candidates(["data", "Wouter"]);
     // generateListUrl(inputCandidatesElement);
   }
 }

@@ -82,5 +82,8 @@
 }
 
 .u-50 {
-  width: calc(50% - 2.5rem) !important;
+  width: 100%;
+  @include screen(tab-port) {
+    width: calc(50% - 2.5rem) !important;
+  }
 }

@@ -75,7 +75,7 @@ const createVidBox = (data, publicationDate, videoUrl) => {
   <div class="video-box__video">
     <iframe width="100%" height="100%" src="https://www.youtube.com/embed/${
       data.id
-    }" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    }?autoplay=1&rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
   </div>
 
   <!-- controls -->

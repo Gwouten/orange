@@ -1,0 +1,9 @@
+.error-404 {
+  &__header {
+    font-size: 2rem;
+    margin-top: $margin-xl;
+    @include screen(tab-port) {
+      font-size: 3rem;
+    }
+  }
+}

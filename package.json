@@ -22,6 +22,7 @@
     "upload:prod": "run-s removeLocalDistFolder babel sass include package imagemin upload",
     "upload:styling": "run-s babel sass package-styling upload-css upload-js"
   },
+  "unused": {},
   "author": "Wouter Deloof",
   "license": "ISC",
   "devDependencies": {
