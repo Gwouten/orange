@@ -19,10 +19,11 @@
     "upload-styling": "gulp upload-styling",
     "concat": "gulp concat",
     "removeRemoteDirectory": "gulp removeRemoteDirectory",
-    "upload:prod": "run-s removeLocalDistFolder babel sass include package imagemin upload",
     "upload:styling": "run-s babel sass package-styling upload-css upload-js"
   },
-  "unused": {},
+  "unused": {
+    "upload:prod": "run-s removeLocalDistFolder babel sass include package imagemin upload"
+  },
   "author": "Wouter Deloof",
   "license": "ISC",
   "devDependencies": {

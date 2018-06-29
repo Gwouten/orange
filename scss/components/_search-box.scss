@@ -9,6 +9,7 @@
   @include screen(tab-port) {
     padding: $padding-l;
     margin-top: 0;
+    order: 2;
   }
 
   &__header {

@@ -8,10 +8,6 @@
 @import "abstracts/variables";
 @import "abstracts/mixins";
 
-// External stylesheets
-@import "../scss/external/awesomplete.css";
-@import "../scss/external/privacy.scss";
-
 // Base styling
 @import "base/typography";
 @import "base/base";
@@ -47,3 +43,6 @@
 // Pages
 @import "pages/disclaimer";
 @import "pages/404";
+
+// External stylesheets
+@import "../scss/external/awesomplete.css";

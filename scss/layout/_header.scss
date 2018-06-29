@@ -154,10 +154,15 @@
     @include screen(tab-port) {
       height: 12rem;
       margin: 1.5rem 3rem;
-      max-width: 50rem;
+      max-width: 26rem;
       opacity: 1;
-      transform: translateX(0) translateY(1rem);
+      transform: translateX(-1rem) translateY(-2.8rem);
       width: auto;
+    }
+
+    @include screen(tab-land) {
+      max-width: 50rem;
+      transform: translateX(0) translateY(1rem);
     }
 
     &--mobile {
@@ -248,4 +253,71 @@
 
 .current {
   color: $col-secondary !important;
+}
+
+.privacy {
+  background-color: white;
+  box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.5);
+  bottom: 0;
+  left: 0;
+  margin: 0 3rem 3rem 3rem;
+  padding: 1rem;
+  position: fixed;
+  transform: translateY(200%);
+  width: calc(100% - 6rem);
+  z-index: 999999;
+
+  &__text {
+    color: black;
+    display: inline-block;
+    margin-top: 0;
+    text-transform: none;
+    width: 100%;
+    text-align: center;
+    @include screen(tab-port) {
+      text-align: left;
+    }
+    a {
+      text-decoration: underline;
+    }
+  }
+
+  &__btn {
+    background-color: $col-secondary;
+    border: none;
+    color: $col-white;
+    display: inline-block;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+    position: relative;
+    transition: background-color 0.1s, color 0.1s;
+    width: 100%;
+    margin-top: $margin-s;
+    @include screen(tab-port) {
+      margin-top: 0;
+      position: absolute;
+      right: 1rem;
+      top: 50%;
+      right: -0.5rem;
+      transform: translateY(-50%);
+      width: auto;
+    }
+
+    &:hover {
+      background-color: #30383b;
+      color: white;
+    }
+  }
+}
+
+.slideInFromBottom {
+  animation: slideInFromBottom 1s 2s forwards;
+}
+@keyframes slideInFromBottom {
+  0% {
+    transform: translateY(200%);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
