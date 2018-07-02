@@ -121,6 +121,7 @@
     color: $col-white;
     padding: 0.5rem 4rem;
     transform: skewX($anti-skew);
+    text-decoration: none;
     max-height: 3rem;
     @include screen(tab-port) {
     }

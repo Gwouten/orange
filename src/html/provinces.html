@@ -55,39 +55,40 @@
   <main>
 
     <section class="
-    two-col-skew
-    two-col-skew--narrow">
+      two-col-skew
+      two-col-skew--narrow">
       <div class="two-col-skew__inner">
         <div class="
-        two-col-skew__skewed 
-        two-col-skew__skewed--cdh">
+          two-col-skew__skewed 
+          two-col-skew__skewed--cdh">
           <div class="
-          two-col-skew__skewed--cdh__wrapper-left
-          two-col-skew--anti">
+            two-col-skew__skewed--cdh__wrapper-left
+            two-col-skew--anti">
             <h2 class="two-col-skew__skewed--cdh__header">
               Programme provincial
             </h2>
           </div>
         </div>
         <div class="
-        two-col-skew__skewed 
-        two-col-skew__skewed--image">
+          two-col-skew__skewed 
+          two-col-skew__skewed--image">
           <img src="assets/img/maison-communale-saint-gilles.jpg" alt="Maison communales de Saint-Gilles" class="u-anti-skew">
         </div>
       </div>
     </section>
 
-    <section class="intro">
-      <div class="u-wrapper">
-        <p class="intro__text">
-          On a coutume de dire que le cdH est un parti avant tout local. Et c’est tout à fait vrai&nbsp;! La preuve : le cdH dispose
-          de 75 bourgmestres en Belgique francophone.
-        </p>
-      </div>
+    <section class="intro u-wrapper">
+      <p class="intro__text">
+        Face aux critiques souvent exprimées envers les provinces, le cdH entend relégitimer l’institution provinciale. Ceci se fera
+        d’abord en recentrant l’action des provinces, trop souvent dispersée, sur les domaines où elles apportent une réelle
+        valeur ajoutée par rapport aux autres niveaux de pouvoir. L’institution provinciale prouve notamment toute son utilité
+        dans les actions qui ne peuvent être menées efficacement par les communes prises individuellement. Elle doit donc
+        devenir le niveau de référence de la supracommunalité, en fédérant et coordonnant l’action des communes lorsque cela
+        est nécessaire. Les 10 engagement du cdH pour les provinces sont autant d’exemples à suivre pour que les provinces
+        soient des institutions au service des citoyens et des communes.</p>
     </section>
 
     <section class="section-communales u-wrapper">
-
 
       <p class="section-communales__text">
         Dans les faits, la vision humaniste du CDH se traduit particulièrement bien dans les enjeux locaux et concrets car c’est
@@ -103,12 +104,12 @@
 
       <section class="u-section-split u-section-split--even-margin">
         <h2 class="section-communales__header">
-          Nos 12 engagements
+          Nos 10 engagements
         </h2>
 
         <div class="search-box u-50">
           <h2 class="search-box__header">Trouvez un(e) candidat(e)</h2>
-          <form action="result.html" method="POST">
+          <form action="result.php" method="GET">
             <div class="input input--candidate-search">
               <input type="text" class="input__text" name="search" id="candidate-search" placeholder="Nom, commune ou code postal" data-source="provinces"
                 autocomplete="off">
@@ -121,55 +122,377 @@
       </section>
 
       <ol class="section-communales__ordered-list">
-        <li class="section-communales__ordered-list__item">
-          Trouver des solutions pour que
-          <str class="u-strong">chaque enfant bénéficie d’une solution d’accueil</str>.
+        <li class="section-communales__ordered-list__item section-communales__ordered-list__item--province">
+          <h3 class="section-communales__ordered-list__item__header">Assurer un emploi à nos jeunes en soutenant l’enseignement qualifiant</h3>
         </li>
-        <li class="section-communales__ordered-list__item">
-          Développer une
-          <str class="u-strong">offre d’activités extrascolaires pour chaque enfant</str> en favorisant le rapprochement des acteurs scolaires
-          et parascolaires.
+        <li class="section-communales__ordered-list__item section-communales__ordered-list__item--province">
+          <h3 class="section-communales__ordered-list__item__header">Développer l’offre d’activités para-scolaires et extra-scolaires</h3>
         </li>
-        <li class="section-communales__ordered-list__item">
-          <str class='u-strong'>Intégrer les enfants porteurs d’un handicap</str> aux activités communales.
+        <li class="section-communales__ordered-list__item section-communales__ordered-list__item--province">
+          <h3 class="section-communales__ordered-list__item__header">Proposer des repas locaux et sains dans toutes les écoles, crèches et hôpitaux de la province</h3>
         </li>
-        <li class="section-communales__ordered-list__item">
-          <str class='u-strong'>Développer des outils numériques au service de tous.</str> Les nouvelles technologies peuvent être un formidable
-          levier de solidarité et d’échanges entre habitants, entre générations, entre familles et permettre de renforcer
-          la participation de chacun à la vie locale.
+        <li class="section-communales__ordered-list__item section-communales__ordered-list__item--province">
+          <h3 class="section-communales__ordered-list__item__header">Aider nos aînés à bien vieillir dans leur lieu de vie</h3>
         </li>
-        <li class="section-communales__ordered-list__item">
-          <str class='u-strong'>Offrir un accueil digne</str> à chaque personne présente sur le territoire de la commune qu’il s’agisse de réfugiés
-          ou de sans-abris.
+        <li class="section-communales__ordered-list__item section-communales__ordered-list__item--province">
+          <h3 class="section-communales__ordered-list__item__header">Promouvoir et soutenir les associations</h3>
         </li>
-        <li class="section-communales__ordered-list__item">
-          <str class='u-strong'>Soutenir le développement de nouveaux projets</str> d'entreprises économiques, sociales ou culturelles locales
-          en mobilisant les ressources immobilières et foncières communales.
+        <li class="section-communales__ordered-list__item section-communales__ordered-list__item--province">
+          <h3 class="section-communales__ordered-list__item__header">Faire des provinces et des communes des territoires à énergie positive</h3>
         </li>
-        <li class="section-communales__ordered-list__item">
-          <str class='u-strong'>Dynamiser les commerces de proximité</str> dans les centres d’agglomération car ils sont sources de développement
-          économique, mais également de proximité, de vitalité et de liens sociaux.</li>
-        <li class="section-communales__ordered-list__item">
-          <str class='u-strong'>Aider les chômeurs de longue durée</str> en valorisant leurs compétences et leurs talents grâce à des contrats
-          de participation volontaire dans le cadre d’activités à réaliser auprès d’acteurs publics, sociaux ou associatifs.</li>
-        <li class="section-communales__ordered-list__item">
-          <str class='u-strong'>Créer</str> dans chaque commune
-          <str class='u-strong'>une coopérative</str> de production, d'achat et de distribution
-          <str class='u-strong'>d'énergies renouvelables</str>.
-        </li>
-        <li class="section-communales__ordered-list__item">
-          <str class='u-strong'>Soutenir le vélo</str> comme premier mode de déplacement individuel.
-        </li>
-        <li class="section-communales__ordered-list__item">
-          <str class='u-strong'>Soutenir le secteur associatif</str> en l’intégrant dans toutes les dimensions de la vie communale.
-        </li>
-        <li class="section-communales__ordered-list__item">
-          <str class='u-strong'>Redynamiser</str> la démocratie locale en impliquant les citoyens par
-          <str class='u-strong'>la démocratie participative</str> notamment pour les projets d’aménagement urbain.
-        </li>
+        <li class="section-communales__ordered-list__item section-communales__ordered-list__item--province">
+          <h3 class="section-communales__ordered-list__item__header">Accompagner chaque commune dans la transition numérique</h3>
+          <li class="section-communales__ordered-list__item section-communales__ordered-list__item--province">
+            <h3 class="section-communales__ordered-list__item__header">Doter toutes les provinces d’un Plan provincial de mobilité</h3>
+            <li class="section-communales__ordered-list__item section-communales__ordered-list__item--province">
+              <h3 class="section-communales__ordered-list__item__header">Prévenir les risques d’inondation</h3>
+            </li>
+            <li class="section-communales__ordered-list__item section-communales__ordered-list__item--province">
+              <h3 class="section-communales__ordered-list__item__header">Faire de la Province un lieu de transparence et de participation citoyenne</h3>
+            </li>
       </ol>
 
     </section>
+
+    <div class="engagement">
+      <div class="engagement__block" id="engagement1">
+        <h3 class="section-communales__ordered-list__item__header">Assurer un emploi à nos jeunes en soutenant l’enseignement qualifiant</h3>
+        <p class="engagement__text">
+          L’évolution du marché de l’emploi en Wallonie montre que nous sortons progressivement d’une situation de chômage de masse
+          dû à un manque d’offres d’emploi. Nous sommes au contraire aujourd’hui dans une situation de pénurie de main-d’œuvre
+          pour toute une série de métiers, en particulier les métiers techniques. Plus que jamais, avoir la formation adéquate
+          est la meilleure garantie pour trouver un emploi.
+        </p>
+        <p class="engagement__text">
+          Or la formation à ces métiers se fait notamment via l’enseignement qualifiant, dans lequel la Province joue un rôle de premier
+          plan. C’est aussi au niveau provincial que l’on peut déterminer les besoins des entreprises locales et ainsi permettre
+          à nos jeunes de trouver un emploi près de chez eux. La Province montre ici aussi toute sa pertinence. Il importe
+          donc de
+          <str class='u-strong'>soutenir l’enseignement qualifiant en investissant dans celui-ci, en particulier en matière d’équipements et de
+            matériels permettant un apprentissage adapté.</str>
+        </p>
+        <p class="engagement__text">
+          Parallèlement, il convient
+          <str class='u-strong'>d’informer jeunes, étudiants et chômeurs sur les métiers en pénurie dans la province</str>. Des salons « objectif
+          métiers » ciblant les jeunes de 13 à 25 ans et leurs parents constituent également un moyen de promouvoir l’enseignement
+          qualifiant. Dans ce domaine, l’action provinciale doit se faire en coordination et en s’appuyant sur les Instances
+          Bassins Enseignement qualifiant – Emploi – Formation. En partenariat avec la Région wallonne, les établissements
+          d’enseignement qualifiant doivent
+          <str class='u-strong'>développer des formations à destination des chômeurs</str> afin de maximiser leurs chances de retrouver le chemin
+          de l’emploi.
+        </p>
+      </div>
+      <div class="engagement__block" id="engagement2">
+        <h3 class="section-communales__ordered-list__item__header">Développer l’offre d’activités para-scolaires et extra-scolaires</h3>
+        <p class="engagement__text">
+          Les activités para-scolaires et extra-scolaires prennent une place de plus en plus importante dans la vie des familles. Qu’il
+          s’agisse d’activités sportives, d’apprentissage de la musique, de participation à des mouvements de jeunesse, ou
+          d’activités dans les écoles de devoirs, elles sont essentielles au développement des enfants et à leur épanouissement.
+          Mais ces activités, et les déplacements qu’elles supposent parfois, font de l'agenda quotidien des familles une
+          équation compliquée.
+        </p>
+        <p class="engagement__text">
+          La Province peut jouer un double rôle en la matière. D’abord en aidant à
+          <str class='u-strong'>coordonner l’action des communes et des établissements</str>. Les coordinateurs Accueil Temps Libre (ATL) fournissent
+          déjà un travail remarquable dans ce domaine. La Province peut fournir un niveau de coordination encore supérieur,
+          par exemple en mettant à disposition des locaux, en dispensant des formations et en organisant des échanges de
+          bonnes pratiques. Elle peut également apporter des moyens tant financiers que matériels pour
+          <str class='u-strong'>offrir plus de variété et de qualité dans les activités proposées aux enfants</str>. Elle peut notamment lancer
+          elle-même des appels d’offres pour des activités ou compléter l’action des communes et des établissements par un
+          financement supplémentaire.
+        </p>
+        <p class="engagement__text">
+          <str class='u-strong'>La coordination par la Province peut aussi se concrétiser dans le transport des enfants d’un site à l’autre.</str>
+          Lorsque la coordination des transports organisés par les parents (covoiturage, déplacements à vélo) ou les établissements
+          n’est pas possible, la Province peut relayer les demandes d’affréter des bus ou minibus auprès de la région .
+        </p>
+      </div>
+
+      <div class="engagement__block" id="engagement3">
+        <h3 class="section-communales__ordered-list__item__header">Proposer des repas locaux et sains dans toutes les écoles, crèches et hôpitaux de la province</h3>
+        <p class="engagement__text">
+          Sous l’impulsion de plusieurs communes cdH, la fourniture des cantines scolaires par des producteurs locaux s’est développée
+          ces dernières années. Une telle mesure permet d’assurer une alimentation en produits de qualité, de soutenir l’activité
+          locale tout en créant du lien entre les agriculteurs et l’ensemble du tissu social (élèves et parents d’élèves).
+          Les provinces cdH auront pour objectif de généraliser cette pratique et
+          <str class='u-strong'>d’offrir des repas sur base de produits locaux dans toutes les écoles, crèches et hôpitaux de la province</str>.
+          Elle doit d’abord informer ces structures des modalités et des avantages d’une telle formule afin de les
+          <str class='u-strong'>encourager</str> à franchir le pas. La Province doit également avoir un
+          <str class='u-strong'>rôle d’encadrement et de support</str>. Elle peut par exemple mettre à disposition des écoles un professionnel
+          de la diététique qui donnerait des conseils utiles en termes d’équilibre des repas et d’utilisation des aliments
+          (chasse au gaspillage).
+        </p>
+        <p class="engagement__text">
+          Il faut aussi avoir à l’esprit que la réalisation de cet objectif suppose une hausse de la production locale, à la mesure
+          de l’accroissement de la demande. La Province doit donc avoir un
+          <str class='u-strong'>rôle actif et anticipatif auprès des agriculteurs</str> afin de stimuler la production locale répondant aux critères
+          exigés. Pour cela, elle doit également assurer la
+          <str class='u-strong'>coordination</str> entre les producteurs locaux et les structures publiques et privées désireuses d’offrir une
+          alimentation saine et locale. Par sa connaissance du terrain et son action auprès des agriculteurs, la Province
+          est en effet la mieux à même d’assurer cette coordination.
+        </p>
+        <p class="engagement__text">
+          Un autre moyen consiste à élargir les centrales d’achat provinciales à l’approvisionnement en produits locaux et bio. Il
+          est également possible de créer un label local (ex. : « production locale Liège »).
+        </p>
+        <p class="engagement__text">
+          Capable de jouer à la fois sur l’offre et la demande locales, la Province est bien le niveau de pouvoir le plus à même de
+          réaliser un tel objectif.
+        </p>
+      </div>
+
+      <div class="engagement__block" id="engagement4">
+        <h3 class="section-communales__ordered-list__item__header">Aider nos aînés à bien vieillir dans leur lieu de vie</h3>
+        <p class="engagement">
+          Pour le cdH, le maintien et l’amélioration de la qualité de vie des aînés au sein de leur commune constitue une priorité.
+          Au vu de l’évolution démographique de la Wallonie, il s’agit d’un défi à prendre en considération de manière urgente.
+          Ici aussi, la Province peut avoir un rôle fédérateur et structurant.
+        </p>
+        <p class="engagement">
+          Elle doit d’abord
+          <str class='u-strong'>développer et coordonner les services aux aînés de toutes natures en créant et animant une plate-forme de tous
+            les opérateurs actifs dans ce domaine</str> (santé, accompagnement socio-culturel, commerces de proximité, asbl
+          favorisant les contacts sociaux, entrepreneurs construisant ou adaptant des logements dédiés, etc.). « Bien vieillir
+          » signifie d’abord avoir une vie sociale et culturelle active. De multiples acteurs, dans des domaines très divers,
+          participent à assurer la qualité de vie de nos aînés. Mais il convient aussi de faire face à la question de la
+          dépendance, quelle que soit la forme que prend celle-ci.
+        </p>
+        <p class="engagement">
+          De notre point de vue,
+          <str class='u-strong'>la première réponse doit ici être constituée par le maintien à domicile</str>. Outre des aides financières qui
+          existent parfois déjà,
+          <str class='u-strong'>la Province doit avoir un rôle fédérateur et structurant pour tous les acteurs de ce domaine</str>&nbsp;: professionnels
+          de santé, entrepreneurs publics construisant ou aménageant des habitations adaptées, commerces de proximité, asbl
+          proposant des activités socioculturelles, etc.
+          <br/> Plus spécifiquement, la Province doit faire le lien entre les professionnels des soins à domicile (infirmières,
+          aides ménagères, …) et les aînés et leurs familles. Concrètement,
+          <str class='u-strong'>les services provinciaux doivent tenir à jour une liste de professionnels de confiance qui s’engagent, via la signature
+            d’une charte, à respecter un certain nombre de conditions en termes de qualité du service donné et de soins aux
+            aînés
+          </str>. Cette liste de professionnels serait disponible sur le site web de la Province afin de rassurer tant les
+          aînés que leurs familles.
+        </p>
+        <p class="engagement">
+          <str class='u-strong'>La seconde réponse est constituée par les maisons de repos, maisons de soins ou résidence-services à proximité
+            des domiciles des aînés.</str> Pour ces personnes, il est en effet essentiel de pouvoir résider à proximité de
+          leur lieu de vie d’origine afin de maintenir le lien avec la famille et les amis. Cependant, les petites communes
+          n’ont pas toujours les moyens ni la demande suffisante pour créer les structures adéquates. Ici aussi, la Province
+          a un rôle primordial à jouer : elle doit fédérer les moyens des communes et, si c’est nécessaire, apporter un complément
+          de financement afin que ces structures de proximité voient le jour ou se développent.
+        </p>
+      </div>
+
+      <div class="engagement__block" id="engagement5">
+        <h3 class="section-communales__ordered-list__item__header">Promouvoir et soutenir les associations</h3>
+        <p class="engagement__text">
+          Le secteur associatif foisonne d’initiatives et de diversité. Il structure la vie locale et permet à chacun de s’y intégrer
+          naturellement. Le projet humaniste considère l'action publique comme supplétive à l'action associative qui constitue
+          la priorité. À son niveau, la Province doit donc soutenir le monde associatif, sans chercher à influer sur le contenu
+          de son action.
+        </p>
+        <p class="engagement__text">
+          De natures extrêmement diverses, les associations n’ont pas toutes les mêmes moyens, financiers et humains. La Province doit
+          pouvoir aider les plus modestes d’entre elles et celles qui se constituent en créant une
+          <str class='u-strong'>maison provinciale des associations</str>. Celle-ci constituera une
+          <str class='u-strong'>institution de référence</str> pour toutes les asbl de la province et un
+          <str class='u-strong'>point de contact de type « guichet unique »</str> qui leur offrira toute une série de services. D’abord avec la
+          location et le prêt à prix réduit de matériels et de locaux. Mais il s’agira surtout de faire bénéficier les associations
+          de compétences et de savoir-faire utiles dans leur fonctionnement : aide juridique et administrative, aide à la
+          gestion, accompagnement pour déposer une demande de subside ou demander une autorisation, etc. Cette maison des
+          associations offrira également des formations aux asbl qui le demandent. Selon l’étendue de la province et la densité
+          de population, cette maison provinciale aura des antennes locales ou tiendra des permanences afin de venir en aide
+          à toutes les asbl, y compris en milieu rural.
+        </p>
+        <p class="engagement__text">
+          Elle respectera et promouvra la Charte associative, notamment afin de garantir son indépendance et son impartialité à l’égard
+          des mouvements politiques et philosophiques.
+        </p>
+        <h3 class="engagement__subheader">
+          Des provinces en transition, des territoires innovants
+        </h3>
+        <p class="engagement__text">
+          Face à des enjeux tels que la transition énergétique et l’utilisation des nouvelles technologies, la Province a un rôle important
+          à jouer, notamment à destination des communes moyennes ou de petite taille. En effet, celles-ci n’ont pas toujours
+          les compétences suffisantes pour tirer pleinement parti de ces nouvelles opportunités pour nos territoires.
+        </p>
+      </div>
+
+      <div class="engagement__block" id="engagement6">
+        <h3 class="section-communales__ordered-list__item__header">Faire des provinces et des communes des territoires à énergie positive</h3>
+        <p class="engagement__text">
+          Du point de vue énergétique, les
+          <str class='u-strong'>provinces doivent aider les communes à devenir des territoires à énergies positives d’ici 2050</str>. Cela suppose
+          de mobiliser les acteurs économiques, énergétiques et académiques de la province. Il s’agit surtout de motiver
+          et d’aider les communes à progresser vers l’autonomie énergétique et à coordonner leur action. Cette démarche peut
+          être concrétisée par l’adhésion de chaque commune wallonne au projet européen de la Convention des Maires pour
+          le Climat et l’Énergie.
+          <br/> Dans ce cadre,
+          <str class='u-strong'>les Provinces doivent permettre aux communes de mener à bien ce projet énergétique en mettant à leur disposition
+            une aide pour l’élaboration du bilan CO
+            <sub>2</sub> territorial, pour la réflexion et le dépôt d’un plan d’actions énergies durables</str>.
+        </p>
+        <p class="engagement__text">
+          Les provinces doivent ici se positionner en leader exemplaire afin de crédibiliser la démarche. Cela passe d’abord par une
+          rénovation des bâtiments dépendants de la Province en vue de diminuer leur consommation énergétique. Un autre objectif
+          consiste à avoir un parc automobile 100% électrique (hors véhicules de secours) et autosuffisant d’ici 10 ans.
+          L’autosuffisance sera notamment obtenue en développant l’énergie éolienne et le photovoltaïque. La Province doit
+          également mettre à disposition des terrains nécessaires au développement de l’énergie éolienne et, lorsque cela
+          est possible, équiper ses bâtiments de panneaux solaires. Cette démarche exemplaire doit pouvoir se diffuser vers
+          les communes et les institutions parastatales qui le souhaitent, en profitant de l’expérience et de l’expertise
+          acquise au niveau provincial.
+          <br/> En résumé, l’action provinciale consistera ici à montrer l’exemple, sensibiliser tous les acteurs du territoire
+          provincial, fédérer et coordonner toutes les actions visant à la transition énergétique.
+        </p>
+        <p class="engagement__text">
+          Sur tous ces aspects, l’initiative PEP’s Lux menée par la province du Luxembourg peurt servir de référence.
+        </p>
+      </div>
+
+      <div class="engagement__block" id="engagement7">
+        <h3 class="section-communales__ordered-list__item__header">Accompagner chaque commune dans la transition numérique</h3>
+        <p class="engagement__text">
+          La révolution numérique nous impacte tous, et influera toujours davantage sur notre vie quotidienne. Non maitrisés, ces outils
+          peuvent être facteurs d’exclusion, tant des zones non connectées que de personnes ne maîtrisant pas ces outils.
+          Abolissant les distances, ils constituent pourtant une formidable opportunité pour nos territoires. Correctement
+          maitrisés, ils peuvent être un facteur de lien pour des personnes isolées. Le cdH a déjà résolument œuvré pour
+          la suppression des zones blanches en Wallonie, afin de permettre à tous de bénéficier d’un accès internet et mobile.
+          Ce volontarisme politique doit se retrouver au niveau de l’action provinciale.
+        </p>
+        <p class="engagement__text">
+          À cette fin, chaque province doit se doter d’une maison du numérique. Organisme de référence, celle-ci sensibilisera et accompagnera
+          toutes les communes pour intégrer les nouveaux outils numériques voire à devenir des smartcities. Les nouvelles
+          technologies constituent en effet un domaine où la mutualisation des moyens est particulière nécessaire. Celle-ci
+          doit se faire au niveau provincial afin que les compétences soient mises à la disposition de toutes les communes
+          et de leurs habitants. Ces maisons du numérique offriraient toute information sur les opportunités de la transition
+          numérique ainsi que des formations pour les citoyens et les entreprises. Pour ces dernières, un accent particulier
+          sera mis sur l’utilisation des nouvelles technologies dans le fonctionnement interne, la vente à distance ainsi
+          que la visibilité sur internet. L’objectif prioritaire de ces maisons du numérique sera de réduire la « fracture
+          numérique », en permettant à celles et ceux qui ne maitrisent pas ou peu ces outils d’en tirer pleinement parti.
+        </p>
+      </div>
+
+      <div class="engagement__block" id="engagement8">
+        <h3 class="section-communales__ordered-list__item__header">Doter toutes les provinces d’un Plan provincial de mobilité</h3>
+        <p class="engagement__text">
+          Même si la mobilité relève de la compétence des communes, de la Région et de l’État fédéral, la Province a un rôle important
+          à jouer en matière de coordination supracommunale. Les problèmes de mobilité d’une commune peuvent en effet se
+          répercuter sur ses voisines. On peut citer ici comme exemple les chantiers qui détournent la circulation automobile,
+          ou les pistes cyclables qui, pour être réellement utiles, ne peuvent s’arrêter aux frontières communales.
+        </p>
+        <p class="engagement__text">
+          Afin de résoudre ces problèmes,
+          <str class='u-strong'>le cdH s’engage à ce que chaque province où il est au pouvoir se dote d’un Plan provincial de mobilité</str>. Celui-ci
+          permettra de disposer d’une vue globale de la mobilité dans la province et émettra des scénarios directement applicables.
+          Concrètement, ce Plan provincial de mobilité servira :
+        </p>
+        <ul>
+          <li>
+            à définir et prioriser les actions à mener, que ce soit par la Province, la région ou les communes ;
+          </li>
+          <li>
+            de référent pour tout projet d’aménagement du territoire, que celui-ci émane de la région, des communes, des intercommunales
+            ou d’acteurs privés (promoteurs immobiliers). Tout projet de développement du territoire devra prendre en compte
+            l’impact qu’il induit en matière de mobilité.
+          </li>
+        </ul>
+        <p class="engagement__text">
+          Ce plan devra notamment permettre d’articuler le développement territorial autour des systèmes de transports existants, de
+          développer les modes de transports alternatifs (covoiturage, vélo), de veiller à la cohérence entre les transports
+          collectifs (TEC/SNCB) et les autres modes de transports, et enfin de maitriser l’accroissement du trafic routier.
+        </p>
+        <p class="engagement__text">
+          Au-delà de cette planification de la mobilité dans la province,
+          <str class='u-strong'>l’institution provinciale doit jouer un rôle central dans la coordination des travaux publics</str>. Une gestion
+          à l’échelle de la province des chantiers permettra de prendre en compte leurs conséquences en termes de mobilité
+          et d’échelonner dans le temps leur ouverture. L’objectif premier sera d’éviter de voir trop de chantiers en cours
+          au même endroit, phénomène créant des nuisances considérables en termes de mobilité.
+        </p>
+        <p class="engagement__text">
+          Il est également primordial d’identifier les points de dangerosité en matière de sécurité routière, en coopération avec le
+          gouverneur et les zones de secours. Toujours en matière de sécurité, et en lien direct avec la mobilité, le cdH
+          s’engage à ce que
+          <str class='u-strong'>tout habitant de la province puisse être secouru en 15 minutes maximum, à toute heure du jour et de la nuit</str>.
+        </p>
+        <p class="engagement__text">
+          Enfin, au-delà de ce travail de coordination,
+          <str class='u-strong'>la Province peut initier des actions elle-même ou en partenariat avec les communes, la région ou des acteurs privés</str>
+          (Cambio, JCDecaux, asbl de sensibilisations, …) pour offrir et promouvoir des modes des modes de transports alternatifs :
+          voitures partagées, covoiturage, prêt de vélo ou location à moindre coût, prime pour l’acquisition de vélos électriques,
+          … Le service locomobile qui permet de véhiculer sur le territoire provincial les personnes moins mobiles ou socialement
+          défavorisées (plus de 65 ans, bénéficiaires du RIS ou CPAS, demandeurs d’emploi) doit également être développé,
+          en particulier dans les zones où les transports publics sont peu présents.
+        </p>
+      </div>
+
+      <div class="engagement__block" id="engagement9">
+        <h3 class="section-communales__ordered-list__item__header">Prévenir les risques d’inondation</h3>
+        <p class="engagement__text">
+          Les dernières années ont vu plusieurs de nos provinces souffrir d’inondations de manière récurrente. Même si les causes sont
+          multiples, il est apparu que toutes les communes n’entretenaient pas les cours d’eau traversant leur territoire
+          de manière adéquate, que ce soit par manque de moyens ou de compétence. Or une rivière mal entretenue sur le territoire
+          d’une commune peut provoquer des inondations dans d’autres. Il s’agit bien ici d’une gestion qui doit relever de
+          la supracommunalité puisque l’ensemble des communes sont impactées par la bonne ou la mauvaise gestion des communes
+          prises individuellement.
+        </p>
+        <p class="engagement__text">
+          Sur l’ensemble du territoire provincial, la Province doit
+          <str class='u-strong'>identifier les zones à risque, renforcer la coordination de l’action communale, et venir en soutien de la réalisation
+            des plans de prévention communaux</str>. Elle doit également
+          <str class='u-strong'>subventionner la construction des infrastructures nécessaires pour éviter les inondations</str>, dont les bassins
+          d’orage. Cela se fera sous la responsabilité du Gouverneur.
+        </p>
+        <p class="engagement__text">
+          Par ailleurs, une meilleure gestion des cours d’eau, dont l’entretien permet de prévenir les inondations, exige de
+          <str class='u-strong'>transférer aux Provinces la charge de l’entretien des cours d’eau non navigables de troisième catégorie</str>,
+          reposant actuellement sur les communes.
+        </p>
+      </div>
+
+      <div class="engagement__block" id="engagement10">
+        <h3 class="section-communales__ordered-list__item__header">Faire de la Province un lieu de transparence et de participation citoyenne</h3>
+        <p class="engagement__text">
+          Avant d’évoquer le fond des politiques à mener, il convient d’aborder le mode de fonctionnement des provinces. Celles-ci
+          sont trop souvent critiquées pour leur manque de transparence dans l’action et leur distance par rapport aux citoyens.
+          Même si le bien-fondé de ces reproches diffère d’une province à l’autre, il est essentiel de mener une réforme
+          profonde et irréversible tant en matière de transparence que de participation citoyenne.
+        </p>
+        <p class="engagement__text">
+          Ces deux aspects sont intimement liés : afin de pouvoir participer pleinement à l’action publique, les citoyens doivent d’abord
+          être correctement informés de celle-ci. La transparence est donc un enjeu primordial. Un ensemble de mesures simples
+          doivent être mises en place. Nous proposons d’abord de rendre disponibles, sur le site internet de la Province,
+          les dossiers qui sont à l’ordre du jour du Conseil provincial, les décisions et les délibérations. Il importe aussi
+          que les
+          <str class='u-strong'>séances de commissions du Conseil soient ouvertes au public et à la presse</str>. Comme cela se fait au niveau
+          du Gouvernement wallon,
+          <str class='u-strong'>les députés provinciaux doivent publier et rendre disponibles en permanence, sur le site web de la Province, la
+            liste des subsides qu’ils ont octroyés et celle des associations qui en bénéficient</str>.
+        </p>
+        <p class="engagement__text">
+          La Province doit également promouvoir la démocratie participative et l’implication des citoyens. À l’image de ce qui se fait
+          au Parlement de Wallonie,
+          <str class='u-strong'>les citoyens doivent pouvoir émettre leurs observations sur les dossiers du Conseil provincial</str>, faire connaître
+          celles-ci à l’ensemble des élus, et même
+          <str class='u-strong'>introduire des pétitions électroniques</str> sur les sujets qui leur tiennent à cœur. Au-delà de ce droit d’interpellation,
+          il importe également de
+          <str class='u-strong'>mettre en place des consultations et des panels citoyens</str> sur les sujets importants de la politique provinciale.
+        </p>
+        <p class="engagement__text">
+          <str class='u-strong'>La Province a également un rôle à jouer en matière de transparence de la gestion et de l’action des intercommunales.</str>
+          Lieu privilégié de la supra-communalité, la Province constitue le niveau idéal pour avoir un débat approfondi sur le rôle
+          et la politique des intercommunales.
+          <br/> Concrètement, toute intercommunale active sur plusieurs communes de la province devra présenter et défendre son
+          action devant le Conseil provincial au moins une fois par an. D’autres séances pourront être organisées sur demande
+          du Conseil provincial ou à l’initiative de collectifs de citoyens ou d’élus locaux. Utilisant les mécanismes d’intervention
+          citoyenne décrits plus haut, l’institution provinciale pourrait alors devenir un outil de transparence et de suivi
+          de l’action des intercommunales au service des citoyens.
+          <br/> La Province peut également aider les communes à mieux contrôler les intercommunales. En effet, si ces dernières
+          se doivent de livrer aux communes membres un certain nombre d’informations, certaines communes n’ont pas toujours
+          l’expertise technique nécessaire pour les exploiter. La Province doit ici fournir un appui technique et administratif
+          afin que le contrôle des intercommunales s’effectue de manière efficace et pleinement informée.
+        </p>
+      </div>
+
+    </div>
 
 
   </main>

@@ -3,6 +3,7 @@
   font-family: $font-nav;
   border-collapse: collapse;
   text-align: center;
+  table-layout: fixed;
 
   &__head {
     .table__cell {
@@ -70,6 +71,7 @@
     &--no-arrow:first-of-type {
       @include screen(tab-port) {
         padding-left: 0;
+        padding-right: 1rem;
       }
 
       &:before {
@@ -79,6 +81,7 @@
 
     &--align-left {
       text-align: left;
+      width: 70%;
     }
 
     &:nth-of-type(3) {

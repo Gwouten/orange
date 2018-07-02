@@ -211,3 +211,17 @@ const setCurrentPageIndicator = function() {
       break;
   }
 };
+
+// clean candidat page urls
+const cleanUrls = () => {
+  const candidatUrls = document.querySelectorAll(".table a");
+  if (candidatUrls !== null) {
+    candidatUrls.forEach(link => {
+      console.log(link);
+      link.innerText = link.innerText
+        .replace(/(http)s?\:\/\//gi, "")
+        .replace(/\?.*/gi, "")
+        .replace(/\/$/gi, "");
+    });
+  }
+};

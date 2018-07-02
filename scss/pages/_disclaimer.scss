@@ -35,14 +35,6 @@
     }
   }
 
-  a {
-    text-decoration: underline;
-    transition: color 0.2s;
-
-    &:hover {
-      color: $col-secondary;
-    }
-  }
   img {
     width: 100%;
     max-width: 606px;

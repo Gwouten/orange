@@ -156,3 +156,51 @@ window.addEventListener("resize", function() {
   clearTimeout(timeout);
   timeout = setTimeout(onLoad(), delay);
 });
+
+// Clean url's in candidate table
+cleanUrls();
+
+// Show related engagement on Province page
+const toggleEngagementsProvinces = () => {
+  const engagementContainer = document.querySelector(".engagement");
+  const engagementButtons = document.querySelectorAll(
+    ".section-communales__ordered-list__item--province"
+  );
+  if (engagementContainer !== null) {
+    engagementButtons.forEach((engagement, index) => {
+      engagement.addEventListener("click", () => {
+        // Remove currently visible block
+        const activeEngagement = document.querySelector(".engagement__active");
+        if (activeEngagement !== null) {
+          activeEngagement.classList.remove("engagement__active");
+        }
+
+        // Add class to show corresponding block
+        const currentEngagement = document.querySelector(
+          `#engagement${index + 1}`
+        );
+        currentEngagement.classList.add("engagement__active");
+
+        // Add background on open and remove it when closing
+        const background = document.createElement("div");
+        engagementContainer.appendChild(background);
+        background.classList.add("engagement__background");
+
+        engagementContainer.addEventListener("click", e => {
+          if (
+            e.target.id === currentEngagement.id ||
+            e.target.parentNode.id === currentEngagement.id ||
+            e.target.classList.contains("engagement__background")
+          ) {
+            currentEngagement.classList.remove("engagement__active");
+            background.classList.add("engagement__background--close");
+            background.addEventListener("animationend", () => {
+              engagementContainer.removeChild(background);
+            });
+          }
+        });
+      });
+    });
+  }
+};
+toggleEngagementsProvinces();

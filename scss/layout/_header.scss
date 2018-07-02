@@ -147,7 +147,7 @@
     max-width: 30rem;
     opacity: 0;
     transform: translateX(-150%);
-    transition: transform 0.5s 0.5s, opacity 0.5s 0.5s;
+    transition: all 0.5s 0.5s;
     width: 50%;
     z-index: 1001;
 
@@ -235,6 +235,7 @@
     &__link:visited {
       color: $col-grey;
       display: inline-block;
+      text-decoration: none;
       transform: skewX(skew);
       transition: color 0.2s, transform 0.2s;
       @include screen(tab-port) {

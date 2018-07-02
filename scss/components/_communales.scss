@@ -7,7 +7,8 @@
     font-size: 3rem;
     order: 2;
     @include screen(tab-port) {
-      margin-top: $margin-l;
+      margin-top: 0;
+      margin-bottom: 1rem;
       font-size: 4rem;
       text-align: left;
       order: 1;
@@ -66,6 +67,86 @@
         width: 16rem;
         transition: all 0.2s;
       }
+
+      &__header {
+        font-size: 2.2rem;
+        line-height: 1.2;
+      }
+
+      &--province {
+        @include screen(tab-port) {
+          width: calc(100% / 2 - 2rem);
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
+
+// Engagements provincials
+.engagement {
+  counter-reset: engagementsProvinces;
+
+  &__block {
+    @include center;
+    background-color: $col-white;
+    box-shadow: $shadow-regular;
+    max-height: 60vh;
+    padding: 5.5rem $padding-m $padding-m;
+    pointer-events: none;
+    position: fixed;
+    opacity: 0;
+    overflow-y: auto;
+    transition: opacity 0.75s;
+    width: 90vw;
+    z-index: 100;
+    @include screen(tab-port) {
+      width: 50vw;
+    }
+
+    &:before {
+      @include center;
+      background: $col-cdh;
+      background-size: 150%;
+      border-radius: 0.5rem;
+      color: $col-white;
+      content: "Engagement " counter(engagementsProvinces);
+      counter-increment: engagementsProvinces;
+      display: block;
+      font-size: 1.8rem;
+      font-weight: 600;
+      height: 3rem;
+      padding: 0.1rem 0 0;
+      text-align: center;
+      width: 16rem;
+      top: 2rem;
+      transform: translate3d(-50%, 0, 0);
+    }
+  }
+  &__subheader {
+    font-size: 1.8rem;
+    margin: $margin-m 0 $margin-s;
+  }
+  &__text {
+  }
+  &__active {
+    opacity: 1;
+    pointer-events: all;
+  }
+  &__background {
+    animation: fade-in 0.75s 0.1s forwards;
+    background-color: rgba($col-black, 0.5);
+    height: 100vh;
+    left: 0;
+    position: fixed;
+    opacity: 0;
+    top: 0;
+    width: 100vw;
+    z-index: 2;
+
+    &--close {
+      animation: fade-out 0.5s forwards;
+      opacity: 1;
     }
   }
 }

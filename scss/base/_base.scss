@@ -42,8 +42,13 @@ main {
 }
 
 a {
-  text-decoration: none;
+  text-decoration: underline;
   color: currentColor;
+  transition: color 0.2s;
+
+  &:hover {
+    color: $col-secondary;
+  }
 }
 ul {
   list-style: none;

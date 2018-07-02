@@ -142,7 +142,7 @@ gulp.task("watch", ["browserSync", "sass", "babel", "include"], function() {
   gulp.watch("scss/**/*.scss", ["sass"]);
   gulp.watch("src/js/*.js", ["babel"]);
   gulp.watch("src/html/*.html", ["include"]);
-  gulp.watch("*.php", reload);
+  // gulp.watch("*.php", reload);
 });
 
 gulp.task("browserSync", function() {
