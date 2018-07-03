@@ -75,10 +75,7 @@ gulp.task("sass", function() {
   return gulp
     .src("scss/**/*.scss")
     .pipe(sass())
-    .on("error", function(error) {
-      console.log(error.toString());
-      this.emit("end");
-    })
+    .on("error", sass.logError)
     .pipe(autoprefix())
     .pipe(cleanCSS())
     .pipe(gulp.dest("css"))
