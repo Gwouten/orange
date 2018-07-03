@@ -64,8 +64,9 @@
     font-size: 2rem;
     font-weight: 600;
     line-height: 1;
-    width: 100%;
     padding: 0 2rem 0 6rem;
+    text-decoration: none;
+    width: 100%;
     @include screen(tab-port) {
       transform: translate(-50%, -50%) skewX($anti-skew);
       font-size: 2.3rem;
