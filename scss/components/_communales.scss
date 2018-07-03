@@ -110,6 +110,8 @@
     transition: opacity 0.75s;
     width: 90vw;
     z-index: 100;
+    transform: translate3d(-50%, -50%, 0) scale(0.6);
+    transition: transform 0.3s 0.1s, opacity 0.3s 0.1s;
     @include screen(tab-port) {
       width: 50vw;
     }
@@ -143,6 +145,7 @@
   &__active {
     opacity: 1;
     pointer-events: all;
+    transform: translate3d(-50%, -50%, 0) scale(1);
   }
   &__background {
     animation: fade-in 0.75s 0.1s forwards;
