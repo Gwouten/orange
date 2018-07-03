@@ -69,14 +69,24 @@
       }
 
       &__header {
-        font-size: 2.2rem;
-        line-height: 1.2;
+        font-size: 2rem;
+        @include screen(tab-port) {
+          font-size: 2.2rem;
+          line-height: 1.2;
+        }
       }
 
       &--province {
+        padding-bottom: 4rem;
         @include screen(tab-port) {
           width: calc(100% / 2 - 2rem);
           cursor: pointer;
+        }
+
+        &:after {
+          content: "Lire plus...";
+          position: absolute;
+          bottom: 1rem;
         }
       }
     }
@@ -92,7 +102,7 @@
     background-color: $col-white;
     box-shadow: $shadow-regular;
     max-height: 60vh;
-    padding: 5.5rem $padding-m $padding-m;
+    padding: 6.5rem $padding-m $padding-m;
     pointer-events: none;
     position: fixed;
     opacity: 0;
@@ -128,6 +138,7 @@
     margin: $margin-m 0 $margin-s;
   }
   &__text {
+    font-size: 1.4rem;
   }
   &__active {
     opacity: 1;
@@ -143,6 +154,34 @@
     top: 0;
     width: 100vw;
     z-index: 2;
+
+    &--close {
+      animation: fade-out 0.5s forwards;
+      opacity: 1;
+    }
+  }
+
+  &__close-btn {
+    animation: fade-in 0.75s 0.1s forwards;
+    background: $col-secondary;
+    border: none;
+    border-radius: 1000px;
+    box-shadow: $shadow-regular;
+    cursor: pointer;
+    color: $col-white;
+    font-size: 2rem;
+    font-weight: 100;
+    opacity: 0;
+    padding: 0.25rem 0.8rem;
+    position: fixed;
+    transform: translate3d(-180%, -50%, 0);
+    z-index: 101;
+    @include screen(tab-port) {
+      background: none;
+      box-shadow: none;
+      padding: 0;
+      transform: translate3d(0, 0, 0);
+    }
 
     &--close {
       animation: fade-out 0.5s forwards;
