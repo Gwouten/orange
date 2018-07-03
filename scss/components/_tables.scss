@@ -11,7 +11,7 @@
       &:before {
         display: none !important;
       }
-      &:nth-of-type(3) {
+      &:nth-of-type(4) {
         color: $col-black;
       }
     }
@@ -23,7 +23,6 @@
 
   &__cell {
     padding: 1rem 0;
-    width: 25%;
     font-size: 1.3rem;
     vertical-align: top;
     @include screen(tab-port) {
@@ -84,7 +83,7 @@
       width: 70%;
     }
 
-    &:nth-of-type(3) {
+    &:nth-of-type(4) {
       font-weight: 600;
       color: $col-primary;
     }
@@ -95,6 +94,7 @@
   &__link:visited {
     display: block;
     transition: color 0.2s;
+    text-decoration: none;
 
     &:last-child .table__row {
       border-bottom: 1px solid $col-med-grey;
