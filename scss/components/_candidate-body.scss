@@ -16,8 +16,10 @@ $column-gap: 5rem;
   }
 
   &__propositions {
-    width: 100%;
+    display: flex;
+    flex-direction: column;
     margin: 0;
+    width: 100%;
     @include screen(tab-port) {
       width: calc(50% - 2.5rem);
     }

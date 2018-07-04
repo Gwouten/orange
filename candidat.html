@@ -301,6 +301,19 @@
       </div>
 
       <div class="candidate-body__propositions">
+
+        <div class="search-box search-box--propositions">
+          <h2 class="search-box__header">Trouvez un(e) candidat(e)</h2>
+          <form action="analyse.php" method="POST">
+            <div class="input input--candidate-search">
+              <input type="text" class="input__text" name="search" id="candidate-search" placeholder="Nom, commune ou code postal" data-source="communes"
+                autocomplete="off">
+              <button type="reset" class="btn btn--input-reset"></button>
+              <input type="submit" class="btn btn--submit" value="&nbsp;">
+            </div>
+          </form>
+        </div>
+
         <div class="candidate-body__resume">
           <h3 class="candidate-body__resume__header">Mes propositions</h3>
           <ul>

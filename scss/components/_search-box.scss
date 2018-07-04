@@ -18,4 +18,12 @@
     margin-bottom: $margin-m;
     text-align: center;
   }
+
+  &--propositions {
+    order: 2;
+    margin-bottom: $margin-l;
+    @include screen(tab-port) {
+      order: 0;
+    }
+  }
 }
