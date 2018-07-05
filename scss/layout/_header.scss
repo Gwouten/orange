@@ -32,9 +32,12 @@
       overflow: auto;
       pointer-events: all;
       z-index: 999;
+      @include screen(tab-port) {
+        height: auto;
+      }
     }
 
-    &:checked ~ .header__wrapper .header__logo,
+    &:checked ~ .header__wrapper .header__link-logo,
     &:checked ~ .header__wrapper .social-links,
     &:checked ~ .header__wrapper .header__interior-links {
       transform: translateX(0);
@@ -142,27 +145,30 @@
     z-index: 997;
   }
 
-  &__logo {
-    margin: 1rem 2rem;
-    max-width: 30rem;
-    opacity: 0;
-    transform: translateX(-150%);
+  &__link-logo {
+    display: inline-block;
+    height: auto;
+    padding: 1rem 2rem;
+    transform: translateX(-110%);
     transition: all 0.5s 0.5s;
-    width: 50%;
-    z-index: 1001;
+    @include screen(tab-port) {
+      padding: 1rem 0 3rem 2rem;
+      transform: none;
+      width: 30rem;
+    }
+    @include screen(tab-land) {
+      padding: 1rem 0 1rem 2rem;
+      transform: none;
+      width: 45rem;
+    }
+  }
+
+  &__logo {
+    transition: all 0.5s 0.5s;
+    width: 60%;
 
     @include screen(tab-port) {
-      height: 12rem;
-      margin: 1.5rem 3rem;
-      max-width: 26rem;
-      opacity: 1;
-      transform: translateX(-1rem) translateY(-2.8rem);
-      width: auto;
-    }
-
-    @include screen(tab-land) {
-      max-width: 50rem;
-      transform: translateX(0) translateY(1rem);
+      width: 100%;
     }
 
     &--mobile {
@@ -198,26 +204,33 @@
     z-index: 1001;
     line-height: 1.2;
     @include screen(tab-port) {
+      align-content: center;
+      display: flex;
+      font-size: 1.6rem;
+      justify-content: flex-end;
+      opacity: 1;
       padding: 0;
       position: absolute;
-      opacity: 1;
       transform: translateX(0);
       width: auto;
-      // Flex props
-      display: flex;
-      align-content: center;
-      justify-content: flex-end;
+    }
+    @include screen(tab-land) {
+      font-size: 1.8rem;
     }
 
     &__item {
       margin-right: 0;
       padding: 1rem 2rem;
       text-align: center;
+      transition: height 0.5s;
       @include screen(tab-port) {
         transform: skewX($skew);
         margin-right: 1rem;
         display: flex;
         padding: 0.5rem 1.6rem 0.5rem 0;
+        height: 4.5rem;
+      }
+      @include screen(tab-land) {
         height: 6.4rem;
       }
 

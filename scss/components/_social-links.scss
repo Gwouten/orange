@@ -118,13 +118,18 @@
   &__link:link,
   &__link:active,
   &__link:visited {
-    display: inline-block;
     color: $col-white;
+    display: inline-block;
+    max-height: 3rem;
     padding: 0.5rem 4rem;
     transform: skewX($anti-skew);
+    transition: padding 0.5s;
     text-decoration: none;
-    max-height: 3rem;
     @include screen(tab-port) {
+      padding: 0.5rem 2rem;
+    }
+    @include screen(tab-land) {
+      padding: 0.5rem 4rem;
     }
   }
   &__link--social:link,
