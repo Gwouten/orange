@@ -124,6 +124,7 @@ function siema(element, autoplay = true, draggable = true, interval = 5000) {
     Siema.prototype.bindButtons = function(element) {
       const carouselPrev = document.querySelector(`.${element}__prev`);
       const carouselNext = document.querySelector(`.${element}__next`);
+      console.log("carouselPrev: ", carouselPrev);
 
       carouselPrev.addEventListener("click", () => slider.prev());
       carouselNext.addEventListener("click", () => slider.next());
@@ -224,3 +225,5 @@ const cleanUrls = () => {
     });
   }
 };
+
+document.querySelector(".carousel");

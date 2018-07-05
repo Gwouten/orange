@@ -35,7 +35,7 @@
     transform: translateX(1rem);
     padding: 0;
     width: auto;
-    bottom: 5rem;
+    bottom: 3rem;
     z-index: 1;
   }
 
@@ -58,6 +58,7 @@
     }
 
     &--extra {
+      background-color: $col-secondary;
       text-align: center;
       width: 100%;
 
@@ -66,11 +67,11 @@
         width: auto;
       }
       &:nth-of-type(2) {
-        background-color: $col-secondary;
+        background-color: $col-primary;
       }
 
-      &:nth-of-type(3) {
-        background-color: $col-tertiary;
+      &:nth-of-type(4) {
+        background-color: $col-grey;
       }
     }
 

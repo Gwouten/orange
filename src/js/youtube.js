@@ -146,7 +146,9 @@ const createVidBox = (data, publicationDate, videoUrl) => {
 
 siema("video-list__list", false, false);
 const yt_api_key = "AIzaSyAXUGrOIVhDVVhldzfuPfTha2TDdolKMQk";
-const videos = document.querySelectorAll(".youtube");
+const videos = Array.prototype.slice.call(
+  document.querySelectorAll(".youtube")
+);
 const mainEl = document.querySelector(".yt-container");
 
 videos.forEach(video => {
