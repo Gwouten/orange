@@ -1,9 +1,9 @@
 // if not yet visited, add class 'slideInFromBottom'
 function getCookie(cname) {
-  var name = cname + "=";
+  // var name = cname + "=";
   var decodedCookie = decodeURIComponent(document.cookie);
   var ca = decodedCookie.split("; ");
-  if (!ca.indexOf("cdh-accepted=true") > -1) {
+  if (ca.indexOf("cdh-accepted=true") === -1) {
     document.querySelector(".privacy").classList.add("slideInFromBottom");
   } else {
     return;

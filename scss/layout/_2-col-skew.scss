@@ -225,10 +225,17 @@
     &--image {
       overflow: hidden;
       img {
-        @include center;
+        background: url("../assets/img/orange-bg-flipped.jpg") center center
+          no-repeat;
+        background-size: cover;
+        left: 50%;
+        min-height: 100%;
+        position: absolute;
+        top: 0;
+        transform: translate(-50%, 0);
         width: 110%;
         @include screen(tab-port) {
-          @include anti-skew-center;
+          transform: translate(-50%, 0) skew($anti-skew);
         }
 
         &.align-top {
