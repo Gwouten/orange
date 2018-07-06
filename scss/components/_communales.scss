@@ -113,6 +113,7 @@
     transform: translate3d(-50%, -50%, 0) scale(0.6);
     transition: transform 0.3s 0.1s, opacity 0.3s 0.1s;
     @include screen(tab-port) {
+      padding: 6.5rem $padding-xl $padding-m;
       width: 50vw;
     }
 

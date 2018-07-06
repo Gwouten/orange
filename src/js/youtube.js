@@ -14,10 +14,9 @@ const getVideoInfo = (video, yt_endpoint) => {
       const date = new Date(data.snippet.publishedAt);
       const publicationDate =
         date.getDate() + "-" + (date.getMonth() + 1) + "-" + date.getFullYear();
-      const classArray = [];
-      video.classList.forEach(item => classArray.push(item));
+      const classArray = Array.prototype.slice.call(video.classList);
       // Is the video the Hero video or not?
-      if (classArray.includes("youtube-hero")) {
+      if (classArray.indexOf("youtube-hero") > -1) {
         document.querySelector(
           ".video-hero__video-container"
         ).innerHTML = `<iframe width="100%" height="100%" src="https://www.youtube.com/embed/${

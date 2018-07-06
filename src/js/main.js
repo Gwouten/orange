@@ -66,8 +66,8 @@ if (inputCandidatesElement !== null) {
   };
 
   if (
-    !window.location.href.includes("http://localhost:3000/") &&
-    !window.location.href.includes("192.168.30.24:3000/")
+    !window.location.href.indexOf("http://localhost:3000/") > -1 &&
+    !window.location.href.indexOf("192.168.30.24:3000/") > -1
   ) {
     const request = new XMLHttpRequest();
     request.onreadystatechange = function() {
@@ -161,76 +161,7 @@ window.addEventListener("resize", function() {
 cleanUrls();
 
 // Show related engagement on Province page
-
-const toggleEngagementsProvinces = () => {
-  const engagementContainer = document.querySelector(".engagement");
-  const engagementButtons = document.querySelectorAll(
-    ".section-communales__ordered-list__item--province"
-  );
-  if (engagementContainer !== null) {
-    // Remove child element with fade-out animation
-    const removeChild = element => {
-      element.classList.add(`${element.classList[0]}--close`);
-      element.addEventListener("animationend", () => {
-        engagementContainer.removeChild(element);
-      });
-    };
-
-    engagementButtons.forEach((engagement, index) => {
-      engagement.addEventListener("click", () => {
-        // Remove currently visible block
-        const activeEngagement = document.querySelector(".engagement__active");
-        if (activeEngagement !== null) {
-          activeEngagement.classList.remove("engagement__active");
-        }
-
-        // Add class to show corresponding block
-        const currentEngagement = document.querySelector(
-          `#engagement${index + 1}`
-        );
-        currentEngagement.classList.add("engagement__active");
-
-        // Add background and close button on open and remove it when closing
-        // - Background
-        const background = document.createElement("div");
-        engagementContainer.appendChild(background);
-        background.classList.add("engagement__background");
-
-        // - Close button
-        const setY = element =>
-          `${element.offsetTop - element.offsetHeight / 2}px`;
-        const setX = element =>
-          `${10 + element.offsetLeft + element.offsetWidth / 2}px`;
-        const closeButton = document.createElement("button");
-        engagementContainer.appendChild(closeButton);
-        closeButton.classList.add("engagement__close-btn");
-        closeButton.innerText = "X";
-        closeButton.style.top = setY(currentEngagement);
-        closeButton.style.left = setX(currentEngagement);
-
-        window.addEventListener("resize", () => {
-          closeButton.style.top = setY(currentEngagement);
-          closeButton.style.left = setX(currentEngagement);
-        });
-
-        engagementContainer.addEventListener("click", e => {
-          if (
-            e.target.id === currentEngagement.id ||
-            e.target.parentNode.id === currentEngagement.id ||
-            e.target.classList.contains("engagement__background") ||
-            e.target.classList.contains("engagement__close-btn")
-          ) {
-            currentEngagement.classList.remove("engagement__active");
-
-            // Remove background
-            removeChild(background);
-
-            // Remove close button
-            removeChild(closeButton);
-          }
-        });
-      });
-    });
-  }
-};
 toggleEngagementsProvinces();
+
+// Detect portrait or landscape images
+detectImageOrientation();

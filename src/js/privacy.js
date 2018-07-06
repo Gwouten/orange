@@ -3,7 +3,7 @@ function getCookie(cname) {
   var name = cname + "=";
   var decodedCookie = decodeURIComponent(document.cookie);
   var ca = decodedCookie.split("; ");
-  if (!ca.includes("cdh-accepted=true")) {
+  if (!ca.indexOf("cdh-accepted=true") > -1) {
     document.querySelector(".privacy").classList.add("slideInFromBottom");
   } else {
     return;

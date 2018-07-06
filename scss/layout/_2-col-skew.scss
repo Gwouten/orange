@@ -133,7 +133,7 @@
       &__wrapper-commune {
         left: 5%;
         transform: translate(0, -50%) skewX($anti-skew);
-        width: 100vw;
+        width: 90%;
         @include screen(tab-port) {
           left: 3rem;
           bottom: 2rem;
@@ -164,7 +164,7 @@
         &--commune {
           bottom: 0;
           font-size: 3rem;
-          width: 100vw;
+          // width: 100vw;
           @include screen(tab-port) {
             font-size: 6rem;
             margin: 0;
@@ -229,6 +229,16 @@
         width: 110%;
         @include screen(tab-port) {
           @include anti-skew-center;
+        }
+
+        &.align-top {
+          top: 0;
+          @include screen(tab-port) {
+            transform: translate(-50%, -12%) skew($anti-skew);
+          }
+          @include screen(tab-land) {
+            transform: translate(-50%, -17.25%) skew($anti-skew);
+          }
         }
       }
     }

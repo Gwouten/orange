@@ -62,7 +62,9 @@ const scrollTo = function(to, duration) {
 
 // Scroll to theme section
 const setThemeLinks = function() {
-  const themesLinks = document.querySelectorAll(".carousel--themes a");
+  const themesLinks = Array.prototype.slice.call(
+    document.querySelectorAll(".carousel--themes a")
+  );
   if (themesLinks !== null) {
     themesLinks.forEach(link => {
       link.addEventListener("click", function(e) {
@@ -102,26 +104,26 @@ function siema(element, autoplay = true, draggable = true, interval = 5000) {
     // Create next/prev buttons
     Siema.prototype.createButtons = function(element) {
       const nextButton = document.createElement("button");
-      nextButton.classList.add(
-        "btn",
-        "btn--carousel",
-        "carousel__next",
-        `${element}__next`
-      );
+      nextButton.classList.add("btn");
+      nextButton.classList.add("btn--carousel");
+      nextButton.classList.add("carousel__next");
+      nextButton.classList.add(`${element}__next`);
       sliderContainer.appendChild(nextButton);
 
       const prevButton = document.createElement("button");
-      prevButton.classList.add(
-        "btn",
-        "btn--carousel",
-        "carousel__prev",
-        `${element}__prev`
-      );
+      prevButton.classList.add("btn");
+      prevButton.classList.add("btn--carousel");
+      prevButton.classList.add("carousel__prev");
+      prevButton.classList.add(`${element}__prev`);
       sliderContainer.appendChild(prevButton);
+
+      // callback to bind functionality to buttons
+      slider.bindButtons(element);
     };
 
     // Make buttons work
     Siema.prototype.bindButtons = function(element) {
+      console.log("prototype function: ", element);
       const carouselPrev = document.querySelector(`.${element}__prev`);
       const carouselNext = document.querySelector(`.${element}__next`);
       console.log("carouselPrev: ", carouselPrev);
@@ -131,10 +133,8 @@ function siema(element, autoplay = true, draggable = true, interval = 5000) {
     };
 
     slider.createButtons(element);
-    slider.bindButtons(element);
     window.addEventListener("resize", () => {
       slider.createButtons();
-      slider.bindButtons();
     });
 
     if (autoplay) {
@@ -215,7 +215,9 @@ const setCurrentPageIndicator = function() {
 
 // clean candidat page urls
 const cleanUrls = () => {
-  const candidatUrls = document.querySelectorAll(".table a");
+  const candidatUrls = Array.prototype.slice.call(
+    document.querySelectorAll(".table a")
+  );
   if (candidatUrls !== null) {
     candidatUrls.forEach(link => {
       link.innerText = link.innerText
@@ -226,4 +228,93 @@ const cleanUrls = () => {
   }
 };
 
-document.querySelector(".carousel");
+// Detect portrait or landscape images
+const detectImageOrientation = () => {
+  const images = Array.prototype.slice.call(
+    document.querySelectorAll(".two-col-skew__skewed--image > img")
+  );
+  if (images.length !== 0) {
+    images.forEach(image => {
+      const width = image.naturalWidth;
+      const height = image.naturalHeight;
+      if (height > width) {
+        image.classList.add("align-top");
+      }
+    });
+  }
+};
+
+// Show related engagement on Province page
+const toggleEngagementsProvinces = () => {
+  const engagementContainer = document.querySelector(".engagement");
+  const engagementButtons = Array.prototype.slice.call(
+    document.querySelectorAll(
+      ".section-communales__ordered-list__item--province"
+    )
+  );
+  if (engagementContainer !== null) {
+    // Remove child element with fade-out animation
+    const removeChild = element => {
+      element.classList.add(`${element.classList[0]}--close`);
+      element.addEventListener("animationend", () => {
+        engagementContainer.removeChild(element);
+      });
+    };
+
+    engagementButtons.forEach((engagement, index) => {
+      engagement.addEventListener("click", () => {
+        // Remove currently visible block
+        const activeEngagement = document.querySelector(".engagement__active");
+        if (activeEngagement !== null) {
+          activeEngagement.classList.remove("engagement__active");
+        }
+
+        // Add class to show corresponding block
+        const currentEngagement = document.querySelector(
+          `#engagement${index + 1}`
+        );
+        currentEngagement.classList.add("engagement__active");
+
+        // Add background and close button on open and remove it when closing
+        // - Background
+        const background = document.createElement("div");
+        engagementContainer.appendChild(background);
+        background.classList.add("engagement__background");
+
+        // - Close button
+        const setY = element =>
+          `${element.offsetTop - element.offsetHeight / 2}px`;
+        const setX = element =>
+          `${10 + element.offsetLeft + element.offsetWidth / 2}px`;
+        const closeButton = document.createElement("button");
+        engagementContainer.appendChild(closeButton);
+        closeButton.classList.add("engagement__close-btn");
+        closeButton.innerText = "X";
+        closeButton.style.top = setY(currentEngagement);
+        closeButton.style.left = setX(currentEngagement);
+
+        window.addEventListener("resize", () => {
+          closeButton.style.top = setY(currentEngagement);
+          closeButton.style.left = setX(currentEngagement);
+        });
+
+        engagementContainer.addEventListener("click", e => {
+          if (
+            e.target.id === currentEngagement.id ||
+            e.target.parentNode.id === currentEngagement.id ||
+            e.target.classList.contains("engagement__background") ||
+            e.target.classList.contains("engagement__close-btn")
+          ) {
+            currentEngagement.classList.remove("engagement__active");
+
+            // Remove background
+            removeChild(background);
+
+            // Remove close button
+            removeChild(closeButton);
+          }
+        });
+      });
+    });
+  }
+};
