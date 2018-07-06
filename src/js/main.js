@@ -51,7 +51,6 @@ const inputCandidatesElement = document.querySelector(".input__text");
 if (inputCandidatesElement !== null) {
   inputCandidatesElement.addEventListener("awesomplete-select", function(e) {
     const form = document.querySelector("form");
-    console.log(e.text.value);
     inputCandidatesElement.value = e.text.value;
     form.submit();
   });
