@@ -316,3 +316,32 @@ const toggleEngagementsProvinces = () => {
     });
   }
 };
+
+// Set up the images in the header of .two-col-skew elements so they always fill their parent element proportionally, like background-size: cover
+const setCommuneImages = () => {
+  const images = Array.prototype.slice.call(
+    document.querySelectorAll(".two-col-skew__skewed--image img")
+  );
+
+  images.forEach(image => {
+    if (window.innerWidth < 975) {
+      const parent = image.parentNode;
+      const reductionFactor = parent.clientWidth / image.width;
+      console.log(
+        image.height * reductionFactor,
+        parent.clientHeight,
+        image.height * reductionFactor < parent.clientHeight
+      );
+
+      if (image.height * reductionFactor < parent.clientHeight) {
+        image.style.height = "100%";
+        image.style.width = "auto";
+      } else {
+        image.style.height = "auto";
+        image.style.width = "100%";
+      }
+    } else {
+      image.style.cssText = "";
+    }
+  });
+};

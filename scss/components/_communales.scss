@@ -24,16 +24,16 @@
     padding-left: 0;
     list-style: none;
     font-size: 1.6rem;
-    justify-content: space-between;
+    justify-content: flex-start;
 
     &__item {
       padding: $padding-l $padding-m $padding-m $padding-m;
-      background-color: lighten($col-light-grey, 6%);
+      background-color: $col-light-grey;
       margin: $margin-m 0;
       width: 100%;
       @include screen(tab-port) {
-        border: 1px solid $col-light-grey;
-        margin: $margin-m 0;
+        border: 1px solid $col-med-grey;
+        margin: $margin-m $margin-s;
         width: calc(100% / 3 - 2rem);
         transition: all 0.2s;
 

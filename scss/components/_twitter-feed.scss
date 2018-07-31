@@ -1,7 +1,7 @@
 .twitter-feed {
   width: 100%;
   border-radius: $padding-m;
-  background-color: $col-light-grey;
+  background-color: $col-med-grey;
   padding: $padding-m;
   @include screen(tab-port) {
     width: 50%;

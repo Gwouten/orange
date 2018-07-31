@@ -5,6 +5,15 @@
     font-size: 2.5rem;
     margin-top: $margin-l;
     padding-left: 3.5rem;
+
+    &:last-child {
+      margin-bottom: $margin-l;
+    }
+
+    &--no-icon {
+      padding-left: 0;
+      background: none;
+    }
   }
 
   &__link {

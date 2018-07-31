@@ -194,6 +194,12 @@
           margin-bottom: 1rem;
           text-align: left;
         }
+
+        a {
+          &:hover {
+            color: $col-white;
+          }
+        }
       }
 
       &__quote {
@@ -225,13 +231,20 @@
     &--image {
       overflow: hidden;
       img {
-        @include center;
+        background: url("../assets/img/orange-bg-flipped.jpg") center center
+          no-repeat;
+        background-size: cover;
+        left: 50%;
+        // min-height: 100%;
+        position: absolute;
+        top: 0;
+        transform: translate(-50%, 0);
         width: 100%;
 
         @include screen(tab-port) {
           height: auto;
           width: 110%;
-          transform: translate3d(-50%, -50%, 0) skew($anti-skew);
+          transform: translate3d(-50%, 0%, 0) skew($anti-skew);
         }
 
         &.align-top {
