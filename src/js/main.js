@@ -81,8 +81,8 @@ if (inputCandidatesElement !== null) {
     request.open(
       "GET",
       window.location.protocol === "https:"
-        ? "https://dev2.lescommunales2018.be/generate_all.php"
-        : "http://dev2.lescommunales2018.be/generate_all.php",
+        ? "https://www.lescommunales2018.be/php/generate_all.php" // for production, replace 'dev2' with 'www"
+        : "http://www.lescommunales2018.be/php/generate_all.php", // for production, replace 'dev2' with 'www"
       true
     );
     request.send();
@@ -164,3 +164,43 @@ toggleEngagementsProvinces();
 
 // Detect portrait or landscape images
 detectImageOrientation();
+
+// Set image in 2-col-skew to always fill its parent element
+const setCommuneImages = () => {
+  if (window.innerWidth < 975) {
+    const images = Array.prototype.slice.call(
+      document.querySelectorAll(".two-col-skew__skewed--image img")
+    );
+    images.forEach((image, i) => {
+      const imageWidth = image.width;
+      const containerWidth = image.parentNode.clientWidth;
+      const imageHeight = image.height;
+      const containerHeight = image.parentNode.clientHeight;
+
+      console.log(
+        "is image narrower than container: ",
+        imageWidth,
+        containerWidth,
+        imageWidth < containerWidth
+      );
+      console.log(
+        "is image lower than container: ",
+        imageHeight,
+        containerHeight,
+        imageHeight < containerHeight
+      );
+      if (imageWidth < containerWidth) {
+        image.style.width = "100%";
+        image.style.height = "auto";
+      } else if (imageHeight < containerHeight) {
+        image.style.height = "100%";
+        image.style.width = "auto";
+      } else {
+        image.style.cssText = "";
+      }
+    });
+  }
+};
+
+window.addEventListener("resize", setCommuneImages);
+setCommuneImages();

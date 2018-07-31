@@ -1,7 +1,10 @@
 .le-cdh {
   &__subheader {
-    font-size: 2rem;
+    background: url(../assets/img/icon-bullet.svg) -1rem -0.8rem no-repeat;
+    background-size: 4rem;
+    font-size: 2.5rem;
     margin-top: $margin-l;
+    padding-left: 3.5rem;
   }
 
   &__link {
