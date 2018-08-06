@@ -235,7 +235,6 @@
           no-repeat;
         background-size: cover;
         left: 50%;
-        // min-height: 100%;
         position: absolute;
         top: 0;
         transform: translate(-50%, 0);
@@ -255,6 +254,9 @@
           @include screen(tab-land) {
             transform: translate(-50%, -17.25%) skew($anti-skew);
           }
+        }
+        &.candidate {
+          min-height: 100%;
         }
       }
     }
